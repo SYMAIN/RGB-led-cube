@@ -1,3 +1,4 @@
+// https://www.tinkercad.com/things/2qFiaHtOFC4-8bit-shift-register-demo/editel
 #define LATCH_pin 11      // (11) ST_CP [RCK] on 74HC595
 #define CLCOK_pin  9      // (9) SH_CP [SCK] on 74HC595
 #define DATA_pin 12     // (12) DS [S1] on 74HC595

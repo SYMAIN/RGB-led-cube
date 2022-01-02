@@ -108,10 +108,43 @@ void setup() {
   pinMode(latchPin, OUTPUT);
   pinMode(clockPin, OUTPUT);
   pinMode(dataPin, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
-  effect1();
+  //effect1();
+  //allOn();
+  //sendData(0b01110000);
+  nightRider();
+  //delay(5000);
+}
+
+// LED effect that does a night rider on the first row of the 4x4
+void nightRider(){
+  int delayTime = 1000;
+
+  for(i = 0; i < 4; i ++){
+    // 14 sets to always ground first row. Output: 00001110
+    // (1 << (i+4)) selects which LED in the row to power up.
+    byte data = (14 | (1 << (i+4)));
+    sendData(data);
+    delay(delayTime);
+  }
+  // Reverse loop here to finish night rider pattern
+  for(i = 2; i != 0; i --){
+    // 14 sets to always ground first row. Output: 00001110
+    // (1 << (i+4)) selects which LED in the row to power up.
+    byte data = (14 | (1 << (i+4)));
+    sendData(data);
+    delay(delayTime);
+  }
+
+  // final data sends with last LED on and no LEDs on to smooth out the animation
+  sendData(0b0001s1110);
+  delay(delayTime);
+  sendData(0b00001111);
+  delay(delayTime);
+  Serial.print("Done\n");
 }
 
 void effect1() {
@@ -138,6 +171,31 @@ void effect1() {
       
   }  
 }
+void allOn(){
+   for (i=0;i<4;i++){
+     
+     for (j=0;j<4;j++){
+       
+       //bit manipulation (more info at http://arduino.cc/en/Reference/Bitshift ,  http://arduino.cc/en/Reference/BitwiseXorNot , and http://arduino.cc/en/Reference/BitwiseAnd)
+       dataToSend = (1 << (i+4)) | (15 & ~(1 << j));//preprare byte (series of 8 bits) to send to 74HC595
+       //for example when i =2, j = 3,
+       //dataToSend = (1 << 6) | (15 & ~(1 << 3));
+       //dataToSend = 01000000 | (15 & ~(00001000));
+       //dataToSend = 01000000 | (15 & 11110111);
+       //dataToSend = 01000000 | (15 & 11110111);
+       //dataToSend = 01000000 | 00000111;
+       //dataToSend = 01000111;
+       //the first four bits of dataToSend go to the four rows (anodes) of the LED matrix- only one is set high and the rest are set to ground
+       //the last four bits of dataToSend go to the four columns (cathodes) of the LED matrix- only one is set to ground and the rest are high
+       //this means that going through i = 0 to 3 and j = 0 to three with light up each led once
+       
+       sendData(dataToSend);
+       
+       delay(1000);//wait
+     }
+ }
+}
+
 void sendData(int d) {
   // setlatch pin low so the LEDs don't change while sending in bits
   digitalWrite(latchPin, LOW);

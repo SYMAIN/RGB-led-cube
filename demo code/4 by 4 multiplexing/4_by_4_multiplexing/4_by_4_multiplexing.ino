@@ -90,8 +90,8 @@
 
 //pin connections- the #define tag will replace all instances of "latchPin" in your code with A1 (and so on)
 #define latchPin 11
-#define clockPin 9
-#define dataPin 12
+#define clockPin 51
+#define dataPin 52
 
 //looping variables
 byte i;
@@ -140,7 +140,7 @@ void nightRider(){
   }
 
   // final data sends with last LED on and no LEDs on to smooth out the animation
-  sendData(0b0001s1110);
+  sendData(0b00011110);
   delay(delayTime);
   sendData(0b00001111);
   delay(delayTime);

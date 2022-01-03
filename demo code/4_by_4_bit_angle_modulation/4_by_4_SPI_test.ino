@@ -11,6 +11,7 @@ unsigned char defeatTheCrumbyPreprocessor;
 #define latchPin 11
 #define clockPin 51 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
 #define dataPin 52 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
+#define blankPin 2
 
 void setup() {
 
@@ -33,6 +34,7 @@ void setup() {
   pinMode(latchPin, OUTPUT);
   pinMode(clockPin, OUTPUT);
   pinMode(dataPin, OUTPUT);
+  pinMode(blankPin, OUTPUT);
   
   Serial.begin(9600);
   SPI.begin();//start up the SPI library
@@ -48,10 +50,24 @@ void loop() {
 // The BAM timer.
 ISR(TIMER1_COMPA_vect){//***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM
 
-    Serial.print("Sending!");
+    PORTD |= 1<<blankPin;
+
+    //Serial.print("Sending!\n");
     SPI.transfer(0b11100001);
+    //sendData(0b1110001);
 
     PORTD |= 1<<latchPin;//Latch pin HIGH
     PORTD &= ~(1<<latchPin);//Latch pin LOW
 
+    PORTD &= ~(1<<blankPin);
+
+}
+
+void sendData(int d) {
+  // setlatch pin low so the LEDs don't change while sending in bits
+  digitalWrite(latchPin, LOW);
+  // shift out the bits of dataToSend to the 74HC595
+  shiftOut(dataPin, clockPin, LSBFIRST, d);
+  //set latch pin high- this sends data to outputs so the LEDs will light up
+  digitalWrite(latchPin, HIGH);
 }

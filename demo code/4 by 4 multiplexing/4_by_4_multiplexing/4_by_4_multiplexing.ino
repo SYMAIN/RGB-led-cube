@@ -88,8 +88,15 @@
 
 //this code sends data to the 74HC595 without "shiftOut"
 
+// BLANK: Yellow, pin 2
+// LATCH: Yellow, pin 11
+// DATA: Orange, pin 52
+// CLOCK: green, pin 51
+
+
+
 //pin connections- the #define tag will replace all instances of "latchPin" in your code with A1 (and so on)
-#define latchPin 11
+#define latchPin 11 // aka PB5
 #define clockPin 51
 #define dataPin 52
 
@@ -121,7 +128,7 @@ void loop() {
 
 // LED effect that does a night rider on the first row of the 4x4
 void nightRider(){
-  int delayTime = 1000;
+  int delayTime = 250;
 
   for(i = 0; i < 4; i ++){
     // 14 sets to always ground first row. Output: 00001110
@@ -202,5 +209,17 @@ void sendData(int d) {
   // shift out the bits of dataToSend to the 74HC595
   shiftOut(dataPin, clockPin, LSBFIRST, d);
   //set latch pin high- this sends data to outputs so the LEDs will light up
-  digitalWrite(latchPin, HIGH);
+  //digitalWrite(latchPin, HIGH);
+  PORTB |= 1<<latchPin;//Latch pin HIGH
 }
+
+    // PORTD |= 1<<blankPin;
+
+    // //Serial.print("Sending!\n");
+    // SPI.transfer(0b11100001);
+    // //sendData(0b1110001);
+
+    // 
+    // PORTD &= ~(1<<latchPin);//Latch pin LOW
+
+    // PORTD &= ~(1<<blankPin);

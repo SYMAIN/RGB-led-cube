@@ -8,9 +8,10 @@ unsigned char defeatTheCrumbyPreprocessor;
 #include <SPI.h>// SPI Library used to clock data out to the shift registers
 
 //pin connections- the #define tag will replace all instances of "latchPin" in your code with A1 (and so on)
-#define latchPin 11
-#define clockPin 51 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
-#define dataPin 52 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
+#define latchPin 11 // aka PB5 / PORTB5. This was found on the schematics of the Arduino Mega2560. 
+#define latchPinBIN 0b00100000 // this is the internal representation of turning PORTB5 on, aka the latch pin.
+#define clockPin 52 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
+#define dataPin 51 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
 
 //These variables are used by multiplexing and Bit Angle Modulation Code
 int shift_out;//used in the code a lot in for(i= type loops
@@ -41,7 +42,7 @@ void setup() {
   
   noInterrupts();
 
-  // register spaghetti (hope it works on a different Arduino circuit!)
+  // register spaghetti from tutorial (hope it works on a different Arduino circuit!)
   TCCR1A = B00000000;//Register A all 0's since we're not toggling any pins
   TCCR1B = B00001011;//bit 3 set to place in CTC mode, will call an interrupt on a counter match
   //bits 0 and 1 are set to divide the clock by 64, so 16MHz/64=250kHz
@@ -189,8 +190,11 @@ case 1:
 // SPI.transfer(anode[anodelevel]);//finally, send out the anode level byte
 
 // better pray for this one to work properly cuz i have no idea whats happening here
-PORTD |= 1<<latchPin;//Latch pin HIGH
-PORTD &= ~(1<<latchPin);//Latch pin LOW
+// PORTD |= 1<<latchPin;//Latch pin HIGH
+// PORTD &= ~(1<<latchPin);//Latch pin LOW
+// well looks like praying didnt work because i actually had to change this
+PORTB |= latchPinBIN;//Latch pin HIGH
+PORTB &= ~(latchPinBIN);//Latch pin LOW
 
 anodelevel++;//increment the anode level
 if(anodelevel==4)//go back to 0 if max is reached

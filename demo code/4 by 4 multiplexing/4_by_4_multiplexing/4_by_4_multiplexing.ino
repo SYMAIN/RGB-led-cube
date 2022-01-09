@@ -97,6 +97,7 @@
 
 //pin connections- the #define tag will replace all instances of "latchPin" in your code with A1 (and so on)
 #define latchPin 11 // aka PB5
+#define latchPinBIN 0b00100000
 #define clockPin 51
 #define dataPin 52
 
@@ -205,12 +206,13 @@ void allOn(){
 
 void sendData(int d) {
   // setlatch pin low so the LEDs don't change while sending in bits
-  digitalWrite(latchPin, LOW);
+  //digitalWrite(latchPin, LOW);
+  PORTB &= ~(latchPinBIN);//Latch pin HIGH
   // shift out the bits of dataToSend to the 74HC595
   shiftOut(dataPin, clockPin, LSBFIRST, d);
   //set latch pin high- this sends data to outputs so the LEDs will light up
   //digitalWrite(latchPin, HIGH);
-  PORTB |= 1<<latchPin;//Latch pin HIGH
+  PORTB |= latchPinBIN;//Latch pin HIGH
 }
 
     // PORTD |= 1<<blankPin;

@@ -1,4 +1,7 @@
-//pin connections- the #define tag will replace all instances of "latchPin" in your code with A1 (and so on)
+// Wires Required:
+// Red - Pin 11
+// Black - GND
+
 #define pin 11 // aka PB5
 
 void setup() {

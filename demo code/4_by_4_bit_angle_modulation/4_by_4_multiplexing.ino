@@ -20,6 +20,9 @@ int level=0;//keeps track of which level we are shifting data to
 int anodelevel=0;//this increments through the anode levels
 int BAM_Bit, BAM_Counter=0; // Bit Angle Modulation variables to keep track of things
 
+// animation delay
+int delayTime = 250;
+
 // the data to send inside the BAM counter
 byte BAMDataToSend;
 
@@ -67,10 +70,13 @@ void setup() {
 
 // Put animations here.
 void loop() {
-  LED(0, 0, 0b00000001);
-  LED(1, 0, 0b00000011);
-  LED(2, 0, 0b00000111);
-  LED(3, 0, 0b00001111);
+
+  // brightnessSwitcherAnimation();
+
+  nightBAMmer();
+
+  // // delay after each stage
+  // delay(2000);
 }
 
 // Heavily simplified LED function from the video.
@@ -185,6 +191,12 @@ ISR(TIMER1_COMPA_vect){
     if(anodelevel==4)//go back to 0 if max is reached
       anodelevel=0;
 
+    // Serial.print("Sent Data ");
+    // Serial.print(BAM_Bit);
+    // Serial.print(":  ");
+    // Serial.print(BAMDataToSend, BIN);
+    // Serial.print("\n");
+
 
 }
 // gee golly hope this works!!!!!! (relies on registers)
@@ -295,6 +307,103 @@ ISR(TIMER1_COMPA_vect){
 // // Serial.print(BAMDataToSend, BIN);
 // // Serial.print("\n\n");
 
-
-
 // }
+
+int phase = 0;
+// switches 1 LED between brightness to test that it works
+void brightnessSwitcherAnimation(){
+
+  // constant LED
+  LED(3, 3, 0b00000001);
+
+  // variable LED
+  if (phase == 0){
+    LED(2, 3, 0b00001111);
+  }
+  else{
+    LED(2, 3, 0b00000001);
+  }
+
+  // reset phase
+  phase ++;
+  if (phase == 2){
+    phase = 0;
+  }
+
+  delay(2000);
+}
+
+
+int stage = 0;
+// night rider, but using BAM
+void nightBAMmer(){
+
+  // when u r too lazy to write a for loop .................
+  // omg who wrote this piece of spaghetti
+  switch(stage){
+    case 0:
+      LED(0, 3, 0b00000001);
+      LED(1, 3, 0b00000011);
+      LED(2, 3, 0b00000111);
+      LED(3, 3, 0b00001111);
+
+      LED(3, 2, 0b00000001);
+
+      delay(delayTime);
+      stage ++;
+    case 1:
+      LED(0, 3, 0b00000000);
+      LED(1, 3, 0b00000001);
+      LED(2, 3, 0b00001111);
+      LED(3, 3, 0b00000111);
+
+      LED(3, 2, 0b00000000);
+
+      delay(delayTime);
+      stage ++;
+    case 2:
+      LED(0, 3, 0b00000000);
+      LED(1, 3, 0b00001111);
+      LED(2, 3, 0b00000111);
+      LED(3, 3, 0b00000011);
+      delay(delayTime);
+      stage ++;
+    case 3:
+      LED(0, 3, 0b00001111);
+      LED(1, 3, 0b00000111);
+      LED(2, 3, 0b00000011);
+      LED(3, 3, 0b00000001);
+
+      LED(0, 2, 0b00000001);
+
+      delay(delayTime);
+      stage ++;
+    case 4:
+      LED(0, 3, 0b00000111);
+      LED(1, 3, 0b00001111);
+      LED(2, 3, 0b00000001);
+      LED(3, 3, 0b00000000);
+
+      LED(0, 2, 0b00000000);
+
+      delay(delayTime);
+      stage ++;
+    case 5:
+      LED(0, 3, 0b00000011);
+      LED(1, 3, 0b00000111);
+      LED(2, 3, 0b00001111);
+      LED(3, 3, 0b00000000);
+      delay(delayTime);
+      stage ++;
+    case 6: 
+      LED(0, 3, 0b00000001);
+      LED(1, 3, 0b00000011);
+      LED(2, 3, 0b00000111);
+      LED(3, 3, 0b00001111);
+
+      LED(3, 2, 0b00000001);
+
+      stage = 0;
+  }
+
+}

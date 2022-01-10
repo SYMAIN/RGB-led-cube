@@ -88,7 +88,7 @@
 
 //this code sends data to the 74HC595 without "shiftOut"
 
-// BLANK: Yellow, pin 2
+// BLANK: Yellow, pin 8
 // LATCH: Yellow, pin 11
 // DATA: Orange, pin 51
 // CLOCK: green, pin 52
@@ -97,6 +97,7 @@
 
 //pin connections- the #define tag will replace all instances of "latchPin" in your code with A1 (and so on)
 #define latchPin 11 // aka PB5
+#define blankPin 8
 #define latchPinBIN 0b00100000 // this is the internal representation of turning PORTB5 on, aka the latch pin.
 #define clockPin 52 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
 #define dataPin 51 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
@@ -110,7 +111,14 @@ void setup() {
 
   noInterrupts();
 
-  SPI.setBitOrder(LSBFIRST);//Most Significant Bit First 
+  // register spaghetti from tutorial (hope it works on a different Arduino circuit!)
+  TCCR1A = B00000000;//Register A all 0's since we're not toggling any pins
+  TCCR1B = B00001011;//bit 3 set to place in CTC mode, will call an interrupt on a counter match
+  //bits 0 and 1 are set to divide the clock by 64, so 16MHz/64=250kHz
+  TIMSK1 = B00000010;//bit 1 set to call the interrupt on an OCR1A match
+  OCR1A=30;
+
+  SPI.setBitOrder(MSBFIRST);//Most Significant Bit First 
   // what are those
   SPI.setDataMode(SPI_MODE0);// Mode 0 Rising edge of data, keep clock low
   SPI.setClockDivider(SPI_CLOCK_DIV2);//Run the data in at 16MHz/2 - 8MHz
@@ -120,13 +128,24 @@ void setup() {
 }
 
 void loop() {
-  //digitalWrite(latchPin, LOW);
+}
+
+ISR(TIMER1_COMPA_vect){
   PORTB &= ~(latchPinBIN);//Latch pin LOW
-  SPI.transfer(0b00011110);
-  //sendData(0b00011110);
-  //digitalWrite(latchPin, HIGH);
+  SPI.transfer(0b11100001);
   PORTB |= latchPinBIN;//Latch pin HIGH
-  //delay(1000);
+
+  PORTB &= ~(latchPinBIN);//Latch pin LOW
+  SPI.transfer(0b11100010);
+  PORTB |= latchPinBIN;//Latch pin HIGH
+
+//   PORTB &= ~(latchPinBIN);//Latch pin LOW
+//   SPI.transfer(0b11100100);
+//   PORTB |= latchPinBIN;//Latch pin HIGH
+
+//   PORTB &= ~(latchPinBIN);//Latch pin LOW
+//   SPI.transfer(0b11100100);
+//   PORTB |= latchPinBIN;//Latch pin HIGH
 }
 
 void sendData(int d) {

@@ -68,7 +68,7 @@ void setup() {
 // Put animations here.
 void loop() {
   // turn on one of the corner leds at 8/15 brightness
-  LED(0, 0, 0b00001000);
+  LED(0, 0, 0b00001111);
 }
 
 // Heavily simplified LED function from the video.
@@ -83,7 +83,7 @@ void loop() {
 void LED(int row, int column, byte brightness){
 
   // writes a bit to led0: (row, col, boolean: turn on or off depending on BAM)
-  // essentially: led0[row][col] = brightness[0:3]
+  // essentially: led_x_[row][col] = brightness[0:3]
   // only writes to the 4 least significant bits
   bitWrite(led0[row], column, bitRead(brightness, 0));
   bitWrite(led1[row], column, bitRead(brightness, 1));
@@ -163,7 +163,9 @@ case 1:
  for(shift_out=level; shift_out<level+4; shift_out++){
  // ((rows) | (cols))
  BAMDataToSend = ((anode[anodelevel]) | (led2[shift_out]));
+ 
  SPI.transfer(BAMDataToSend);
+ 
  }
  // when adding RGB later, add back a couple of for loops for green and blue
  break;
@@ -173,14 +175,13 @@ case 1:
  // ((rows) | (cols))
  BAMDataToSend = ((anode[anodelevel]) | (led3[shift_out]));
  SPI.transfer(BAMDataToSend);
- Serial.print("led3 Data: ");
- Serial.print((led3[shift_out]), BIN);
- Serial.print("\nanodeData: ");
- Serial.print((anode[anodelevel]), BIN);
- Serial.print("\nSent Data: ");
- Serial.print(BAMDataToSend, BIN);
- Serial.print("\n\n");
- SPI.transfer(BAMDataToSend);
+//  Serial.print("led3 Data: ");
+//  Serial.print((led3[shift_out]), BIN);
+//  Serial.print("\nanodeData: ");
+//  Serial.print((anode[anodelevel]), BIN);
+// Serial.print("\nSent Data: ");
+// Serial.print(BAMDataToSend, BIN);
+// Serial.print("\n\n");
  }
  // when adding RGB later, add back a couple of for loops for green and blue
  break;

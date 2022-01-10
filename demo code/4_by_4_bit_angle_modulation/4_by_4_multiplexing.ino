@@ -67,8 +67,10 @@ void setup() {
 
 // Put animations here.
 void loop() {
-  // turn on one of the corner leds at 8/15 brightness
-  LED(0, 0, 0b00001111);
+  LED(0, 0, 0b00000001);
+  LED(1, 0, 0b00000011);
+  LED(2, 0, 0b00000111);
+  LED(3, 0, 0b00001111);
 }
 
 // Heavily simplified LED function from the video.
@@ -103,12 +105,7 @@ void LED(int row, int column, byte brightness){
 
 }
 
-// gee golly hope this works!!!!!! (relies on registers)
-// The BAM timer.
-ISR(TIMER1_COMPA_vect){//***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM
-
-  // sanity check
-  // Serial.print("yo this is actually working bruhhhhhhhhh\n");
+ISR(TIMER1_COMPA_vect){
 
   // for calculating the brightness using BAM
   // you can think of BAM_Bit as the brightness for BAM: on for 1 tick, off for 2, on for 4, on for 8, etc....
@@ -126,91 +123,178 @@ ISR(TIMER1_COMPA_vect){//***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***Mult
   BAM_Bit=0;
   }
 
-  BAM_Counter++;//Here is where we increment the BAM counter
+  BAM_Counter++;
 
-// Here, we have to do some bitmath to send out both anode + cathode information all at once since
-// we need to send out 1 byte for SPI.transfer() to work. Since anode info is a total of 4 bits and cathode is
-// a total of 4 bits as well, we can combine both pieces of information to create a byte.
-// We wouldn't need to do this if we had an 8x8, but we dont so yea
-switch (BAM_Bit){
-case 0:
- // "level" here refers to the z-axis. Since we dont have one, treat it as 0 when tracing!
- for(shift_out=level; shift_out<level+4; shift_out++){
- // ((rows) | (cols))
- BAMDataToSend = ((anode[anodelevel]) | (led0[shift_out]));
-//  Serial.print("led0 Data: ");
-//  Serial.print((led0[shift_out]), BIN);
-//  Serial.print("\nanodeData: ");
-//  Serial.print((anode[anodelevel]), BIN);
-//  Serial.print("\nSent Data: ");
-//  Serial.print(BAMDataToSend, BIN);
-//  Serial.print("\n\n");
-//  SPI.transfer(BAMDataToSend);
- }
- // when adding RGB later, add back a couple of for loops for green and blue
- break;
-case 1:
- // "level" here refers to the z-axis. Since we dont have one, treat it as 0!
- for(shift_out=level; shift_out<level+4; shift_out++){
- // ((rows) | (cols))
- BAMDataToSend = ((anode[anodelevel]) | (led1[shift_out]));
- SPI.transfer(BAMDataToSend);
- }
- // when adding RGB later, add back a couple of for loops for green and blue
- break;
- case 2:
- // "level" here refers to the z-axis. Since we dont have one, treat it as 0!
- for(shift_out=level; shift_out<level+4; shift_out++){
- // ((rows) | (cols))
- BAMDataToSend = ((anode[anodelevel]) | (led2[shift_out]));
- 
- SPI.transfer(BAMDataToSend);
- 
- }
- // when adding RGB later, add back a couple of for loops for green and blue
- break;
- case 3:
- // "level" here refers to the z-axis. Since we dont have one, treat it as 0!
- for(shift_out=level; shift_out<level+4; shift_out++){
- // ((rows) | (cols))
- BAMDataToSend = ((anode[anodelevel]) | (led3[shift_out]));
- SPI.transfer(BAMDataToSend);
-//  Serial.print("led3 Data: ");
-//  Serial.print((led3[shift_out]), BIN);
-//  Serial.print("\nanodeData: ");
-//  Serial.print((anode[anodelevel]), BIN);
-// Serial.print("\nSent Data: ");
-// Serial.print(BAMDataToSend, BIN);
-// Serial.print("\n\n");
- }
- // when adding RGB later, add back a couple of for loops for green and blue
- break;
-}//switch_case
+  switch (BAM_Bit){
+    case 0:
+      BAMDataToSend = ((anode[anodelevel]) | (led0[anodelevel]));
+      SPI.transfer(BAMDataToSend);
 
-// we would send out anode info here if we had an 8x8x8
-// SPI.transfer(anode[anodelevel]);//finally, send out the anode level byte
+      // Serial.print("Sent Data ");
+      // Serial.print(BAM_Bit);
+      // Serial.print(":  ");
+      // Serial.print(BAMDataToSend, BIN);
+      // Serial.print("\n");
 
-// better pray for this one to work properly cuz i have no idea whats happening here
-// PORTD |= 1<<latchPin;//Latch pin HIGH
-// PORTD &= ~(1<<latchPin);//Latch pin LOW
-// well looks like praying didnt work because i actually had to change this
-PORTB |= latchPinBIN;//Latch pin HIGH
-PORTB &= ~(latchPinBIN);//Latch pin LOW
+      break;
 
-anodelevel++;//increment the anode level
-if(anodelevel==4)//go back to 0 if max is reached
-anodelevel=0;
+    case 1:
+      BAMDataToSend = ((anode[anodelevel]) | (led1[anodelevel]));
+      SPI.transfer(BAMDataToSend);
 
-// Serial.print("BAM Info: \nBAM_Counter: ");
-// Serial.print(BAM_Counter);
-// Serial.print("\nBAM_Bit: ");
-// Serial.print(BAM_Bit);
-// Serial.print("\nanodeLevel: ");
-// Serial.print(anodelevel);
-// Serial.print("\nSent Data: ");
-// Serial.print(BAMDataToSend, BIN);
-// Serial.print("\n\n");
+    // Serial.print("Sent Data ");
+    // Serial.print(BAM_Bit);
+    // Serial.print(":  ");
+    // Serial.print(BAMDataToSend, BIN);
+    // Serial.print("\n");
 
+      break;
+
+    case 2:
+      BAMDataToSend = ((anode[anodelevel]) | (led2[anodelevel]));
+      SPI.transfer(BAMDataToSend);
+
+    // Serial.print("Sent Data ");
+    // Serial.print(BAM_Bit);
+    // Serial.print(":  ");
+    // Serial.print(BAMDataToSend, BIN);
+    // Serial.print("\n");
+
+      break;
+
+    case 3:
+      BAMDataToSend = ((anode[anodelevel]) | (led3[anodelevel]));
+      SPI.transfer(BAMDataToSend);
+
+    // Serial.print("Sent Data ");
+    // Serial.print(BAM_Bit);
+    // Serial.print(":  ");
+    // Serial.print(BAMDataToSend, BIN);
+    // Serial.print("\n");
+
+      break;
+  }
+
+
+
+    PORTB |= latchPinBIN;//Latch pin HIGH
+    PORTB &= ~(latchPinBIN);//Latch pin LOW
+
+    anodelevel++;//increment the anode level
+
+    if(anodelevel==4)//go back to 0 if max is reached
+      anodelevel=0;
 
 
 }
+// gee golly hope this works!!!!!! (relies on registers)
+// The BAM timer.
+// ISR(TIMER1_COMPA_vect){//***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM
+
+//   // sanity check
+//   // Serial.print("yo this is actually working bruhhhhhhhhh\n");
+
+//   // for calculating the brightness using BAM
+//   // you can think of BAM_Bit as the brightness for BAM: on for 1 tick, off for 2, on for 4, on for 8, etc....
+//   // no idea why the numbers are scuffed
+//   if(BAM_Counter==8)
+//   BAM_Bit++;
+//   else
+//   if(BAM_Counter==24)
+//   BAM_Bit++;
+//   else
+//   if(BAM_Counter==56)
+//   BAM_Bit++;
+//   if(BAM_Counter==120){
+//   BAM_Counter=0;
+//   BAM_Bit=0;
+//   }
+
+//   BAM_Counter++;//Here is where we increment the BAM counter
+
+// // Here, we have to do some bitmath to send out both anode + cathode information all at once since
+// // we need to send out 1 byte for SPI.transfer() to work. Since anode info is a total of 4 bits and cathode is
+// // a total of 4 bits as well, we can combine both pieces of information to create a byte.
+// // We wouldn't need to do this if we had an 8x8, but we dont so yea
+// switch (BAM_Bit){
+// case 0:
+//  // "level" here refers to the z-axis. Since we dont have one, treat it as 0 when tracing!
+//  for(shift_out=level; shift_out<level+4; shift_out++){
+//  // ((rows) | (cols))
+//  BAMDataToSend = ((anode[anodelevel]) | (led0[shift_out]));
+// //  Serial.print("led0 Data: ");
+// //  Serial.print((led0[shift_out]), BIN);
+// //  Serial.print("\nanodeData: ");
+// //  Serial.print((anode[anodelevel]), BIN);
+// //  Serial.print("\nSent Data: ");
+// //  Serial.print(BAMDataToSend, BIN);
+// //  Serial.print("\n\n");
+// //  SPI.transfer(BAMDataToSend);
+//  }
+//  // when adding RGB later, add back a couple of for loops for green and blue
+//  break;
+// case 1:
+//  // "level" here refers to the z-axis. Since we dont have one, treat it as 0!
+//  for(shift_out=level; shift_out<level+4; shift_out++){
+//  // ((rows) | (cols))
+//  BAMDataToSend = ((anode[anodelevel]) | (led1[shift_out]));
+//  SPI.transfer(BAMDataToSend);
+//  }
+//  // when adding RGB later, add back a couple of for loops for green and blue
+//  break;
+//  case 2:
+//  // "level" here refers to the z-axis. Since we dont have one, treat it as 0!
+//  for(shift_out=level; shift_out<level+4; shift_out++){
+//  // ((rows) | (cols))
+//  BAMDataToSend = ((anode[anodelevel]) | (led2[shift_out]));
+ 
+//  SPI.transfer(BAMDataToSend);
+ 
+//  }
+//  // when adding RGB later, add back a couple of for loops for green and blue
+//  break;
+//  case 3:
+//  // "level" here refers to the z-axis. Since we dont have one, treat it as 0!
+//  for(shift_out=level; shift_out<level+4; shift_out++){
+//  // ((rows) | (cols))
+//  BAMDataToSend = ((anode[anodelevel]) | (led3[shift_out]));
+//  SPI.transfer(BAMDataToSend);
+// //  Serial.print("led3 Data: ");
+// //  Serial.print((led3[shift_out]), BIN);
+// //  Serial.print("\nanodeData: ");
+// //  Serial.print((anode[anodelevel]), BIN);
+// // Serial.print("\nSent Data: ");
+// // Serial.print(BAMDataToSend, BIN);
+// // Serial.print("\n\n");
+//  }
+//  // when adding RGB later, add back a couple of for loops for green and blue
+//  break;
+// }//switch_case
+
+// // we would send out anode info here if we had an 8x8x8
+// // SPI.transfer(anode[anodelevel]);//finally, send out the anode level byte
+
+// // better pray for this one to work properly cuz i have no idea whats happening here
+// // PORTD |= 1<<latchPin;//Latch pin HIGH
+// // PORTD &= ~(1<<latchPin);//Latch pin LOW
+// // well looks like praying didnt work because i actually had to change this
+// PORTB |= latchPinBIN;//Latch pin HIGH
+// PORTB &= ~(latchPinBIN);//Latch pin LOW
+
+// anodelevel++;//increment the anode level
+// if(anodelevel==4)//go back to 0 if max is reached
+// anodelevel=0;
+
+// // Serial.print("BAM Info: \nBAM_Counter: ");
+// // Serial.print(BAM_Counter);
+// // Serial.print("\nBAM_Bit: ");
+// // Serial.print(BAM_Bit);
+// // Serial.print("\nanodeLevel: ");
+// // Serial.print(anodelevel);
+// // Serial.print("\nSent Data: ");
+// // Serial.print(BAMDataToSend, BIN);
+// // Serial.print("\n\n");
+
+
+
+// }

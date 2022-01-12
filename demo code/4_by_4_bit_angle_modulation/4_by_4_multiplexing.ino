@@ -82,12 +82,17 @@ void loop() {
   //nightBAMmer();
   //allOn();
 
-  // // delay after each stage
-  // delay(2000);
-  LED(0, 1, 0b00001111);
-  LED(0  2, 0b00001111);
-  LED(0, 0, 0b00001111);
-  LED(0, 3, 0b00001111);
+  // Strategic distribution of resources - works amazing!
+  LED(0, 0, 0b00000101);
+  LED(0, 1, 0b00000101);
+  LED(0, 2, 0b00000010);
+  LED(0, 3, 0b00001000);
+
+  // Lowest brightness - all loads on 1 bit - doesn't work
+  LED(0, 0, 0b00000001);
+  LED(0, 1, 0b00000001);
+  LED(0, 2, 0b00000001);
+  LED(0, 3, 0b00000001);
 }
 
 // Heavily simplified LED function from the video.

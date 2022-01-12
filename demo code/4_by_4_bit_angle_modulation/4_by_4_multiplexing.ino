@@ -13,6 +13,11 @@ unsigned char defeatTheCrumbyPreprocessor;
 #define clockPin 52 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
 #define dataPin 51 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
 
+// BLANK: Yellow, pin 8
+// LATCH: Yellow, pin 11
+// DATA: Orange, pin 51
+// CLOCK: green, pin 52
+
 //These variables are used by multiplexing and Bit Angle Modulation Code
 int shift_out;//used in the code a lot in for(i= type loops
 
@@ -22,6 +27,7 @@ int BAM_Bit, BAM_Counter=0; // Bit Angle Modulation variables to keep track of t
 
 // animation delay
 int delayTime = 250;
+
 
 // the data to send inside the BAM counter
 byte BAMDataToSend;
@@ -73,10 +79,15 @@ void loop() {
 
   // brightnessSwitcherAnimation();
 
-  nightBAMmer();
+  //nightBAMmer();
+  //allOn();
 
   // // delay after each stage
   // delay(2000);
+  LED(0, 1, 0b00001111);
+  LED(0  2, 0b00001111);
+  LED(0, 0, 0b00001111);
+  LED(0, 3, 0b00001111);
 }
 
 // Heavily simplified LED function from the video.
@@ -111,6 +122,9 @@ void LED(int row, int column, byte brightness){
 
 }
 
+
+// gee golly hope this works!!!!!! (relies on registers)
+// The BAM timer.
 ISR(TIMER1_COMPA_vect){
 
   // for calculating the brightness using BAM
@@ -131,6 +145,10 @@ ISR(TIMER1_COMPA_vect){
 
   BAM_Counter++;
 
+  // Here, we have to do some bitmath to send out both anode + cathode information all at once since
+  // we need to send out 1 byte for SPI.transfer() to work. Since anode info is a total of 4 bits and cathode is
+  // a total of 4 bits as well, we can combine both pieces of information to create a byte.
+  // We wouldn't need to do this if we had an 8x8, but we dont so yea
   switch (BAM_Bit){
     case 0:
       BAMDataToSend = ((anode[anodelevel]) | (led0[anodelevel]));
@@ -147,7 +165,7 @@ ISR(TIMER1_COMPA_vect){
     case 1:
       BAMDataToSend = ((anode[anodelevel]) | (led1[anodelevel]));
       SPI.transfer(BAMDataToSend);
-
+      Serial.print("\n");
     // Serial.print("Sent Data ");
     // Serial.print(BAM_Bit);
     // Serial.print(":  ");
@@ -181,24 +199,25 @@ ISR(TIMER1_COMPA_vect){
       break;
   }
 
+  // better pray for this one to work properly cuz i have no idea whats happening here
+  // PORTD |= 1<<latchPin;//Latch pin HIGH
+  // PORTD &= ~(1<<latchPin);//Latch pin LOW
+  // well looks like praying didnt work because i actually had to change this
+  PORTB |= latchPinBIN;//Latch pin HIGH
+  PORTB &= ~(latchPinBIN);//Latch pin LOW
 
+  anodelevel++;//increment the anode level
 
-    PORTB |= latchPinBIN;//Latch pin HIGH
-    PORTB &= ~(latchPinBIN);//Latch pin LOW
+  if(anodelevel==4)//go back to 0 if max is reached
+    anodelevel=0;
 
-    anodelevel++;//increment the anode level
-
-    if(anodelevel==4)//go back to 0 if max is reached
-      anodelevel=0;
-
-    // Serial.print("Sent Data ");
-    // Serial.print(BAM_Bit);
-    // Serial.print(":  ");
-    // Serial.print(BAMDataToSend, BIN);
-    // Serial.print("\n");
-
-
+  // Serial.print("Sent Data ");
+  // Serial.print(BAM_Bit);
+  // Serial.print(":  ");
+  // Serial.print(BAMDataToSend, BIN);
+  // Serial.print("\n");
 }
+
 // gee golly hope this works!!!!!! (relies on registers)
 // The BAM timer.
 // ISR(TIMER1_COMPA_vect){//***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM***MultiPlex BAM
@@ -308,6 +327,24 @@ ISR(TIMER1_COMPA_vect){
 // // Serial.print("\n\n");
 
 // }
+bool didOnce = false;
+
+void allOn(){
+  if (!didOnce){
+    didOnce = true;
+    for(int i = 0; i < 4; i ++){
+      //for (int j = 0; j < 4; j ++){
+        //LED(i, 3, 0b00000001);
+        //LED(0, 1, 0b00000001);
+        //LED(1, 1, 0b00000001);
+        //LED(2, 1, 0b00000001);
+        LED(3, 1, 0b00001111);
+        LED(3, 2, 0b00001111);
+        //LED(3, 3, 0b00000001);
+      //}
+    }
+  }
+}
 
 int phase = 0;
 // switches 1 LED between brightness to test that it works

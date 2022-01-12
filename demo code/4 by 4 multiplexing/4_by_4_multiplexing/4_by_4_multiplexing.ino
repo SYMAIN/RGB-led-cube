@@ -88,7 +88,7 @@
 
 //this code sends data to the 74HC595 without "shiftOut"
 
-// BLANK: Yellow, pin 2
+// BLANK: Yellow, pin 8
 // LATCH: Yellow, pin 11
 // DATA: Orange, pin 51
 // CLOCK: green, pin 52
@@ -121,9 +121,9 @@ void setup() {
 
 void loop() {
   //effect1();
-  //allOn();
-  delay(1000);
-  sendData(0b01110000);
+  allOn();
+  //delay(1000);
+  //sendData(0b01110000);
   //nightRider();
   //delay(5000);
 }
@@ -200,7 +200,7 @@ void allOn(){
        
        sendData(dataToSend);
        
-       delay(1000);//wait
+       //delay(1000);//wait
      }
  }
 }

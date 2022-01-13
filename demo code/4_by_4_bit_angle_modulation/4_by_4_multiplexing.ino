@@ -1,3 +1,6 @@
+// This code was made for the Arduino Mega2560.
+// Anything related to output registers (PORTxx) and SPI pins will need to be changed if using a different Arduino
+
 unsigned char defeatTheCrumbyPreprocessor;
 // https://forum.arduino.cc/t/tccr1a-was-not-declared-in-this-scope/177826/4
 
@@ -10,6 +13,9 @@ unsigned char defeatTheCrumbyPreprocessor;
 //pin connections- the #define tag will replace all instances of "latchPin" in your code with A1 (and so on)
 #define latchPin 11 // aka PB5 / PORTB5. This was found on the schematics of the Arduino Mega2560. 
 #define latchPinBIN 0b00100000 // this is the internal representation of turning PORTB5 on, aka the latch pin.
+#define blankPin 8 // aka PH5 / PORTH5
+#define blankPinBIN 0b00100000 // this is the internal representation of turning PH5 on
+
 #define clockPin 52 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
 #define dataPin 51 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
 
@@ -56,7 +62,7 @@ void setup() {
   TCCR1B = B00001011;//bit 3 set to place in CTC mode, will call an interrupt on a counter match
   //bits 0 and 1 are set to divide the clock by 64, so 16MHz/64=250kHz
   TIMSK1 = B00000010;//bit 1 set to call the interrupt on an OCR1A match
-  OCR1A=30;
+  OCR1A=300000;
 
   anode[0]=0b11100000;
   anode[1]=0b11010000;
@@ -67,6 +73,8 @@ void setup() {
   pinMode(latchPin, OUTPUT);
   pinMode(clockPin, OUTPUT);
   pinMode(dataPin, OUTPUT);
+  pinMode(blankPin, OUTPUT);
+  PORTH &= ~(blankPinBIN);//Blank pin LOW
   
   Serial.begin(9600);
   SPI.begin();//start up the SPI library
@@ -74,25 +82,17 @@ void setup() {
 
 }
 
+bool once = false;
+
 // Put animations here.
 void loop() {
 
+  //testPattern();
   // brightnessSwitcherAnimation();
 
   //nightBAMmer();
+  
   //allOn();
-
-  // Strategic distribution of resources - works amazing!
-  LED(0, 0, 0b00000101);
-  LED(0, 1, 0b00000101);
-  LED(0, 2, 0b00000010);
-  LED(0, 3, 0b00001000);
-
-  // Lowest brightness - all loads on 1 bit - doesn't work
-  LED(0, 0, 0b00000001);
-  LED(0, 1, 0b00000001);
-  LED(0, 2, 0b00000001);
-  LED(0, 3, 0b00000001);
 }
 
 // Heavily simplified LED function from the video.
@@ -131,6 +131,9 @@ void LED(int row, int column, byte brightness){
 // gee golly hope this works!!!!!! (relies on registers)
 // The BAM timer.
 ISR(TIMER1_COMPA_vect){
+
+  // Blank everything while we change some stuff
+  PORTH |= blankPinBIN;//Blank pin HIGH (aka disable outputs)
 
   // for calculating the brightness using BAM
   // you can think of BAM_Bit as the brightness for BAM: on for 1 tick, off for 2, on for 4, on for 8, etc....
@@ -210,6 +213,9 @@ ISR(TIMER1_COMPA_vect){
   // well looks like praying didnt work because i actually had to change this
   PORTB |= latchPinBIN;//Latch pin HIGH
   PORTB &= ~(latchPinBIN);//Latch pin LOW
+
+  // turn everything back on by disabling blanks
+  PORTH &= ~(blankPinBIN);//Latch pin LOW
 
   anodelevel++;//increment the anode level
 
@@ -338,17 +344,57 @@ void allOn(){
   if (!didOnce){
     didOnce = true;
     for(int i = 0; i < 4; i ++){
-      //for (int j = 0; j < 4; j ++){
-        //LED(i, 3, 0b00000001);
-        //LED(0, 1, 0b00000001);
-        //LED(1, 1, 0b00000001);
-        //LED(2, 1, 0b00000001);
-        LED(3, 1, 0b00001111);
-        LED(3, 2, 0b00001111);
-        //LED(3, 3, 0b00000001);
-      //}
+      for (int j = 0; j < 4; j ++){
+        LED(i, j, 0b00001111);
+      }
     }
   }
+}
+
+void testPattern(){
+
+  // test pattern as shown on Jan 13
+  if (!once){
+    once = true;
+    LED(3, 1, 0b00001111);
+    LED(3, 3, 0b00001111);
+  }
+  delay (2000);
+  allOn();
+
+  // Row of LED for counting
+  // LED(0, 3, 0b00001111);
+  // LED(1, 3, 0b00001111);
+  // LED(2, 3, 0b00001111);
+  // LED(3, 3, 0b00001111);
+
+  // Strategic distribution of resources - works amazing!
+  // LED(0, 0, 0b00000101);
+  // LED(0, 1, 0b00000101);
+  // LED(0, 2, 0b00000010);
+  // LED(0, 3, 0b00001000);
+
+  // LED(1, 0, 0b00000101);
+  // LED(1, 1, 0b00000101);
+  // LED(1, 2, 0b00000010);
+  // LED(1, 3, 0b00001000);
+
+  // LED(2, 0, 0b00000101);
+  // LED(2, 2, 0b00000101);
+  // LED(2, 1, 0b00000010);
+  // LED(2, 3, 0b00001000);
+
+  // LED(3, 0, 0b00000101);
+  // LED(3, 2, 0b00000101);
+  // LED(3, 1, 0b00000010);
+  // LED(3, 3, 0b00001000);
+
+
+  // Lowest brightness - all loads on 1 bit - doesn't work
+  // LED(3, 0, 0b00001111);
+  // LED(3, 1, 0b00001111);
+  // LED(3, 2, 0b00001111);
+  // LED(3, 3, 0b00001111);
 }
 
 int phase = 0;

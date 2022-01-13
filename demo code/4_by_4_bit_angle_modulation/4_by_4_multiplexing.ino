@@ -62,7 +62,7 @@ void setup() {
   TCCR1B = B00001011;//bit 3 set to place in CTC mode, will call an interrupt on a counter match
   //bits 0 and 1 are set to divide the clock by 64, so 16MHz/64=250kHz
   TIMSK1 = B00000010;//bit 1 set to call the interrupt on an OCR1A match
-  OCR1A=300000;
+  OCR1A=30; // add zeros to this value to slow down the animation. Default: 30
 
   anode[0]=0b11100000;
   anode[1]=0b11010000;

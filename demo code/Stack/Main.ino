@@ -65,7 +65,7 @@ void setup()
   pinMode(latch_pin, OUTPUT); //Latch
   pinMode(data_pin, OUTPUT);  //MOSI DATA
   pinMode(clock_pin, OUTPUT); //SPI Clock
-  pinMode(blank_pin, OUTPUT); //Output Enable  important to do this last, so LEDs do not flash on boot up
+  pinMode(blankPin, OUTPUT); //Output Enable  important to do this last, so LEDs do not flash on boot up
   SPI.begin();                //start up the SPI library
   interrupts();               //let the show begin, this lets the multiplexing start
 }
@@ -604,7 +604,7 @@ ISR(TIMER1_COMPA_vect)
     anodelevel = 0;
   if (level == 8)
     level = 0;
-  pinMode(blank_pin, OUTPUT);
+  pinMode(blankPin, OUTPUT);
 }
 
 void clean()

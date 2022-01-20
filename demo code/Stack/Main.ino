@@ -552,35 +552,35 @@ ISR(TIMER1_COMPA_vect)
   {
   case 0:
     for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(red0[shift_out]);
+      SPI.transfer(blue0[shift_out]);
     for (shift_out = level; shift_out < level + 2; shift_out++)
       SPI.transfer(green0[shift_out]);
     for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(blue0[shift_out]);
+      SPI.transfer(red0[shift_out]);
     break;
   case 1:
     for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(red1[shift_out]);
+      SPI.transfer(blue1[shift_out]);
     for (shift_out = level; shift_out < level + 2; shift_out++)
       SPI.transfer(green1[shift_out]);
     for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(blue1[shift_out]);
+      SPI.transfer(red1[shift_out]);
     break;
   case 2:
     for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(red2[shift_out]);
+      SPI.transfer(blue2[shift_out]);
     for (shift_out = level; shift_out < level + 2; shift_out++)
       SPI.transfer(green2[shift_out]);
     for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(blue2[shift_out]);
+      SPI.transfer(red2[shift_out]);
     break;
   case 3:
     for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(red3[shift_out]);
+      SPI.transfer(blue3[shift_out]);
     for (shift_out = level; shift_out < level + 2; shift_out++)
       SPI.transfer(green3[shift_out]);
     for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(blue3[shift_out]);
+      SPI.transfer(red3[shift_out]);
 
     if (BAM_Counter == 120)
     {

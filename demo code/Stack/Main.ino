@@ -1,12 +1,30 @@
+// This code was made for the Arduino Mega2560.
+// Anything related to output registers (PORTxx) and SPI pins will need to be changed if using a different Arduino
+
+unsigned char defeatTheCrumbyPreprocessor;
+// https://forum.arduino.cc/t/tccr1a-was-not-declared-in-this-scope/177826/4
+
+// The Carry
+// https://www.kevindarrah.com/download/8x8x8/RGB_CubeV12_BitwiseFix.ino
+// https://www.youtube.com/watch?v=xmScytz9y0M
+
 /*Anoop M M anoopmmkt@gmail.com(Electronics Demon) */
 
-#include <SPI.h>
+#include <SPI.h> // SPI Library used to clock data out to the shift registers
 
-#define latch_pin 2
-#define blank_pin 4
-#define data_pin 11  // used by SPI, must be pin 11
-#define clock_pin 13 // used by SPI, must be 13
-#define button_pin 5
+//pin connections- the #define tag will replace all instances of "latchPin" in your code with A1 (and so on)
+#define latchPin 11 // aka PB5 / PORTB5. This was found on the schematics of the Arduino Mega2560. 
+#define latchPinBIN 0b00100000 // this is the internal representation of turning PORTB5 on, aka the latch pin.
+#define blankPin 8 // aka PH5 / PORTH5
+#define blankPinBIN 0b00100000 // this is the internal representation of turning PH5 on
+
+#define clockPin 52 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
+#define dataPin 51 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
+
+// BLANK: Yellow, pin 8
+// LATCH: Yellow, pin 11
+// DATA: Orange, pin 51
+// CLOCK: green, pin 52
 
 int shift_out;
 byte anode[4];
@@ -518,7 +536,9 @@ void LED(int level, int row, int column, byte red, byte green, byte blue)
 ISR(TIMER1_COMPA_vect)
 {
 
-  PORTD |= 1 << blank_pin;
+  // Blank everything while we change some stuff
+  PORTH |= blankPinBIN;//Blank pin HIGH (aka disable outputs)
+
   if (BAM_Counter == 8)
     BAM_Bit++;
   else if (BAM_Counter == 24)
@@ -572,9 +592,10 @@ ISR(TIMER1_COMPA_vect)
 
   SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
 
-  PORTD |= 1 << latch_pin;    //Latch pin HIGH
-  PORTD &= ~(1 << latch_pin); //Latch pin LOW
-  PORTD &= ~(1 << blank_pin); //Blank pin LOW to turn on the LEDs with the new data
+  PORTB |= latchPinBIN;//Latch pin HIGH
+  PORTB &= ~(latchPinBIN);//Latch pin LOW
+  // turn everything back on by disabling blanks
+  PORTH &= ~(blankPinBIN);//Latch pin LOW
 
   anodelevel++;
   level = level + 2;

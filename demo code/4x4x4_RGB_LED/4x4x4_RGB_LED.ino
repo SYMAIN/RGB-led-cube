@@ -70,10 +70,14 @@ void setup() {
   TIMSK1 = B00000010;//bit 1 set to call the interrupt on an OCR1A match
   OCR1A=30; // add zeros to this value to slow down the animation. Default: 30
 
-  anode[0]=0b11100000;
-  anode[1]=0b11010000;
-  anode[2]=0b10110000;
-  anode[3]=0b01110000;
+  anode[0]=0b11111110;
+  anode[1]=0b11111101;
+  anode[2]=0b11111011;
+  anode[3]=0b11110111;
+  anode[4]=0b11101111;
+  anode[5]=0b11011111;
+  anode[6]=0b10111111;
+  anode[7]=0b01111111;
 
   //set pins as output
   pinMode(latchPin, OUTPUT);
@@ -110,7 +114,7 @@ void loop() {
   * @param brightness, byte. Controls bit angle modulation. Only the 4 least significant bits are used.
   *
   */
-void LED(int row, int column, byte brightness){
+void LED(int row, int column, byte red, byte green, byte blue){
 
   // writes a bit to led0: (row, col, boolean: turn on or off depending on BAM)
   // essentially: led_x_[row][col] = brightness[0:3]
@@ -170,8 +174,15 @@ ISR(TIMER1_COMPA_vect){
   // We wouldn't need to do this if we had an 8x8, but we dont so yea
   switch (BAM_Bit){
     case 0:
-      BAMDataToSend = ((anode[anodelevel]) | (led0[anodelevel]));
-      SPI.transfer(BAMDataToSend);
+      
+      for(shift_out=level; shift_out<level+8; shift_out++)
+        SPI.transfer(blue0[shift_out]);
+      for(shift_out=level; shift_out<level+8; shift_out++)
+        SPI.transfer(green0[shift_out]); 
+      for(shift_out=level; shift_out<level+8; shift_out++)
+        SPI.transfer(red0[shift_out]);
+      
+      
 
       // Serial.print("Sent Data ");
       // Serial.print(BAM_Bit);
@@ -184,7 +195,7 @@ ISR(TIMER1_COMPA_vect){
     case 1:
       BAMDataToSend = ((anode[anodelevel]) | (led1[anodelevel]));
       SPI.transfer(BAMDataToSend);
-      Serial.print("\n");
+    // Serial.print("\n");
     // Serial.print("Sent Data ");
     // Serial.print(BAM_Bit);
     // Serial.print(":  ");
@@ -217,6 +228,9 @@ ISR(TIMER1_COMPA_vect){
 
       break;
   }
+
+  // transfer grounding data
+  SPI.transfer(anode[anodelevel]);
 
   // better pray for this one to work properly cuz i have no idea whats happening here
   // PORTD |= 1<<latchPin;//Latch pin HIGH

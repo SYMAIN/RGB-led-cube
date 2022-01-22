@@ -57,10 +57,11 @@ void setup()
   TIMSK1 = B00000010;
   OCR1A = 30;
 
-  anode[0] = B00000001;
-  anode[1] = B00000010;
-  anode[2] = B00000100;
-  anode[3] = B00001000;
+  anode[0]=0b11111110;
+  anode[1]=0b11111101;
+  anode[2]=0b11111011;
+  anode[3]=0b11110111;
+  
 
   pinMode(latch_pin, OUTPUT); //Latch
   pinMode(data_pin, OUTPUT);  //MOSI DATA

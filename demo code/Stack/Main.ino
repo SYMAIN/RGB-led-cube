@@ -398,7 +398,7 @@ void moveOnePixel()
     LED(layer, column, row, red, green, blue);
     LED(column, layer, row, red, green, blue);
     LED(row, layer, column, red, green, blue);
-    delay(50);d
+    delay(50);
     clean();
   }
 }

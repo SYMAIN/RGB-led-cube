@@ -576,46 +576,46 @@ ISR(TIMER1_COMPA_vect)
   switch (BAM_Bit)
   {
   case 0:
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b11111111);
-    SPI.transfer(0b11111111);
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b00000000);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(blue0[shift_out]);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(green0[shift_out]);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(red0[shift_out]);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(blue0[shift_out]);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(green0[shift_out]);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(red0[shift_out]);
     break;
   case 1:
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b11111111);
-    SPI.transfer(0b11111111);
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b00000000);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(blue1[shift_out]);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(green1[shift_out]);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(red1[shift_out]);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(blue1[shift_out]);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(green1[shift_out]);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(red1[shift_out]);
     break;
   case 2:
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b11111111);
-    SPI.transfer(0b11111111);
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b00000000);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(blue2[shift_out]);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(green2[shift_out]);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(red2[shift_out]);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(blue2[shift_out]);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(green2[shift_out]);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(red2[shift_out]);
     break;
   case 3:
     SPI.transfer(0b00000000);

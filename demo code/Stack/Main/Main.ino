@@ -641,11 +641,12 @@ ISR(TIMER1_COMPA_vect)
       // SPI.transfer(0b11111111);
       // SPI.transfer(0b00000000);
       // SPI.transfer(0b00000000);
-      for (shift_out = level; shift_out < level + 2; shift_out++)
+      for (shift_out = level; shift_out < level + 2; shift_out++){
         SPI.transfer(blue0[shift_out]);
         Serial.print("shiftOut: ");
         Serial.println(shift_out);
         Serial.println(blue0[shift_out], BIN);
+      }
       for (shift_out = level; shift_out < level + 2; shift_out++)
         SPI.transfer(green0[shift_out]);
       for (shift_out = level; shift_out < level + 2; shift_out++)

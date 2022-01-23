@@ -582,6 +582,13 @@ void LED(int level, int row, int column, byte red, byte green, byte blue)
   bitWrite(blue1[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 1));
   bitWrite(blue2[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 2));
   bitWrite(blue3[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 3));
+
+  Serial.print("LED: Writing ");
+  Serial.print(blue, BIN);
+  Serial.print(" to ");
+  Serial.print(whichbyte);
+  Serial.print(" ");
+  Serial.println(wholebyte - (8 * whichbyte));
 }
 
 ISR(TIMER1_COMPA_vect)
@@ -602,12 +609,12 @@ ISR(TIMER1_COMPA_vect)
   switch (BAM_Bit)
   {
   case 0:
-    Serial.println("\n\nLog Blue");
-    for (int i = 0; i < 8; i ++){
-      Serial.print("blue @");
-      Serial.println(i);
-      Serial.println(blue0[i], BIN);
-    }
+    // Serial.println("\n\nLog Blue");
+    // for (int i = 0; i < 8; i ++){
+    //   Serial.print("blue @");
+    //   Serial.println(i);
+    //   Serial.println(blue0[i], BIN);
+    // }
     //Serial.println("\n\nShifting 0");
     //Serial.println(anode[anodelevel], BIN);
     // SPI.transfer(0b00000000);

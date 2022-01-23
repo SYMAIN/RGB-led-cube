@@ -448,7 +448,7 @@ void loop()
 //   }
 // }
 bool done;
-bool once0;
+bool once0 = false;
 void allLeds()
 {
   // // red
@@ -602,7 +602,7 @@ void LED(int level, int row, int column, byte red, byte green, byte blue)
   Serial.println(wholebyte - (8 * whichbyte));
 }
 
-bool once1;
+bool once1 = false;
 ISR(TIMER1_COMPA_vect)
 {
 

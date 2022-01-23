@@ -13,13 +13,13 @@ unsigned char defeatTheCrumbyPreprocessor;
 #include <SPI.h> // SPI Library used to clock data out to the shift registers
 
 //pin connections- the #define tag will replace all instances of "latchPin" in your code with A1 (and so on)
-#define latchPin 11 // aka PB5 / PORTB5. This was found on the schematics of the Arduino Mega2560. 
+#define latch_pin 11 // aka PB5 / PORTB5. This was found on the schematics of the Arduino Mega2560. 
 #define latchPinBIN 0b00100000 // this is the internal representation of turning PORTB5 on, aka the latch pin.
 #define blankPin 8 // aka PH5 / PORTH5
 #define blankPinBIN 0b00100000 // this is the internal representation of turning PH5 on
 
-#define clockPin 52 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
-#define dataPin 51 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
+#define clock_pin 52 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
+#define data_pin 51 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
 
 // BLANK: Yellow, pin 8
 // LATCH: Yellow, pin 11
@@ -617,40 +617,40 @@ void clean()
         LED(ii, jj, kk, 0, 0, 0);
 }
 
-void stack()
-{
-  int level = 2;
-
-  // starting block (2 by 2)
-  int red = random(15);
-  int green = random(15);
-  int blue = random(15);
-  while (true)
-  {
-    LED(level, 1, 0, red, green, blue);
-    LED(level, 1, 1, red, green, blue);
-    LED(level, 2, 0, red, green, blue);
-    LED(level, 2, 1, red, green, blue);
-
-    LED(level, 1, 1, red, green, blue);
-    LED(level, 1, 2, red, green, blue);
-    LED(level, 2, 1, red, green, blue);
-    LED(level, 2, 2, red, green, blue);
-
-    LED(level, 1, 2, red, green, blue);
-    LED(level, 1, 3, red, green, blue);
-    LED(level, 2, 2, red, green, blue);
-    LED(level, 2, 3, red, green, blue);
-
-    // go backward
-    LED(level, 1, 1, red, green, blue);
-    LED(level, 1, 2, red, green, blue);
-    LED(level, 2, 1, red, green, blue);
-    LED(level, 2, 2, red, green, blue);
-
-    if (digitalRead(button_pin) == HIGH)
-    {
-
-    }
-  }
-}
+//void stack()
+//{
+//  int level = 2;
+//
+//  // starting block (2 by 2)
+//  int red = random(15);
+//  int green = random(15);
+//  int blue = random(15);
+//  while (true)
+//  {
+//    LED(level, 1, 0, red, green, blue);
+//    LED(level, 1, 1, red, green, blue);
+//    LED(level, 2, 0, red, green, blue);
+//    LED(level, 2, 1, red, green, blue);
+//
+//    LED(level, 1, 1, red, green, blue);
+//    LED(level, 1, 2, red, green, blue);
+//    LED(level, 2, 1, red, green, blue);
+//    LED(level, 2, 2, red, green, blue);
+//
+//    LED(level, 1, 2, red, green, blue);
+//    LED(level, 1, 3, red, green, blue);
+//    LED(level, 2, 2, red, green, blue);
+//    LED(level, 2, 3, red, green, blue);
+//
+//    // go backward
+//    LED(level, 1, 1, red, green, blue);
+//    LED(level, 1, 2, red, green, blue);
+//    LED(level, 2, 1, red, green, blue);
+//    LED(level, 2, 2, red, green, blue);
+//
+//    if (digitalRead(button_pin) == HIGH)
+//    {
+//
+//    }
+//  }
+//}

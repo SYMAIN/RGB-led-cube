@@ -448,28 +448,28 @@ void loop()
 void allLeds()
 {
   // // red
-  for (int i = 0; i < 4; i++)
-    for (int j = 0; j < 4; j++)
-        for (int k = 0; k < 4; k++)
-          LED(i, j, k, 15, 0, 0);
-  delay(1000);
-  clean();
+  // for (int i = 0; i < 4; i++)
+  //   for (int j = 0; j < 4; j++)
+  //       for (int k = 0; k < 4; k++)
+  //         LED(i, j, k, 15, 0, 0);
+  // delay(1000);
+  // clean();
 
-  // green
-  for (int i = 0; i < 4; i++)
-    for (int j = 0; j < 4; j++)
-        for (int k = 0; k < 4; k++)
-          LED(i, j, k, 0, 15, 0);
-  delay(1000);
-  clean();
+  // // green
+  // for (int i = 0; i < 4; i++)
+  //   for (int j = 0; j < 4; j++)
+  //       for (int k = 0; k < 4; k++)
+  //         LED(i, j, k, 0, 15, 0);
+  // delay(1000);
+  // clean();
 
   // blue
   for (int i = 0; i < 4; i++)
     for (int j = 0; j < 4; j++)
         for (int k = 0; k < 4; k++)
           LED(i, j, k, 0, 0, 15);
-  delay(1000);
-  clean();
+  // delay(1000);
+  // clean();
 
   // for (int brightness = 0; brightness < 16; brightness++)
   // {

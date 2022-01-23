@@ -447,8 +447,7 @@ void loop()
 //     clean();
 //   }
 // }
-bool done;
-bool once0 = false;
+bool done = false;
 void allLeds()
 {
   // // red
@@ -474,13 +473,13 @@ void allLeds()
           LED(i, j, k, 0, 0, 15);
   done = true;
 
-  if (done && !once0){
-    once0 = true;
-    Serial.println("Blue Data Outside Timer");
-    for (int i = 0; i < 8; i ++){
-      Serial.println(blue0[i], BIN);
-    }
-  }
+  // if (done && !once0){
+  //   once0 = true;
+  //   Serial.println("Blue Data Outside Timer");
+  //   for (int i = 0; i < 8; i ++){
+  //     Serial.println(blue0[i], BIN);
+  //   }
+  // }
   // delay(1000);
   // clean();
 
@@ -602,141 +601,142 @@ void LED(int level, int row, int column, byte red, byte green, byte blue)
   // Serial.println(wholebyte - (8 * whichbyte));
 }
 
-bool once1 = false;
 ISR(TIMER1_COMPA_vect)
 {
-
-  if (done && !once1){
-    once1 = true;
-    Serial.println("Blue Data Inside Timer");
-    for (int i = 0; i < 8; i ++){
-      Serial.println(blue0[i], BIN);
-    }
-  }
-
-  // Blank everything while we change some stuff
-  PORTH |= blankPinBIN;//Blank pin HIGH (aka disable outputs)
-
-  if (BAM_Counter == 8)
-    BAM_Bit++;
-  else if (BAM_Counter == 24)
-    BAM_Bit++;
-  else if (BAM_Counter == 56)
-    BAM_Bit++;
-
-  BAM_Counter++;
-
-  switch (BAM_Bit)
-  {
-  case 0:
-    // Serial.println("\n\nLog Blue");
-    // for (int i = 0; i < 8; i ++){
-    //   Serial.print("blue @");
-    //   Serial.println(i);
-    //   Serial.println(blue0[i], BIN);
+  if (done){
+    // if (done && !once1){
+    //   once1 = true;
+    //   Serial.println("Blue Data Inside Timer");
+    //   for (int i = 0; i < 8; i ++){
+    //     Serial.println(blue0[i], BIN);
+    //   }
     // }
-    //Serial.println("\n\nShifting 0");
-    //Serial.println(anode[anodelevel], BIN);
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b11111111);
-    // SPI.transfer(0b11111111);
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b00000000);
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(blue0[shift_out]);
-      //Serial.print("shiftOut: ");
-      //Serial.println(shift_out);
-      //Serial.println(blue0[shift_out], BIN);
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(green0[shift_out]);
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(red0[shift_out]);
-    // Serial.print("BAM ");
-    // Serial.print(anodelevel);
-    // Serial.print("/3");
-    // Serial.println(":\n");
-    // Serial.println("blue0, green0, red0, anode");
-    // Serial.println(blue0[shift_out], BIN);
-    // Serial.println(green0[shift_out], BIN);
-    // Serial.println(red0[shift_out], BIN);
-    // Serial.println(anode[anodelevel], BIN);
-    // Serial.println("\n\n");
-    break;
-  case 1:
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b11111111);
-    // SPI.transfer(0b11111111);
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b00000000);
-    //Serial.println("Shifting 1");
-    //Serial.println(anode[anodelevel], BIN);
-    for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-      SPI.transfer(blue1[shift_out]);
-      //Serial.println(blue1[shift_out], BIN);
-    for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-      SPI.transfer(green1[shift_out]);
-    for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-      SPI.transfer(red1[shift_out]);
-    break;
-  case 2:
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b11111111);
-    // SPI.transfer(0b11111111);
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b00000000);
-    //Serial.println("Shifting 2");
-    //Serial.println(anode[anodelevel], BIN);
-    for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-      SPI.transfer(blue2[shift_out]);
-      //Serial.println(blue2[shift_out], BIN);
-    for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-      SPI.transfer(green2[shift_out]);
-    for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-      SPI.transfer(red2[shift_out]);
-    break;
-  case 3:
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b11111111);
-    // SPI.transfer(0b11111111);
-    // SPI.transfer(0b00000000);
-    // SPI.transfer(0b00000000);
-    //Serial.println("Shifting 3");
-    //Serial.println(anode[anodelevel], BIN);
-    for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-      SPI.transfer(blue3[shift_out]);
-      //Serial.println(blue3[shift_out], BIN);
-    for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-      SPI.transfer(green3[shift_out]);
-    for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-      SPI.transfer(red3[shift_out]);
 
-    if (BAM_Counter == 120)
+    // Blank everything while we change some stuff
+    PORTH |= blankPinBIN;//Blank pin HIGH (aka disable outputs)
+
+    if (BAM_Counter == 8)
+      BAM_Bit++;
+    else if (BAM_Counter == 24)
+      BAM_Bit++;
+    else if (BAM_Counter == 56)
+      BAM_Bit++;
+
+    BAM_Counter++;
+
+    switch (BAM_Bit)
     {
-      BAM_Counter = 0;
-      BAM_Bit = 0;
+    case 0:
+      // Serial.println("\n\nLog Blue");
+      // for (int i = 0; i < 8; i ++){
+      //   Serial.print("blue @");
+      //   Serial.println(i);
+      //   Serial.println(blue0[i], BIN);
+      // }
+      Serial.println("\n\nShifting 0");
+      Serial.println(anode[anodelevel], BIN);
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b11111111);
+      // SPI.transfer(0b11111111);
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b00000000);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(blue0[shift_out]);
+        Serial.print("shiftOut: ");
+        Serial.println(shift_out);
+        Serial.println(blue0[shift_out], BIN);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(green0[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(red0[shift_out]);
+      // Serial.print("BAM ");
+      // Serial.print(anodelevel);
+      // Serial.print("/3");
+      // Serial.println(":\n");
+      // Serial.println("blue0, green0, red0, anode");
+      // Serial.println(blue0[shift_out], BIN);
+      // Serial.println(green0[shift_out], BIN);
+      // Serial.println(red0[shift_out], BIN);
+      // Serial.println(anode[anodelevel], BIN);
+      // Serial.println("\n\n");
+      break;
+    case 1:
+      Serial.println("\n\nEND DATA\n\n");
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b11111111);
+      // SPI.transfer(0b11111111);
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b00000000);
+      //Serial.println("Shifting 1");
+      //Serial.println(anode[anodelevel], BIN);
+      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
+        SPI.transfer(blue1[shift_out]);
+        //Serial.println(blue1[shift_out], BIN);
+      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
+        SPI.transfer(green1[shift_out]);
+      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
+        SPI.transfer(red1[shift_out]);
+      break;
+    case 2:
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b11111111);
+      // SPI.transfer(0b11111111);
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b00000000);
+      //Serial.println("Shifting 2");
+      //Serial.println(anode[anodelevel], BIN);
+      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
+        SPI.transfer(blue2[shift_out]);
+        //Serial.println(blue2[shift_out], BIN);
+      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
+        SPI.transfer(green2[shift_out]);
+      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
+        SPI.transfer(red2[shift_out]);
+      break;
+    case 3:
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b11111111);
+      // SPI.transfer(0b11111111);
+      // SPI.transfer(0b00000000);
+      // SPI.transfer(0b00000000);
+      //Serial.println("Shifting 3");
+      //Serial.println(anode[anodelevel], BIN);
+      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
+        SPI.transfer(blue3[shift_out]);
+        //Serial.println(blue3[shift_out], BIN);
+      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
+        SPI.transfer(green3[shift_out]);
+      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
+        SPI.transfer(red3[shift_out]);
+
+      if (BAM_Counter == 120)
+      {
+        BAM_Counter = 0;
+        BAM_Bit = 0;
+      }
+      break;
     }
-    break;
+
+    SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
+
+    PORTB |= latchPinBIN;//Latch pin HIGH
+    PORTB &= ~(latchPinBIN);//Latch pin LOW
+    // turn everything back on by disabling blanks
+    PORTH &= ~(blankPinBIN);//Latch pin LOW
+
+    anodelevel++;
+    level = level + 2;
+
+    if (anodelevel == 4)
+      anodelevel = 0;
+    if (level == 8)
+      level = 0;
+    pinMode(blankPin, OUTPUT);
   }
-
-  SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
-
-  PORTB |= latchPinBIN;//Latch pin HIGH
-  PORTB &= ~(latchPinBIN);//Latch pin LOW
-  // turn everything back on by disabling blanks
-  PORTH &= ~(blankPinBIN);//Latch pin LOW
-
-  anodelevel++;
-  level = level + 2;
-
-  if (anodelevel == 4)
-    anodelevel = 0;
-  if (level == 8)
-    level = 0;
-  pinMode(blankPin, OUTPUT);
 }
 
 void clean()

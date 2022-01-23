@@ -73,13 +73,13 @@ void setup()
 
 void loop()
 {
-  movePlane();
-  moveSingle();
-  moveSqure();
-  moveOnePixel();
+  // movePlane();
+  // moveSingle();
+  // moveSqure();
+  // moveOnePixel();
   allLeds();
-  planeSwipe();
-  randomLeds();
+  // planeSwipe();
+  // randomLeds();
 }
 void randomLeds()
 {

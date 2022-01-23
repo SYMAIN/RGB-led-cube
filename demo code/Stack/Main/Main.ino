@@ -81,378 +81,379 @@ void loop()
   // planeSwipe();
   // randomLeds();
 }
-void randomLeds()
-{
-  int x, y, z, red, green, blue;
-  start = millis();
+// void randomLeds()
+// {
+//   int x, y, z, red, green, blue;
+//   start = millis();
 
-  while (millis() - start < 5000)
-  {
-    x = random(4);
-    y = random(4);
-    z = random(4);
-    red = random(16);
-    green = random(16);
-    blue = random(16);
-    LED(x, y, z, red, green, blue);
+//   while (millis() - start < 5000)
+//   {
+//     x = random(4);
+//     y = random(4);
+//     z = random(4);
+//     red = random(16);
+//     green = random(16);
+//     blue = random(16);
+//     LED(x, y, z, red, green, blue);
 
-    delay(20);
-  }
-  clean();
-}
-void planeSwipe()
-{
-  for (int i = 0; i < 3; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= (3 - i))
-      {
-        for (int k = 0; k < 4; k++)
-          LED(k, j, child, 0, 15, 0);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(k, j, child, 0, 15, 0);
-      }
-    }
-    delay(100);
-    clean();
-  }
-  for (int i = 0; i < 4; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= i)
-      {
-        for (int k = 0; k < 4; k++)
-          LED(k, child, j, 0, 15, 0);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(k, child, j, 0, 15, 0);
-      }
-    }
-    delay(100);
-    clean();
-  }
-  for (int i = 0; i < 3; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= (3 - i))
-      {
-        for (int k = 0; k < 4; k++)
-          LED(k, child, j, 0, 15, 0);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(k, child, j, 0, 15, 0);
-      }
-    }
-    delay(100);
-    clean();
-  }
-  for (int i = 0; i < 4; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= i)
-      {
-        for (int k = 0; k < 4; k++)
-          LED(k, j, child, 0, 15, 0);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(k, j, child, 0, 15, 0);
-      }
-    }
-    delay(100);
-    clean();
-  }
-  ///////////////
-  for (int i = 0; i < 3; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= (3 - i))
-      {
-        for (int k = 0; k < 4; k++)
-          LED(j, child, k, 0, 0, 15);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(j, child, k, 0, 0, 15);
-      }
-    }
-    delay(100);
-    clean();
-  }
-  for (int i = 0; i < 4; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= i)
-      {
-        for (int k = 0; k < 4; k++)
-          LED(child, j, k, 0, 0, 15);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(child, j, k, 0, 0, 15);
-      }
-    }
-    delay(100);
-    clean();
-  }
-  for (int i = 0; i < 3; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= (3 - i))
-      {
-        for (int k = 0; k < 4; k++)
-          LED(child, j, k, 0, 0, 15);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(child, j, k, 0, 0, 15);
-      }
-    }
-    delay(100);
-    clean();
-  }
-  for (int i = 0; i < 4; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= i)
-      {
-        for (int k = 0; k < 4; k++)
-          LED(j, child, k, 0, 0, 15);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(j, child, k, 0, 0, 15);
-      }
-    }
-    delay(100);
-    clean();
-  }
-  //////////////////////
-  for (int i = 0; i < 3; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= (3 - i))
-      {
-        for (int k = 0; k < 4; k++)
-          LED(j, k, child, 15, 0, 0);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(j, k, child, 15, 0, 0);
-      }
-    }
-    delay(100);
-    clean();
-  }
-  for (int i = 0; i < 4; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= i)
-      {
-        for (int k = 0; k < 4; k++)
-          LED(child, k, j, 15, 0, 0);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(child, k, j, 15, 0, 0);
-      }
-    }
-    delay(100);
-    clean();
-  }
-  for (int i = 0; i < 3; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= (3 - i))
-      {
-        for (int k = 0; k < 4; k++)
-          LED(child, k, j, 15, 0, 0);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(child, k, j, 15, 0, 0);
-      }
-    }
-    delay(100);
-    clean();
-  }
-  for (int i = 0; i < 4; i++)
-  {
-    int child = 0;
-    for (int j = 0; j < 4; j++)
-    {
-      if (j >= i)
-      {
-        for (int k = 0; k < 4; k++)
-          LED(j, k, child, 15, 0, 0);
-        child++;
-      }
-      else
-      {
-        for (int k = 0; k < 4; k++)
-          LED(j, k, child, 15, 0, 0);
-      }
-    }
-    delay(100);
-    clean();
-  }
-}
-void movePlane()
-{
-  start = millis();
+//     delay(20);
+//   }
+//   clean();
+// }
+// void planeSwipe()
+// {
+//   for (int i = 0; i < 3; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= (3 - i))
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(k, j, child, 0, 15, 0);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(k, j, child, 0, 15, 0);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+//   for (int i = 0; i < 4; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= i)
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(k, child, j, 0, 15, 0);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(k, child, j, 0, 15, 0);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+//   for (int i = 0; i < 3; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= (3 - i))
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(k, child, j, 0, 15, 0);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(k, child, j, 0, 15, 0);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+//   for (int i = 0; i < 4; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= i)
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(k, j, child, 0, 15, 0);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(k, j, child, 0, 15, 0);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+//   ///////////////
+//   for (int i = 0; i < 3; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= (3 - i))
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(j, child, k, 0, 0, 15);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(j, child, k, 0, 0, 15);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+//   for (int i = 0; i < 4; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= i)
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(child, j, k, 0, 0, 15);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(child, j, k, 0, 0, 15);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+//   for (int i = 0; i < 3; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= (3 - i))
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(child, j, k, 0, 0, 15);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(child, j, k, 0, 0, 15);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+//   for (int i = 0; i < 4; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= i)
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(j, child, k, 0, 0, 15);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(j, child, k, 0, 0, 15);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+//   //////////////////////
+//   for (int i = 0; i < 3; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= (3 - i))
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(j, k, child, 15, 0, 0);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(j, k, child, 15, 0, 0);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+//   for (int i = 0; i < 4; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= i)
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(child, k, j, 15, 0, 0);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(child, k, j, 15, 0, 0);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+//   for (int i = 0; i < 3; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= (3 - i))
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(child, k, j, 15, 0, 0);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(child, k, j, 15, 0, 0);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+//   for (int i = 0; i < 4; i++)
+//   {
+//     int child = 0;
+//     for (int j = 0; j < 4; j++)
+//     {
+//       if (j >= i)
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(j, k, child, 15, 0, 0);
+//         child++;
+//       }
+//       else
+//       {
+//         for (int k = 0; k < 4; k++)
+//           LED(j, k, child, 15, 0, 0);
+//       }
+//     }
+//     delay(100);
+//     clean();
+//   }
+// }
+// void movePlane()
+// {
+//   start = millis();
 
-  while (millis() - start < 5000)
-  {
-    for (int i = 0; i < 4; i++)
-    {
-      for (int j = 0; j < 4; j++)
-        for (int k = 0; k < 4; k++)
-        {
-          LED(i, j, k, 15, 0, 0);
-          LED(j, i, k, 0, 10, 0);
-          LED(j, k, i, 0, 0, 10);
-        }
+//   while (millis() - start < 5000)
+//   {
+//     for (int i = 0; i < 4; i++)
+//     {
+//       for (int j = 0; j < 4; j++)
+//         for (int k = 0; k < 4; k++)
+//         {
+//           LED(i, j, k, 15, 0, 0);
+//           LED(j, i, k, 0, 10, 0);
+//           LED(j, k, i, 0, 0, 10);
+//         }
 
-      delay(100);
-      clean();
-    }
-  }
-}
-void moveSingle()
-{
-  start = millis();
+//       delay(100);
+//       clean();
+//     }
+//   }
+// }
+// void moveSingle()
+// {
+//   start = millis();
 
-  while (millis() - start < 5000)
-  {
-    for (int i = 0; i < 4; i++)
-      for (int j = 0; j < 4; j++)
-        for (int k = 0; k < 4; k++)
-        {
-          LED(i, j, k, 15, 0, 15);
-          LED(j, i, k, 15, 0, 15);
-          LED(i, k, j, 0, 15, 15);
-          delay(50);
-          clean();
-        }
-  }
-}
-void moveOnePixel()
-{
-  start = millis();
-  int layer, column, row, red, green, blue;
-  while (millis() - start < 5000)
-  {
-    layer = random(4);
-    column = random(4);
-    row = random(4);
-    red = random(16);
-    green = random(16);
-    blue = random(16);
-    LED(layer, column, row, red, green, blue);
-    LED(column, layer, row, red, green, blue);
-    LED(row, layer, column, red, green, blue);
-    delay(50);
-    clean();
-  }
-}
-void moveSqure()
-{
-  start = millis();
+//   while (millis() - start < 5000)
+//   {
+//     for (int i = 0; i < 4; i++)
+//       for (int j = 0; j < 4; j++)
+//         for (int k = 0; k < 4; k++)
+//         {
+//           LED(i, j, k, 15, 0, 15);
+//           LED(j, i, k, 15, 0, 15);
+//           LED(i, k, j, 0, 15, 15);
+//           delay(50);
+//           clean();
+//         }
+//   }
+// }
+// void moveOnePixel()
+// {
+//   start = millis();
+//   int layer, column, row, red, green, blue;
+//   while (millis() - start < 5000)
+//   {
+//     layer = random(4);
+//     column = random(4);
+//     row = random(4);
+//     red = random(16);
+//     green = random(16);
+//     blue = random(16);
+//     LED(layer, column, row, red, green, blue);
+//     LED(column, layer, row, red, green, blue);
+//     LED(row, layer, column, red, green, blue);
+//     delay(50);
+//     clean();
+//   }
+// }
+// void moveSqure()
+// {
+//   start = millis();
 
-  while (millis() - start < 5000)
-  {
-    int red = random(15);
-    int green = random(15);
-    int blue = random(15);
-    LED(1, 1, 1, red, green, blue);
-    LED(1, 1, 2, red, green, blue);
-    LED(1, 2, 1, red, green, blue);
-    LED(1, 2, 2, red, green, blue);
-    LED(2, 1, 1, red, green, blue);
-    LED(2, 1, 2, red, green, blue);
-    LED(2, 2, 1, red, green, blue);
-    LED(2, 2, 2, red, green, blue);
-    delay(200);
-    clean();
-    for (int i = 0; i < 4; i++)
-      for (int j = 0; j < 4; j++)
-        LED(i, j, 0, red, green, blue);
-    for (int i = 0; i < 4; i++)
-      for (int j = 0; j < 4; j++)
-        LED(i, 0, j, red, green, blue);
-    for (int i = 0; i < 4; i++)
-      for (int j = 0; j < 4; j++)
-        LED(0, i, j, red, green, blue);
-    for (int i = 0; i < 4; i++)
-      for (int j = 0; j < 4; j++)
-        LED(i, j, 3, red, green, blue);
-    for (int i = 0; i < 4; i++)
-      for (int j = 0; j < 4; j++)
-        LED(i, 3, j, red, green, blue);
-    for (int i = 0; i < 4; i++)
-      for (int j = 0; j < 4; j++)
-        LED(3, i, j, red, green, blue);
+//   while (millis() - start < 5000)
+//   {
+//     int red = random(15);
+//     int green = random(15);
+//     int blue = random(15);
+//     LED(1, 1, 1, red, green, blue);
+//     LED(1, 1, 2, red, green, blue);
+//     LED(1, 2, 1, red, green, blue);
+//     LED(1, 2, 2, red, green, blue);
+//     LED(2, 1, 1, red, green, blue);
+//     LED(2, 1, 2, red, green, blue);
+//     LED(2, 2, 1, red, green, blue);
+//     LED(2, 2, 2, red, green, blue);
+//     delay(200);
+//     clean();
+//     for (int i = 0; i < 4; i++)
+//       for (int j = 0; j < 4; j++)
+//         LED(i, j, 0, red, green, blue);
+//     for (int i = 0; i < 4; i++)
+//       for (int j = 0; j < 4; j++)
+//         LED(i, 0, j, red, green, blue);
+//     for (int i = 0; i < 4; i++)
+//       for (int j = 0; j < 4; j++)
+//         LED(0, i, j, red, green, blue);
+//     for (int i = 0; i < 4; i++)
+//       for (int j = 0; j < 4; j++)
+//         LED(i, j, 3, red, green, blue);
+//     for (int i = 0; i < 4; i++)
+//       for (int j = 0; j < 4; j++)
+//         LED(i, 3, j, red, green, blue);
+//     for (int i = 0; i < 4; i++)
+//       for (int j = 0; j < 4; j++)
+//         LED(3, i, j, red, green, blue);
 
-    delay(200);
-    clean();
-  }
-}
+//     delay(200);
+//     clean();
+//   }
+// }
 void allLeds()
 {
   // // red
-  // for (int i = 0; i < 4; i++)
-  //   for (int j = 0; j < 4; j++)
-  //       for (int k = 0; k < 4; k++)
-  //         LED(i, j, k, 15, 0, 0);
-  // delay(1000);
+  for (int i = 0; i < 4; i++)
+    for (int j = 0; j < 4; j++)
+        for (int k = 0; k < 4; k++)
+          LED(i, j, k, 15, 0, 0);
+  delay(1000);
+  clean();
 
   // green
   for (int i = 0; i < 4; i++)
@@ -460,6 +461,7 @@ void allLeds()
         for (int k = 0; k < 4; k++)
           LED(i, j, k, 0, 15, 0);
   delay(1000);
+  clean();
 
   // blue
   for (int i = 0; i < 4; i++)
@@ -467,6 +469,7 @@ void allLeds()
         for (int k = 0; k < 4; k++)
           LED(i, j, k, 0, 0, 15);
   delay(1000);
+  clean();
 
   // for (int brightness = 0; brightness < 16; brightness++)
   // {

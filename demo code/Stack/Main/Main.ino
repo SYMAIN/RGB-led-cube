@@ -734,7 +734,7 @@ ISR(TIMER1_COMPA_vect)
       anodelevel = 0;
     if (level == 8)
       level = 0;
-    pinMode(blankPin, OUTPUT);
+    
   }
 }
 

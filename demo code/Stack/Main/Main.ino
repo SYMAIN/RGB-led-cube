@@ -44,6 +44,8 @@ unsigned long start; //for a millis timer to cycle through the animations
 void setup()
 {
 
+  Serial.begin(9600);
+
   SPI.setBitOrder(MSBFIRST);           //Most Significant Bit First
   SPI.setDataMode(SPI_MODE0);          // Mode 0 Rising edge of data, keep clock low
   SPI.setClockDivider(SPI_CLOCK_DIV2); //Run the data in at 16MHz/2 - 8MHz
@@ -588,6 +590,17 @@ ISR(TIMER1_COMPA_vect)
       SPI.transfer(green0[shift_out]);
     for (shift_out = level; shift_out < level + 2; shift_out++)
       SPI.transfer(red0[shift_out]);
+
+    Serial.print("BAM ");
+    Serial.print(anodelevel);
+    Serial.print("/3");
+    Serial.println(":\n");
+    Serial.println("blue0, green0, red0, anode");
+    Serial.println(blue0[shift_out], BIN);
+    Serial.println(green0[shift_out], BIN);
+    Serial.println(red0[shift_out], BIN);
+    Serial.println(anode[anodelevel], BIN);
+    Serial.println("\n\n");
     break;
   case 1:
     // SPI.transfer(0b00000000);

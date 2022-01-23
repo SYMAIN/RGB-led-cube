@@ -536,15 +536,18 @@ void allLeds()
   //       }
   //   delay(30);
   // }
-  Serial.println("red");
-  for (int i = 0; i < 8; i++)
-    Serial.println(red0[i]);
-  Serial.println("green");
-  for (int i = 0; i < 8; i++)
-    Serial.println(green0[i]);
-  Serial.println("blue");
+  Serial.println("blue0");
   for (int i = 0; i < 8; i++)
     Serial.println(blue0[i]);
+  Serial.println("blue1");
+  for (int i = 0; i < 8; i++)
+    Serial.println(blue1[i]);
+  Serial.println("blue2");
+  for (int i = 0; i < 8; i++)
+    Serial.println(blue2[i]);
+  Serial.println("blue3");
+  for (int i = 0; i < 8; i++)
+    Serial.println(blue3[i]);
   Serial.println("\n\n\n");
 }
 void LED(int level, int row, int column, byte red, byte green, byte blue)

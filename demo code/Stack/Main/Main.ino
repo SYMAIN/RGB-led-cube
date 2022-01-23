@@ -540,6 +540,17 @@ void allLeds()
 void LED(int level, int row, int column, byte red, byte green, byte blue)
 { //****LED Routine****LED Routine****LED Routine****LED Routine
 
+  if (red != 0){
+    Serial.println("RED! Call:");
+    Serial.println(level);
+    Serial.println(row);
+    Serial.println(column);
+    Serial.println(red, BIN);
+    Serial.println(green, BIN);
+    Serial.println(blue, BIN);
+    Serial.println("\n");
+  }
+
   int whichbyte = int(((level * 16) + (row * 4) + column) / 8);
 
   int wholebyte = (level * 16) + (row * 4) + column;
@@ -591,16 +602,16 @@ ISR(TIMER1_COMPA_vect)
     for (shift_out = level; shift_out < level + 2; shift_out++)
       SPI.transfer(red0[shift_out]);
 
-    Serial.print("BAM ");
-    Serial.print(anodelevel);
-    Serial.print("/3");
-    Serial.println(":\n");
-    Serial.println("blue0, green0, red0, anode");
-    Serial.println(blue0[shift_out], BIN);
-    Serial.println(green0[shift_out], BIN);
-    Serial.println(red0[shift_out], BIN);
-    Serial.println(anode[anodelevel], BIN);
-    Serial.println("\n\n");
+    // Serial.print("BAM ");
+    // Serial.print(anodelevel);
+    // Serial.print("/3");
+    // Serial.println(":\n");
+    // Serial.println("blue0, green0, red0, anode");
+    // Serial.println(blue0[shift_out], BIN);
+    // Serial.println(green0[shift_out], BIN);
+    // Serial.println(red0[shift_out], BIN);
+    // Serial.println(anode[anodelevel], BIN);
+    // Serial.println("\n\n");
     break;
   case 1:
     // SPI.transfer(0b00000000);

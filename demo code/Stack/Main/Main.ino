@@ -59,10 +59,10 @@ void setup()
   TIMSK1 = B00000010;
   OCR1A = 30;
 
-  anode[0]=0b11101111;
-  anode[1]=0b11011111;
-  anode[2]=0b10111111;
-  anode[3]=0b01111111;
+  anode[0]=0b11101110;
+  anode[1]=0b11011101;
+  anode[2]=0b10111011;
+  anode[3]=0b01110111;
   
 
   pinMode(latch_pin, OUTPUT); //Latch

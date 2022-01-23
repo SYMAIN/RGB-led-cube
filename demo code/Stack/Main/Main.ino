@@ -57,7 +57,7 @@ void setup()
   TCCR1B = B00001011;
 
   TIMSK1 = B00000010;
-  OCR1A = 3000;
+  OCR1A = 30;
 
   anode[0]=0b11101111;
   anode[1]=0b11011111;
@@ -536,6 +536,16 @@ void allLeds()
   //       }
   //   delay(30);
   // }
+  Serial.println("red");
+  for (int i = 0; i < 8; i++)
+    Serial.println(red0[i]);
+  Serial.println("green");
+  for (int i = 0; i < 8; i++)
+    Serial.println(green0[i]);
+  Serial.println("blue");
+  for (int i = 0; i < 8; i++)
+    Serial.println(blue0[i]);
+  Serial.println("\n\n\n");
 }
 void LED(int level, int row, int column, byte red, byte green, byte blue)
 { //****LED Routine****LED Routine****LED Routine****LED Routine

@@ -594,12 +594,12 @@ void LED(int level, int row, int column, byte red, byte green, byte blue)
   bitWrite(blue2[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 2));
   bitWrite(blue3[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 3));
 
-  Serial.print("LED: Writing ");
-  Serial.print(blue, BIN);
-  Serial.print(" to ");
-  Serial.print(whichbyte);
-  Serial.print(" ");
-  Serial.println(wholebyte - (8 * whichbyte));
+  // Serial.print("LED: Writing ");
+  // Serial.print(blue, BIN);
+  // Serial.print(" to ");
+  // Serial.print(whichbyte);
+  // Serial.print(" ");
+  // Serial.println(wholebyte - (8 * whichbyte));
 }
 
 bool once1 = false;

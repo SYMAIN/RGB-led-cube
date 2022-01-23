@@ -626,9 +626,9 @@ void stack()
     LED(level, 2, 1, red, green, blue);
     LED(level, 2, 2, red, green, blue);
 
-    if (button_pin == HIGH)
+    if (digitalRead(button_pin) == HIGH)
     {
-      
+
     }
   }
 }

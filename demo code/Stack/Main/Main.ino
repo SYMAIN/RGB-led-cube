@@ -618,18 +618,18 @@ ISR(TIMER1_COMPA_vect)
       SPI.transfer(red2[shift_out]);
     break;
   case 3:
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b11111111);
-    SPI.transfer(0b11111111);
-    SPI.transfer(0b00000000);
-    SPI.transfer(0b00000000);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(blue3[shift_out]);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(green3[shift_out]);
-    // for (shift_out = level; shift_out < level + 2; shift_out++)
-    //   SPI.transfer(red3[shift_out]);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(blue3[shift_out]);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(green3[shift_out]);
+    for (shift_out = level; shift_out < level + 2; shift_out++)
+      SPI.transfer(red3[shift_out]);
 
     if (BAM_Counter == 120)
     {

@@ -55,7 +55,7 @@ void setup()
   TCCR1B = B00001011;
 
   TIMSK1 = B00000010;
-  OCR1A = 30;
+  OCR1A = 3000;
 
   anode[0]=0b11111110;
   anode[1]=0b11111101;
@@ -468,7 +468,7 @@ void allLeds()
     for (int j = 0; j < 4; j++)
         for (int k = 0; k < 4; k++)
           LED(i, j, k, 0, 0, 15);
-  // delay(1000);
+  delay(1000);
   // clean();
 
   // for (int brightness = 0; brightness < 16; brightness++)
@@ -576,36 +576,60 @@ ISR(TIMER1_COMPA_vect)
   switch (BAM_Bit)
   {
   case 0:
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(blue0[shift_out]);
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(green0[shift_out]);
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(red0[shift_out]);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b11111111);
+    SPI.transfer(0b11111111);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b00000000);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(blue0[shift_out]);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(green0[shift_out]);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(red0[shift_out]);
     break;
   case 1:
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(blue1[shift_out]);
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(green1[shift_out]);
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(red1[shift_out]);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b11111111);
+    SPI.transfer(0b11111111);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b00000000);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(blue1[shift_out]);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(green1[shift_out]);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(red1[shift_out]);
     break;
   case 2:
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(blue2[shift_out]);
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(green2[shift_out]);
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(red2[shift_out]);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b11111111);
+    SPI.transfer(0b11111111);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b00000000);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(blue2[shift_out]);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(green2[shift_out]);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(red2[shift_out]);
     break;
   case 3:
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(blue3[shift_out]);
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(green3[shift_out]);
-    for (shift_out = level; shift_out < level + 2; shift_out++)
-      SPI.transfer(red3[shift_out]);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b11111111);
+    SPI.transfer(0b11111111);
+    SPI.transfer(0b00000000);
+    SPI.transfer(0b00000000);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(blue3[shift_out]);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(green3[shift_out]);
+    // for (shift_out = level; shift_out < level + 2; shift_out++)
+    //   SPI.transfer(red3[shift_out]);
 
     if (BAM_Counter == 120)
     {

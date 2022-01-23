@@ -59,10 +59,10 @@ void setup()
   TIMSK1 = B00000010;
   OCR1A = 3000;
 
-  anode[0]=0b11111110;
-  anode[1]=0b11111101;
-  anode[2]=0b11111011;
-  anode[3]=0b11110111;
+  anode[0]=0b11101111;
+  anode[1]=0b11011111;
+  anode[2]=0b10111111;
+  anode[3]=0b01111111;
   
 
   pinMode(latch_pin, OUTPUT); //Latch
@@ -540,16 +540,16 @@ void allLeds()
 void LED(int level, int row, int column, byte red, byte green, byte blue)
 { //****LED Routine****LED Routine****LED Routine****LED Routine
 
-  if (red != 0){
-    Serial.println("RED! Call:");
-    Serial.println(level);
-    Serial.println(row);
-    Serial.println(column);
-    Serial.println(red, BIN);
-    Serial.println(green, BIN);
-    Serial.println(blue, BIN);
-    Serial.println("\n");
-  }
+  // if (red != 0){
+  //   Serial.println("RED! Call:");
+  //   Serial.println(level);
+  //   Serial.println(row);
+  //   Serial.println(column);
+  //   Serial.println(red, BIN);
+  //   Serial.println(green, BIN);
+  //   Serial.println(blue, BIN);
+  //   Serial.println("\n");
+  // }
 
   int whichbyte = int(((level * 16) + (row * 4) + column) / 8);
 

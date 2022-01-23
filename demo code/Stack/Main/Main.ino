@@ -602,8 +602,14 @@ ISR(TIMER1_COMPA_vect)
   switch (BAM_Bit)
   {
   case 0:
-    Serial.println("\n\nShifting 0");
-    Serial.println(anode[anodelevel], BIN);
+    Serial.println("\n\nLog Blue");
+    for (int i = 0; i < 8; i ++){
+      Serial.print("blue @");
+      Serial.println(i);
+      Serial.println(blue0[i], BIN);
+    }
+    //Serial.println("\n\nShifting 0");
+    //Serial.println(anode[anodelevel], BIN);
     // SPI.transfer(0b00000000);
     // SPI.transfer(0b00000000);
     // SPI.transfer(0b11111111);
@@ -612,9 +618,9 @@ ISR(TIMER1_COMPA_vect)
     // SPI.transfer(0b00000000);
     for (shift_out = level; shift_out < level + 2; shift_out++)
       SPI.transfer(blue0[shift_out]);
-      Serial.print("shiftOut: ");
-      Serial.println(shift_out);
-      Serial.println(blue0[shift_out], BIN);
+      //Serial.print("shiftOut: ");
+      //Serial.println(shift_out);
+      //Serial.println(blue0[shift_out], BIN);
     for (shift_out = level; shift_out < level + 2; shift_out++)
       SPI.transfer(green0[shift_out]);
     for (shift_out = level; shift_out < level + 2; shift_out++)

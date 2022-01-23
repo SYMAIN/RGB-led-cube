@@ -602,7 +602,7 @@ ISR(TIMER1_COMPA_vect)
   switch (BAM_Bit)
   {
   case 0:
-    Serial.println("Shifting 0");
+    Serial.println("\n\nShifting 0");
     Serial.println(anode[anodelevel], BIN);
     // SPI.transfer(0b00000000);
     // SPI.transfer(0b00000000);

@@ -447,6 +447,8 @@ void loop()
 //     clean();
 //   }
 // }
+bool done;
+bool once0;
 void allLeds()
 {
   // // red
@@ -470,7 +472,16 @@ void allLeds()
     for (int j = 0; j < 4; j++)
         for (int k = 0; k < 4; k++)
           LED(i, j, k, 0, 0, 15);
-  delay(1000);
+  done = true;
+
+  if (done && !once0){
+    once0 = true;
+    Serial.println("Blue Data Outside Timer");
+    for (int i = 0; i < 8; i ++){
+      Serial.println(blue0[i], BIN);
+    }
+  }
+  // delay(1000);
   // clean();
 
   // for (int brightness = 0; brightness < 16; brightness++)
@@ -591,8 +602,17 @@ void LED(int level, int row, int column, byte red, byte green, byte blue)
   Serial.println(wholebyte - (8 * whichbyte));
 }
 
+bool once1;
 ISR(TIMER1_COMPA_vect)
 {
+
+  if (done && !once1){
+    once1 = true;
+    Serial.println("Blue Data Inside Timer");
+    for (int i = 0; i < 8; i ++){
+      Serial.println(blue0[i], BIN);
+    }
+  }
 
   // Blank everything while we change some stuff
   PORTH |= blankPinBIN;//Blank pin HIGH (aka disable outputs)

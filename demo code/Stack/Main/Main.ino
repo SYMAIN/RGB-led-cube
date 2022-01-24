@@ -21,7 +21,7 @@ unsigned char defeatTheCrumbyPreprocessor;
 #define clock_pin 52 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
 #define data_pin 51 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
 
-// BLANK: Yellow, pin 8
+// BLANK: Blue, pin 8
 // LATCH: Yellow, pin 11
 // DATA: Orange, pin 51
 // CLOCK: green, pin 52

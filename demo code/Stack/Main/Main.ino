@@ -451,6 +451,40 @@ void loop()
 //   }
 // }
 
+void launchMissles(){
+  // start pos
+  int startX = 1 + random(2);
+  int startZ = 1 + random(2);
+  // line
+  for (int i = 0; i < 4; i ++){
+    // trail
+    if (i > 0){
+      LED(startX, i, startZ, 15, 0, 0);
+    }
+    LED(startX, i, startZ, 0, 0, 15);
+    delay(200);
+    clear();
+  }
+  // explosion
+  LED(startX, 2, startZ, random(15), random(15), random(15));
+  LED(startX, 3, startZ, random(15), random(15), random(15));
+  LED(startX, 3, startZ + 1, random(15), random(15), random(15));
+  LED(startX, 3, startZ - 1, random(15), random(15), random(15));
+  LED(startX + 1, 3, startZ, random(15), random(15), random(15));
+  LED(startX - 1, 3, startZ, random(15), random(15), random(15));
+  delay(200);
+  clear();
+
+  // falling
+  LED(startX, 2, startZ - 1, random(7), random(7), random(7));
+  LED(startX, 3, startZ - 1, random(7), random(7), random(7));
+  LED(startX, 3, startZ, random(7), random(7), random(7));
+  LED(startX + 1, 3, startZ - 1, random(7), random(7), random(7));
+  LED(startX - 1, 3, startZ - 1, random(7), random(7), random(7));
+  delay(200);
+  clear();
+}
+
 void allBlue(){
   // add
   for (int i = 0; i < 4; i++)

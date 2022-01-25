@@ -75,12 +75,18 @@ void setup()
 
 void loop()
 {
+<<<<<<< HEAD
   all();
+=======
+  allBlue();
+  allGreen();
+  allRed();
+
+>>>>>>> 9fda1490c182d0c126114e80733087320b510706
   // movePlane();
   // moveSingle();
   // moveSqure();
   // moveOnePixel();
-  // allLeds();
   // planeSwipe();
   // randomLeds();
 }
@@ -453,123 +459,31 @@ void all(){
   // add
   for (int i = 0; i < 4; i++)
     for (int j = 0; j < 4; j++)
+<<<<<<< HEAD
         for (int k = 0; k < 4; k++)
           LED(i, j, k, 15, 0, 0);
+=======
+      for (int k = 0; k < 4; k++)
+        LED(i, j, k, 0, 0, 15);
+>>>>>>> 9fda1490c182d0c126114e80733087320b510706
 }
 
-void allLeds()
-{
-  // // red
-  // for (int i = 0; i < 4; i++)
-  //   for (int j = 0; j < 4; j++)
-  //       for (int k = 0; k < 4; k++)
-  //         LED(i, j, k, 15, 0, 0);
-  // delay(1000);
-  // clean();
-
-  // // green
-  // for (int i = 0; i < 4; i++)
-  //   for (int j = 0; j < 4; j++)
-  //       for (int k = 0; k < 4; k++)
-  //         LED(i, j, k, 0, 15, 0);
-  // delay(1000);
-  // clean();
-
-  // // blue
-  // for (int i = 0; i < 4; i++)
-  //   for (int j = 0; j < 4; j++)
-  //       for (int k = 0; k < 4; k++)
-  //         LED(i, j, k, 0, 0, 15);
-  // delay(1000);
-  // clean();
-
-  // if (done && !once0){
-  //   once0 = true;
-  //   Serial.println("Blue Data Outside Timer");
-  //   for (int i = 0; i < 8; i ++){
-  //     Serial.println(blue0[i], BIN);
-  //   }
-  // }
-  // delay(1000);
-  // clean();
-
-  // for (int brightness = 0; brightness < 16; brightness++)
-  // {
-  //   for (int i = 0; i < 4; i++)
-  //     for (int j = 0; j < 4; j++)
-  //       for (int k = 0; k < 4; k++)
-  //       {
-  //         LED(i, j, k, brightness, 0, 0);
-  //       }
-  //   delay(30);
-  // }
-  // delay(300);
-  // for (int brightness = 15; brightness >= 0; brightness--)
-  // {
-  //   for (int i = 0; i < 4; i++)
-  //     for (int j = 0; j < 4; j++)
-  //       for (int k = 0; k < 4; k++)
-  //       {
-  //         LED(i, j, k, brightness, 0, 0);
-  //       }
-  //   delay(30);
-  // }
-  // for (int brightness = 0; brightness < 16; brightness++)
-  // {
-  //   for (int i = 0; i < 4; i++)
-  //     for (int j = 0; j < 4; j++)
-  //       for (int k = 0; k < 4; k++)
-  //       {
-  //         LED(i, j, k, 0, brightness, 0);
-  //       }
-  //   delay(30);
-  // }
-  // delay(300);
-  // for (int brightness = 15; brightness >= 0; brightness--)
-  // {
-  //   for (int i = 0; i < 4; i++)
-  //     for (int j = 0; j < 4; j++)
-  //       for (int k = 0; k < 4; k++)
-  //       {
-  //         LED(i, j, k, 0, brightness, 0);
-  //       }
-  //   delay(30);
-  // }
-  // for (int brightness = 0; brightness < 16; brightness++)
-  // {
-  //   for (int i = 0; i < 4; i++)
-  //     for (int j = 0; j < 4; j++)
-  //       for (int k = 0; k < 4; k++)
-  //       {
-  //         LED(i, j, k, 0, 0, brightness);
-  //       }
-  //   delay(30);
-  // }
-  // delay(300);
-  // for (int brightness = 15; brightness >= 0; brightness--)
-  // {
-  //   for (int i = 0; i < 4; i++)
-  //     for (int j = 0; j < 4; j++)
-  //       for (int k = 0; k < 4; k++)
-  //       {
-  //         LED(i, j, k, 0, 0, brightness);
-  //       }
-  //   delay(30);
-  // }
-  // Serial.println("blue0");
-  // for (int i = 0; i < 8; i++)
-  //   Serial.println(blue0[i]);
-  // Serial.println("blue1");
-  // for (int i = 0; i < 8; i++)
-  //   Serial.println(blue1[i]);
-  // Serial.println("blue2");
-  // for (int i = 0; i < 8; i++)
-  //   Serial.println(blue2[i]);
-  // Serial.println("blue3");
-  // for (int i = 0; i < 8; i++)
-  //   Serial.println(blue3[i]);
-  // Serial.println("\n\n\n");
+void allGreen(){
+  // blue
+  for (int i = 0; i < 4; i++)
+    for (int j = 0; j < 4; j++)
+      for (int k = 0; k < 4; k++)
+        LED(i, j, k, 0, 15, 0);
 }
+
+void allRed(){
+  // blue
+  for (int i = 0; i < 4; i++)
+    for (int j = 0; j < 4; j++)
+      for (int k = 0; k < 4; k++)
+        LED(i, j, k, 15, 0, 0);
+}
+
 void LED(int level, int row, int column, byte red, byte green, byte blue)
 { //****LED Routine****LED Routine****LED Routine****LED Routine
 

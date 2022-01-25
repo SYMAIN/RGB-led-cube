@@ -68,12 +68,14 @@ void setup()
   pinMode(data_pin, OUTPUT);  //MOSI DATA
   pinMode(clock_pin, OUTPUT); //SPI Clock
   pinMode(blankPin, OUTPUT); //Output Enable  important to do this last, so LEDs do not flash on boot up
+  //digitalWrite(blankPin, HIGH);
   SPI.begin();                //start up the SPI library
   interrupts();               //let the show begin, this lets the multiplexing start
 }
 
 void loop()
 {
+  allBlue();
   // movePlane();
   // moveSingle();
   // moveSqure();
@@ -446,6 +448,15 @@ void loop()
 //     clean();
 //   }
 // }
+
+void allBlue(){
+  // blue
+  for (int i = 0; i < 4; i++)
+    for (int j = 0; j < 4; j++)
+        for (int k = 0; k < 4; k++)
+          LED(i, j, k, 0, 0, 15);
+}
+
 void allLeds()
 {
   // // red
@@ -464,11 +475,13 @@ void allLeds()
   // delay(1000);
   // clean();
 
-  // blue
-  for (int i = 0; i < 4; i++)
-    for (int j = 0; j < 4; j++)
-        for (int k = 0; k < 4; k++)
-          LED(i, j, k, 0, 0, 15);
+  // // blue
+  // for (int i = 0; i < 4; i++)
+  //   for (int j = 0; j < 4; j++)
+  //       for (int k = 0; k < 4; k++)
+  //         LED(i, j, k, 0, 0, 15);
+  // delay(1000);
+  // clean();
 
   // if (done && !once0){
   //   once0 = true;

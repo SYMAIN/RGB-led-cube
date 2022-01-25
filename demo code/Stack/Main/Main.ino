@@ -447,7 +447,6 @@ void loop()
 //     clean();
 //   }
 // }
-bool done = false;
 void allLeds()
 {
   // // red
@@ -471,7 +470,6 @@ void allLeds()
     for (int j = 0; j < 4; j++)
         for (int k = 0; k < 4; k++)
           LED(i, j, k, 0, 0, 15);
-  done = true;
 
   // if (done && !once0){
   //   once0 = true;
@@ -635,7 +633,7 @@ ISR(TIMER1_COMPA_vect)
       // }
       // Serial.println("\n\nShifting 0");
       // Serial.println(anode[anodelevel], BIN);
-      SPI.transfer(0b11111111);
+      SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
@@ -662,12 +660,12 @@ ISR(TIMER1_COMPA_vect)
       // Serial.println("\n\n");
       break;
     case 1:
-      SPI.transfer(0b00000000);
       SPI.transfer(0b11111111);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
+      SPI.transfer(0b11111111);
+      SPI.transfer(0b11111111);
+      SPI.transfer(0b11111111);
+      SPI.transfer(0b11111111);
+      SPI.transfer(0b11111111);
       //Serial.println("Shifting 1");
       //Serial.println(anode[anodelevel], BIN);
       // for (shift_out = 0; shift_out < 0 + 2; shift_out++)

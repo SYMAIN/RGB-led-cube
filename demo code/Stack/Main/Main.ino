@@ -75,6 +75,7 @@ void setup()
 
 void loop()
 { 
+  clean();
   // for (int i = 0; i < 4; i ++){
   //   for (int j = 0; j < 4; j ++){
   //     LED(i, j, 3, 15, 0, 0);
@@ -83,383 +84,14 @@ void loop()
   //   }
   // }
   //spiral();
-  sparkles();
+  //sparkles();
+  //fireFireworks();
   // LED(0, 0, 0, 0, 15, 0);
   // allBlue();
   // allGreen();
   // allRed();
   // launchMissles();
-  // movePlane();
-  // moveSingle();
-  // moveSqure();
-  // moveOnePixel();
-  // planeSwipe();
-  // randomLeds();
 }
-// void randomLeds()
-// {
-//   int x, y, z, red, green, blue;
-//   start = millis();
-
-//   while (millis() - start < 5000)
-//   {
-//     x = random(4);
-//     y = random(4);
-//     z = random(4);
-//     red = random(16);
-//     green = random(16);
-//     blue = random(16);
-//     LED(x, y, z, red, green, blue);
-
-//     delay(20);
-//   }
-//   clean();
-// }
-// void planeSwipe()
-// {
-//   for (int i = 0; i < 3; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= (3 - i))
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(k, j, child, 0, 15, 0);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(k, j, child, 0, 15, 0);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-//   for (int i = 0; i < 4; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= i)
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(k, child, j, 0, 15, 0);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(k, child, j, 0, 15, 0);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-//   for (int i = 0; i < 3; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= (3 - i))
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(k, child, j, 0, 15, 0);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(k, child, j, 0, 15, 0);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-//   for (int i = 0; i < 4; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= i)
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(k, j, child, 0, 15, 0);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(k, j, child, 0, 15, 0);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-//   ///////////////
-//   for (int i = 0; i < 3; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= (3 - i))
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(j, child, k, 0, 0, 15);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(j, child, k, 0, 0, 15);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-//   for (int i = 0; i < 4; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= i)
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(child, j, k, 0, 0, 15);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(child, j, k, 0, 0, 15);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-//   for (int i = 0; i < 3; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= (3 - i))
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(child, j, k, 0, 0, 15);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(child, j, k, 0, 0, 15);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-//   for (int i = 0; i < 4; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= i)
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(j, child, k, 0, 0, 15);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(j, child, k, 0, 0, 15);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-//   //////////////////////
-//   for (int i = 0; i < 3; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= (3 - i))
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(j, k, child, 15, 0, 0);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(j, k, child, 15, 0, 0);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-//   for (int i = 0; i < 4; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= i)
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(child, k, j, 15, 0, 0);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(child, k, j, 15, 0, 0);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-//   for (int i = 0; i < 3; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= (3 - i))
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(child, k, j, 15, 0, 0);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(child, k, j, 15, 0, 0);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-//   for (int i = 0; i < 4; i++)
-//   {
-//     int child = 0;
-//     for (int j = 0; j < 4; j++)
-//     {
-//       if (j >= i)
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(j, k, child, 15, 0, 0);
-//         child++;
-//       }
-//       else
-//       {
-//         for (int k = 0; k < 4; k++)
-//           LED(j, k, child, 15, 0, 0);
-//       }
-//     }
-//     delay(100);
-//     clean();
-//   }
-// }
-// void movePlane()
-// {
-//   start = millis();
-
-//   while (millis() - start < 5000)
-//   {
-//     for (int i = 0; i < 4; i++)
-//     {
-//       for (int j = 0; j < 4; j++)
-//         for (int k = 0; k < 4; k++)
-//         {
-//           LED(i, j, k, 15, 0, 0);
-//           LED(j, i, k, 0, 10, 0);
-//           LED(j, k, i, 0, 0, 10);
-//         }
-
-//       delay(100);
-//       clean();
-//     }
-//   }
-// }
-// void moveSingle()
-// {
-//   start = millis();
-
-//   while (millis() - start < 5000)
-//   {
-//     for (int i = 0; i < 4; i++)
-//       for (int j = 0; j < 4; j++)
-//         for (int k = 0; k < 4; k++)
-//         {
-//           LED(i, j, k, 15, 0, 15);
-//           LED(j, i, k, 15, 0, 15);
-//           LED(i, k, j, 0, 15, 15);
-//           delay(50);
-//           clean();
-//         }
-//   }
-// }
-// void moveOnePixel()
-// {
-//   start = millis();
-//   int layer, column, row, red, green, blue;
-//   while (millis() - start < 5000)
-//   {
-//     layer = random(4);
-//     column = random(4);
-//     row = random(4);
-//     red = random(16);
-//     green = random(16);
-//     blue = random(16);
-//     LED(layer, column, row, red, green, blue);
-//     LED(column, layer, row, red, green, blue);
-//     LED(row, layer, column, red, green, blue);
-//     delay(50);
-//     clean();
-//   }
-// }
-// void moveSqure()
-// {
-//   start = millis();
-
-//   while (millis() - start < 5000)
-//   {
-//     int red = random(15);
-//     int green = random(15);
-//     int blue = random(15);
-//     LED(1, 1, 1, red, green, blue);
-//     LED(1, 1, 2, red, green, blue);
-//     LED(1, 2, 1, red, green, blue);
-//     LED(1, 2, 2, red, green, blue);
-//     LED(2, 1, 1, red, green, blue);
-//     LED(2, 1, 2, red, green, blue);
-//     LED(2, 2, 1, red, green, blue);
-//     LED(2, 2, 2, red, green, blue);
-//     delay(200);
-//     clean();
-//     for (int i = 0; i < 4; i++)
-//       for (int j = 0; j < 4; j++)
-//         LED(i, j, 0, red, green, blue);
-//     for (int i = 0; i < 4; i++)
-//       for (int j = 0; j < 4; j++)
-//         LED(i, 0, j, red, green, blue);
-//     for (int i = 0; i < 4; i++)
-//       for (int j = 0; j < 4; j++)
-//         LED(0, i, j, red, green, blue);
-//     for (int i = 0; i < 4; i++)
-//       for (int j = 0; j < 4; j++)
-//         LED(i, j, 3, red, green, blue);
-//     for (int i = 0; i < 4; i++)
-//       for (int j = 0; j < 4; j++)
-//         LED(i, 3, j, red, green, blue);
-//     for (int i = 0; i < 4; i++)
-//       for (int j = 0; j < 4; j++)
-//         LED(3, i, j, red, green, blue);
-
-//     delay(200);
-//     clean();
-//   }
-// }
 
 // void spiral(){
 //   for (int i = 0; i < 4; i ++){
@@ -506,10 +138,50 @@ void loop()
 //   clean();
 // }
 
+void racer(){
+
+}
+
+void fireFireworks(){
+  // start pos
+  int startX = random(4);
+  int startY = random(4);
+
+  // line
+  for (int i = 0; i < 4; i ++){
+    // trail
+    LED(startX, startY, i - 1, 12, 0, 0);
+    LED(startX, startY, i - 2, 5, 0, 0);
+
+    // missle
+    LED(startX, startY, i, 0, 0, 15);
+    delay(350);
+    clean();
+  }
+
+  // explosion phase1
+  LED(startX, startY, 3, 15, 7, 0);
+  LED(startX + 1, startY, 3, 15, 7, 0);
+  LED(startX - 1, startY, 1, 15, 7, 0);
+  LED(startX, startY + 1, 3, 15, 7, 0);
+  LED(startX, startY - 1, 2, 15, 7, 0);
+  delay(400);
+  clean();
+
+  // explosion phase2
+  LED(startX, startY, 2, 15, 15, 0);
+  LED(startX + 1, startY, 2, 15, 15, 0);
+  LED(startX - 1, startY, 0, 15, 15, 0);
+  LED(startX, startY + 1, 2, 15, 15, 0);
+  LED(startX, startY - 1, 1, 15, 15, 0);
+  delay(400);
+  clean();
+}
+
 void sparkles(){
-  LED(random(4), random(4), random(4), random(8) + 8, random(8) + 8, random(8) + 8);
-  LED(random(4), random(4), random(4), random(8) + 8, random(8) + 8, random(8) + 8);
-  LED(random(4), random(4), random(4), random(8) + 8, random(8) + 8, random(8) + 8);
+  LED(random(4), random(4), random(4), random(8) + 8, random(8), random(8));
+  LED(random(4), random(4), random(4), random(8), random(8) + 8, random(8));
+  LED(random(4), random(4), random(4), random(8), random(8), random(8) + 8);
   delay(200);
   clean();
 }
@@ -574,20 +246,28 @@ void allRed(){
         LED(i, j, k, 15, 0, 0);
 }
 
-void LED(int level, int row, int column, byte red, byte green, byte blue)
+/** void LED(int level, int row, int column, byte red, byte green, byte blue)
+  * 
+  * A function to set a specific LED to light up with a specific intesity of red/green/blue.
+  * 
+  * @param level, int. The z-axis or layer the LED is on.
+  * @param row, int. The index of the LED row. Supports 0-3. For getting a byte from the byte array. (aka led0, led1, led2, led3)
+  * @param column, int. The index of the led in the row to light up. Supports 0-3. For accessing a bit in a byte.
+  * @param red, byte. Controls bit angle modulation for the color red. Only the 4 least significant bits are used.
+  * @param green, byte. Controls bit angle modulation for the color green. Only the 4 least significant bits are used.
+  * @param blue, byte. Controls bit angle modulation for the color blue. Only the 4 least significant bits are used.
+  *
+  */
+void LED(int row, int column, int level, byte red, byte green, byte blue)
 { //****LED Routine****LED Routine****LED Routine****LED Routine
 
-  // if (red != 0){
-  //   Serial.println("RED! Call:");
-  //   Serial.println(level);
-  //   Serial.println(row);
-  //   Serial.println(column);
-  //   Serial.println(red, BIN);
-  //   Serial.println(green, BIN);
-  //   Serial.println(blue, BIN);
-  //   Serial.println("\n");
-  // }
+  // error handling
+  if (level > 3 || level < 0 || row > 3 || row < 0 || column > 3 || column < 0){
+    return;
+  }
 
+  // use array magic here
+  // pack all of the data into a byte array (aka 2d array of booleans) 
   int whichbyte = int(((level * 16) + (row * 4) + column) / 8);
 
   int wholebyte = (level * 16) + (row * 4) + column;
@@ -607,25 +287,14 @@ void LED(int level, int row, int column, byte red, byte green, byte blue)
   bitWrite(blue2[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 2));
   bitWrite(blue3[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 3));
 
-  // Serial.print("LED: Writing ");
-  // Serial.print(blue, BIN);
-  // Serial.print(" to ");
-  // Serial.print(whichbyte);
-  // Serial.print(" ");
-  // Serial.println(wholebyte - (8 * whichbyte));
 }
 
+// shhhhh
 bool bruteForce = false;
+
+// The BAM timer to change which layers and rows are allowed to light on
 ISR(TIMER1_COMPA_vect)
 {
-  //if (done){
-    // if (done && !once1){
-    //   once1 = true;
-    //   Serial.println("Blue Data Inside Timer");
-    //   for (int i = 0; i < 8; i ++){
-    //     Serial.println(blue0[i], BIN);
-    //   }
-    // }
 
     // Blank everything while we change some stuff
     //PORTD |= blankPinBIN;//Blank pin HIGH (aka disable outputs)
@@ -727,8 +396,8 @@ ISR(TIMER1_COMPA_vect)
       break;
     }
     
-    //SPI.transfer(0b11111111);
-    SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
+    SPI.transfer(0b11111111);
+    //SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
 
     // PORTD |= latchPinBIN;//Latch pin HIGH
     // PORTD &= ~(latchPinBIN);//Latch pin LOW

@@ -75,7 +75,7 @@ void setup()
 
 void loop()
 {
-  allBlue();
+  all();
   // movePlane();
   // moveSingle();
   // moveSqure();
@@ -449,12 +449,12 @@ void loop()
 //   }
 // }
 
-void allBlue(){
-  // blue
+void all(){
+  // add
   for (int i = 0; i < 4; i++)
     for (int j = 0; j < 4; j++)
         for (int k = 0; k < 4; k++)
-          LED(i, j, k, 0, 0, 15);
+          LED(i, j, k, 15, 0, 0);
 }
 
 void allLeds()

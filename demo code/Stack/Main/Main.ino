@@ -633,8 +633,8 @@ ISR(TIMER1_COMPA_vect)
       // }
       // Serial.println("\n\nShifting 0");
       // Serial.println(anode[anodelevel], BIN);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
+      SPI.transfer(0b11111111);
+      SPI.transfer(0b11111111);
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
@@ -662,10 +662,10 @@ ISR(TIMER1_COMPA_vect)
     case 1:
       SPI.transfer(0b11111111);
       SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
       //Serial.println("Shifting 1");
       //Serial.println(anode[anodelevel], BIN);
       // for (shift_out = 0; shift_out < 0 + 2; shift_out++)
@@ -677,8 +677,8 @@ ISR(TIMER1_COMPA_vect)
       //   SPI.transfer(red1[shift_out]);
       break;
     case 2:
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
+      SPI.transfer(0b11111111);
+      SPI.transfer(0b11111111);
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
@@ -694,8 +694,8 @@ ISR(TIMER1_COMPA_vect)
       //   SPI.transfer(red2[shift_out]);
       break;
     case 3:
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
+      SPI.transfer(0b11111111);
+      SPI.transfer(0b11111111);
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
@@ -720,10 +720,10 @@ ISR(TIMER1_COMPA_vect)
 
     SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
 
-    // PORTD |= latchPinBIN;//Latch pin HIGH
-    // PORTD &= ~(latchPinBIN);//Latch pin LOW
-    digitalWrite(latch_pin, HIGH);
-    digitalWrite(latch_pin, LOW);
+    PORTD |= latchPinBIN;//Latch pin HIGH
+    PORTD &= ~(latchPinBIN);//Latch pin LOW
+    // digitalWrite(latch_pin, HIGH);
+    // digitalWrite(latch_pin, LOW);
     // turn everything back on by disabling blanks
     //PORTD &= ~(blankPinBIN);//Latch pin LOW
 

@@ -720,10 +720,10 @@ ISR(TIMER1_COMPA_vect)
 
     SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
 
-    PORTD |= latchPinBIN;//Latch pin HIGH
-    PORTD &= ~(latchPinBIN);//Latch pin LOW
-    // digitalWrite(latch_pin, HIGH);
-    // digitalWrite(latch_pin, LOW);
+    // PORTD |= latchPinBIN;//Latch pin HIGH
+    // PORTD &= ~(latchPinBIN);//Latch pin LOW
+    digitalWrite(latch_pin, HIGH);
+    digitalWrite(latch_pin, LOW);
     // turn everything back on by disabling blanks
     //PORTD &= ~(blankPinBIN);//Latch pin LOW
 

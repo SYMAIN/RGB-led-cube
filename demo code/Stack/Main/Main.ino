@@ -182,7 +182,7 @@ void sparkles(){
     clean();
     return;
   }
-  delay(200);
+  delay(500);
   clean();
 }
 
@@ -246,7 +246,7 @@ void allRed(){
         LED(i, j, k, 15, 0, 0);
 }
 
-void LED(int level, int row, int column, byte red, byte green, byte blue)
+void LED(int row, int column, int level, byte red, byte green, byte blue)
 { //****LED Routine****LED Routine****LED Routine****LED Routine
 
   int whichbyte = int(((level * 16) + (row * 4) + column) / 8);

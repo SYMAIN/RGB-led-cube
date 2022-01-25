@@ -57,12 +57,12 @@ void setup()
   TCCR1B = B00001011;
 
   TIMSK1 = B00000010;
-  OCR1A = 30;
+  OCR1A = 3000;
 
-  anode[0]=0b11101110;
-  anode[1]=0b11011101;
-  anode[2]=0b10111011;
-  anode[3]=0b01110111;
+  anode[0]=0b00010001;
+  anode[1]=0b00100010;
+  anode[2]=0b01000100;
+  anode[3]=0b10001000;
   
   pinMode(latch_pin, OUTPUT); //Latch
   pinMode(data_pin, OUTPUT);  //MOSI DATA
@@ -74,11 +74,12 @@ void setup()
 }
 
 void loop()
-{
+{ 
+  //LED(0, 0, 0, 0, 15, 0);
 //  allBlue();
 //  allGreen();
-  allRed();
-
+  //allRed();
+launchMissles();
   // movePlane();
   // moveSingle();
   // moveSqure();
@@ -451,6 +452,51 @@ void loop()
 //   }
 // }
 
+void spiral(){
+  for (int i = 0; i < 4; i ++){
+    LED(i, 0, 0, 15, 0, 0);
+    delay(100);
+    clean();
+  }
+  for (int i = 0; i < 4; i ++){
+    LED(3, i, 0, 0, 15, 0);
+    delay(100);
+    clean();
+  }
+  for (int i = 3; i != -1; i ++){
+    LED(i, 3, 0, 0, 0, 15);
+    delay(100);
+    clean();
+  }
+  LED(2, 3, 0, 15, 0, 0);
+  delay(100);
+  clean();
+
+  LED(1, 3, 0, 15, 0, 0);
+  delay(100);
+  clean();
+
+  LED(1, 2, 0, 15, 0, 0);
+  delay(100);
+  clean();
+
+  LED(1, 1, 0, 15, 0, 0);
+  delay(100);
+  clean();
+
+  LED(2, 1, 0, 15, 0, 0);
+  delay(100);
+  clean();
+
+  LED(2, 2, 0, 15, 0, 0);
+  delay(100);
+  clean();
+
+  LED(1, 2, 0, 15, 0, 0);
+  delay(100);
+  clean();
+}
+
 void launchMissles(){
   // start pos
   int startX = 1 + random(2);
@@ -459,11 +505,12 @@ void launchMissles(){
   for (int i = 0; i < 4; i ++){
     // trail
     if (i > 0){
-      LED(startX, i, startZ, 15, 0, 0);
+      LED(startX, i - 1, startZ, 7, 0, 0);
     }
+    // missle
     LED(startX, i, startZ, 0, 0, 15);
     delay(200);
-    clear();
+    clean();
   }
   // explosion
   LED(startX, 2, startZ, random(15), random(15), random(15));
@@ -473,7 +520,7 @@ void launchMissles(){
   LED(startX + 1, 3, startZ, random(15), random(15), random(15));
   LED(startX - 1, 3, startZ, random(15), random(15), random(15));
   delay(200);
-  clear();
+  clean();
 
   // falling
   LED(startX, 2, startZ - 1, random(7), random(7), random(7));
@@ -482,7 +529,7 @@ void launchMissles(){
   LED(startX + 1, 3, startZ - 1, random(7), random(7), random(7));
   LED(startX - 1, 3, startZ - 1, random(7), random(7), random(7));
   delay(200);
-  clear();
+  clean();
 }
 
 void allBlue(){

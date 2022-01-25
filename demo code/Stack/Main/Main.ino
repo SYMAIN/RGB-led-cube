@@ -249,6 +249,11 @@ void allRed(){
 void LED(int row, int column, int level, byte red, byte green, byte blue)
 { //****LED Routine****LED Routine****LED Routine****LED Routine
 
+  // error handling
+  if (level > 3 || level < 0 || row > 3 || row < 0 || column > 3 || column < 0){
+    return;
+  }
+
   int whichbyte = int(((level * 16) + (row * 4) + column) / 8);
 
   int wholebyte = (level * 16) + (row * 4) + column;

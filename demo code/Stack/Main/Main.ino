@@ -79,7 +79,8 @@ void loop()
 { 
   //spiral();
   //sparkles();
-  fireFireworks();
+  //fireFireworks();
+  tracer();
   // LED(0, 0, 0, 0, 15, 0);
 }
 
@@ -173,6 +174,7 @@ void fireFireworks(){
   delay(200);
   clean();
   
+  // wait 2s between fireworks
   if (stopAnimation){
     clean();
     return;
@@ -199,7 +201,6 @@ void sparkles(){
 }
 
 void launchMissles(){
-  clean();
   // start pos
   int startX = 1 + random(2);
   int startZ = 1 + random(2);
@@ -211,6 +212,12 @@ void launchMissles(){
     }
     // missle
     LED(startX, i, startZ, 0, 0, 15);
+
+    if (stopAnimation){
+      clean();
+      return;
+    }
+
     delay(200);
     clean();
   }
@@ -221,6 +228,12 @@ void launchMissles(){
   LED(startX, 3, startZ - 1, random(15), random(15), random(15));
   LED(startX + 1, 3, startZ, random(15), random(15), random(15));
   LED(startX - 1, 3, startZ, random(15), random(15), random(15));
+
+  if (stopAnimation){
+    clean();
+    return;
+  }
+
   delay(200);
   clean();
 
@@ -230,6 +243,12 @@ void launchMissles(){
   LED(startX, 3, startZ, random(7), random(7), random(7));
   LED(startX + 1, 3, startZ - 1, random(7), random(7), random(7));
   LED(startX - 1, 3, startZ - 1, random(7), random(7), random(7));
+
+  if (stopAnimation){
+    clean();
+    return;
+  }
+  
   delay(200);
   clean();
 }

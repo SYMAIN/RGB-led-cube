@@ -172,6 +172,18 @@ void fireFireworks(){
   }
   delay(200);
   clean();
+  
+  if (stopAnimation){
+    clean();
+    return;
+  }
+  delay(1000);
+
+  if (stopAnimation){
+    clean();
+    return;
+  }
+  delay(1000);
 }
 
 void sparkles(){

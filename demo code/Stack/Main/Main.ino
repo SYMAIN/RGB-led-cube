@@ -59,10 +59,10 @@ void setup()
   TIMSK1 = B00000010;
   OCR1A = 30;
 
-  anode[0]=0b00010001;
-  anode[1]=0b00100010;
-  anode[2]=0b01000100;
-  anode[3]=0b10001000;
+  anode[0]=0b00000001;
+  anode[1]=0b00000010;
+  anode[2]=0b00000100;
+  anode[3]=0b00001000;
   
   pinMode(latch_pin, OUTPUT); //Latch
   pinMode(data_pin, OUTPUT);  //MOSI DATA
@@ -75,11 +75,20 @@ void setup()
 
 void loop()
 { 
-  //LED(0, 0, 0, 0, 15, 0);
-//  allBlue();
-//  allGreen();
-  //allRed();
-launchMissles();
+  // for (int i = 0; i < 4; i ++){
+  //   for (int j = 0; j < 4; j ++){
+  //     LED(i, j, 3, 15, 0, 0);
+  //     delay(500);
+  //     clean();
+  //   }
+  // }
+  //spiral();
+  sparkles();
+  // LED(0, 0, 0, 0, 15, 0);
+  // allBlue();
+  // allGreen();
+  // allRed();
+  // launchMissles();
   // movePlane();
   // moveSingle();
   // moveSqure();
@@ -452,52 +461,61 @@ launchMissles();
 //   }
 // }
 
-void spiral(){
-  for (int i = 0; i < 4; i ++){
-    LED(i, 0, 0, 15, 0, 0);
-    delay(100);
-    clean();
-  }
-  for (int i = 0; i < 4; i ++){
-    LED(3, i, 0, 0, 15, 0);
-    delay(100);
-    clean();
-  }
-  for (int i = 3; i != -1; i ++){
-    LED(i, 3, 0, 0, 0, 15);
-    delay(100);
-    clean();
-  }
-  LED(2, 3, 0, 15, 0, 0);
-  delay(100);
-  clean();
+// void spiral(){
+//   for (int i = 0; i < 4; i ++){
+//     LED(i, 0, 0, 15, 0, 0);
+//     delay(100);
+//     clean();
+//   }
+//   for (int i = 0; i < 4; i ++){
+//     LED(3, i, 0, 0, 15, 0);
+//     delay(100);
+//     clean();
+//   }
+//   for (int i = 3; i != -1; i ++){
+//     LED(i, 3, 0, 0, 0, 15);
+//     delay(100);
+//     clean();
+//   }
+//   LED(2, 3, 0, 15, 0, 0);
+//   delay(100);
+//   clean();
 
-  LED(1, 3, 0, 15, 0, 0);
-  delay(100);
-  clean();
+//   LED(1, 3, 0, 15, 0, 0);
+//   delay(100);
+//   clean();
 
-  LED(1, 2, 0, 15, 0, 0);
-  delay(100);
-  clean();
+//   LED(1, 2, 0, 15, 0, 0);
+//   delay(100);
+//   clean();
 
-  LED(1, 1, 0, 15, 0, 0);
-  delay(100);
-  clean();
+//   LED(1, 1, 0, 15, 0, 0);
+//   delay(100);
+//   clean();
 
-  LED(2, 1, 0, 15, 0, 0);
-  delay(100);
-  clean();
+//   LED(2, 1, 0, 15, 0, 0);
+//   delay(100);
+//   clean();
 
-  LED(2, 2, 0, 15, 0, 0);
-  delay(100);
-  clean();
+//   LED(2, 2, 0, 15, 0, 0);
+//   delay(100);
+//   clean();
 
-  LED(1, 2, 0, 15, 0, 0);
-  delay(100);
+//   LED(1, 2, 0, 15, 0, 0);
+//   delay(100);
+//   clean();
+// }
+
+void sparkles(){
+  LED(random(4), random(4), random(4), random(8) + 8, random(8) + 8, random(8) + 8);
+  LED(random(4), random(4), random(4), random(8) + 8, random(8) + 8, random(8) + 8);
+  LED(random(4), random(4), random(4), random(8) + 8, random(8) + 8, random(8) + 8);
+  delay(200);
   clean();
 }
 
 void launchMissles(){
+  clean();
   // start pos
   int startX = 1 + random(2);
   int startZ = 1 + random(2);
@@ -597,6 +615,7 @@ void LED(int level, int row, int column, byte red, byte green, byte blue)
   // Serial.println(wholebyte - (8 * whichbyte));
 }
 
+bool bruteForce = false;
 ISR(TIMER1_COMPA_vect)
 {
   //if (done){
@@ -623,37 +642,82 @@ ISR(TIMER1_COMPA_vect)
     switch (BAM_Bit)
     {
     case 0:
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(blue0[shift_out]);
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(green0[shift_out]);
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(red0[shift_out]);
+      if (!bruteForce){
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(blue0[shift_out]);
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(green0[shift_out]);
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(red0[shift_out]);
+      }
+
+      else{
+        SPI.transfer(0b00000001);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+      }
+
       break;
     case 1:
-      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-        SPI.transfer(blue1[shift_out]);
-      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-        SPI.transfer(green1[shift_out]);
-      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-        SPI.transfer(red1[shift_out]);
+      if (!bruteForce){
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(blue1[shift_out]);
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(green1[shift_out]);
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(red1[shift_out]);
+      }
+
+      else{
+        SPI.transfer(0b00000001);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+      }
       break;
     case 2:
-      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-        SPI.transfer(blue2[shift_out]);
-      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-        SPI.transfer(green2[shift_out]);
-      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-        SPI.transfer(red2[shift_out]);
+      if (!bruteForce){
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(blue2[shift_out]);
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(green2[shift_out]);
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(red2[shift_out]);
+      }
+
+      else{
+        SPI.transfer(0b00000001);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+      }
       break;
 
     case 3:
-      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-        SPI.transfer(blue3[shift_out]);
-      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-        SPI.transfer(green3[shift_out]);
-      for (shift_out = 0; shift_out < 0 + 2; shift_out++)
-        SPI.transfer(red3[shift_out]);
+      if (!bruteForce){
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(blue3[shift_out]);
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(green3[shift_out]);
+        for (shift_out = level; shift_out < level + 2; shift_out++)
+          SPI.transfer(red3[shift_out]);
+      }
+
+      else{
+        SPI.transfer(0b00000001);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+        SPI.transfer(0b00000000);
+      }
 
       if (BAM_Counter == 120)
       {
@@ -662,7 +726,8 @@ ISR(TIMER1_COMPA_vect)
       }
       break;
     }
-
+    
+    //SPI.transfer(0b11111111);
     SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
 
     // PORTD |= latchPinBIN;//Latch pin HIGH

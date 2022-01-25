@@ -76,6 +76,9 @@ void setup()
 void loop()
 {
   allBlue();
+  allGreen();
+  allRed();
+
   // movePlane();
   // moveSingle();
   // moveSqure();
@@ -454,6 +457,22 @@ void allBlue(){
     for (int j = 0; j < 4; j++)
       for (int k = 0; k < 4; k++)
         LED(i, j, k, 0, 0, 15);
+}
+
+void allGreen(){
+  // blue
+  for (int i = 0; i < 4; i++)
+    for (int j = 0; j < 4; j++)
+      for (int k = 0; k < 4; k++)
+        LED(i, j, k, 0, 15, 0);
+}
+
+void allRed(){
+  // blue
+  for (int i = 0; i < 4; i++)
+    for (int j = 0; j < 4; j++)
+      for (int k = 0; k < 4; k++)
+        LED(i, j, k, 15, 0, 0);
 }
 
 void LED(int level, int row, int column, byte red, byte green, byte blue)

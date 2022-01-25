@@ -15,8 +15,8 @@ unsigned char defeatTheCrumbyPreprocessor;
 //pin connections- the #define tag will replace all instances of "latchPin" in your code with A1 (and so on)
 #define latch_pin 3
 #define latchPinBIN 0b00000100
-#define blankPin 1
-#define blankPinBIN  0b00000001
+#define blankPin 2
+#define blankPinBIN  0b00000010
 
 #define clock_pin 11 // The SPI-MOSI pinout 
 #define data_pin 13 // The SPI-SCK pinout 
@@ -25,6 +25,8 @@ unsigned char defeatTheCrumbyPreprocessor;
 // LATCH: Yellow, pin 11
 // DATA: Orange, pin 51
 // CLOCK: green, pin 52
+
+bool done = false;
 
 int shift_out;
 byte anode[4];
@@ -68,18 +70,44 @@ void setup()
   pinMode(latch_pin, OUTPUT); //Latch
   pinMode(data_pin, OUTPUT);  //MOSI DATA
   pinMode(clock_pin, OUTPUT); //SPI Clock
-  pinMode(blankPin, OUTPUT); //Output Enable  important to do this last, so LEDs do not flash on boot up
+  //pinMode(blankPin, OUTPUT); //Output Enable  important to do this last, so LEDs do not flash on boot up
   SPI.begin();                //start up the SPI library
   interrupts();               //let the show begin, this lets the multiplexing start
 }
 
+bool transfered = false;
 void loop()
 {
+  if (!transfered){
+    transfered = true;
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+    // SPI.transfer(0b00000000);
+
+    
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b00000000);
+
+    // good
+    // SPI.transfer(0b11101110);
+    // SPI.transfer(0b11111111);
+
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b11111111);
+    // SPI.transfer(0b01110111);
+    Serial.print("sent");
+  }
+
   // movePlane();
   // moveSingle();
   // moveSqure();
   // moveOnePixel();
-  allLeds();
+  //allLeds();
   // planeSwipe();
   // randomLeds();
 }
@@ -447,7 +475,7 @@ void loop()
 //     clean();
 //   }
 // }
-bool done = false;
+
 void allLeds()
 {
   // // red
@@ -613,7 +641,7 @@ ISR(TIMER1_COMPA_vect)
     // }
 
     // Blank everything while we change some stuff
-    PORTB |= blankPinBIN;//Blank pin HIGH (aka disable outputs)
+    //PORTD |= blankPinBIN;//Blank pin HIGH (aka disable outputs)
 
     if (BAM_Counter == 8)
       BAM_Bit++;
@@ -636,11 +664,11 @@ ISR(TIMER1_COMPA_vect)
       // Serial.println("\n\nShifting 0");
       // Serial.println(anode[anodelevel], BIN);
       SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
       // for (shift_out = level; shift_out < level + 2; shift_out++)
       //   SPI.transfer(blue0[shift_out]);
       //   // Serial.print("shiftOut: ");
@@ -662,12 +690,12 @@ ISR(TIMER1_COMPA_vect)
       // Serial.println("\n\n");
       break;
     case 1:
+      SPI.transfer(0b00000000);
       SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
       //Serial.println("Shifting 1");
       //Serial.println(anode[anodelevel], BIN);
       // for (shift_out = 0; shift_out < 0 + 2; shift_out++)
@@ -680,11 +708,11 @@ ISR(TIMER1_COMPA_vect)
       break;
     case 2:
       SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
       //Serial.println("Shifting 2");
       //Serial.println(anode[anodelevel], BIN);
       // for (shift_out = 0; shift_out < 0 + 2; shift_out++)
@@ -696,12 +724,12 @@ ISR(TIMER1_COMPA_vect)
       //   SPI.transfer(red2[shift_out]);
       break;
     case 3:
+      SPI.transfer(0b00000000);
       SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
-      SPI.transfer(0b11111111);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
       //Serial.println("Shifting 3");
       //Serial.println(anode[anodelevel], BIN);
       // for (shift_out = 0; shift_out < 0 + 2; shift_out++)
@@ -722,10 +750,12 @@ ISR(TIMER1_COMPA_vect)
 
     SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
 
-    PORTB |= latchPinBIN;//Latch pin HIGH
-    PORTB &= ~(latchPinBIN);//Latch pin LOW
+    // PORTD |= latchPinBIN;//Latch pin HIGH
+    // PORTD &= ~(latchPinBIN);//Latch pin LOW
+    digitalWrite(latch_pin, HIGH);
+    digitalWrite(latch_pin, LOW);
     // turn everything back on by disabling blanks
-    PORTB &= ~(blankPinBIN);//Latch pin LOW
+    //PORTD &= ~(blankPinBIN);//Latch pin LOW
 
     anodelevel++;
     level = level + 2;
@@ -734,7 +764,7 @@ ISR(TIMER1_COMPA_vect)
       anodelevel = 0;
     if (level == 8)
       level = 0;
-    pinMode(blankPin, OUTPUT);
+    //pinMode(blankPin, OUTPUT);
   //}
 }
 

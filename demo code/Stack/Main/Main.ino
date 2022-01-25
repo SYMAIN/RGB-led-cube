@@ -57,7 +57,7 @@ void setup()
   TCCR1B = B00001011;
 
   TIMSK1 = B00000010;
-  OCR1A = 3000;
+  OCR1A = 30;
 
   anode[0]=0b00010001;
   anode[1]=0b00100010;

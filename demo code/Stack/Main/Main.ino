@@ -635,10 +635,11 @@ ISR(TIMER1_COMPA_vect)
       // Serial.println(anode[anodelevel], BIN);
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
       SPI.transfer(0b11111111);
       SPI.transfer(0b11111111);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+
       // for (shift_out = level; shift_out < level + 2; shift_out++)
       //   SPI.transfer(blue0[shift_out]);
       //   // Serial.print("shiftOut: ");
@@ -662,10 +663,10 @@ ISR(TIMER1_COMPA_vect)
     case 1:
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
       SPI.transfer(0b11111111);
       SPI.transfer(0b11111111);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
       //Serial.println("Shifting 1");
       //Serial.println(anode[anodelevel], BIN);
       // for (shift_out = 0; shift_out < 0 + 2; shift_out++)
@@ -679,10 +680,10 @@ ISR(TIMER1_COMPA_vect)
     case 2:
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
       SPI.transfer(0b11111111);
       SPI.transfer(0b11111111);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
       //Serial.println("Shifting 2");
       //Serial.println(anode[anodelevel], BIN);
       // for (shift_out = 0; shift_out < 0 + 2; shift_out++)
@@ -696,10 +697,10 @@ ISR(TIMER1_COMPA_vect)
     case 3:
       SPI.transfer(0b00000000);
       SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
       SPI.transfer(0b11111111);
       SPI.transfer(0b11111111);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
       //Serial.println("Shifting 3");
       //Serial.println(anode[anodelevel], BIN);
       // for (shift_out = 0; shift_out < 0 + 2; shift_out++)

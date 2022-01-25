@@ -132,11 +132,11 @@ void fireFireworks(){
   // line
   for (int i = 0; i < 4; i ++){
     // trail
-    LED(startX, startY, i - 1, 12, 0, 0);
-    LED(startX, startY, i - 2, 5, 0, 0);
+    LED(startX, startY, i - 1, 5, 0, 0);
+    LED(startX, startY, i - 2, 1, 0, 0);
 
     // missle
-    LED(startX, startY, i, 0, 0, 15);
+    LED(startX, startY, i, 0, 0, 10);
 
     if (stopAnimation){
       clean();
@@ -250,7 +250,7 @@ void LED(int row, int column, int level, byte red, byte green, byte blue)
 { //****LED Routine****LED Routine****LED Routine****LED Routine
 
   // error handling
-  if (level > 3 || level < 0 || row > 3 || row < 0 || column > 3 || column < 0){
+  if ((level > 3) || (level < 0) || (row > 3) || (row < 0) || (column > 3) || (column < 0)){
     return;
   }
 

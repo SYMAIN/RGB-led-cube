@@ -75,8 +75,8 @@ void setup()
 
 void loop()
 {
-  allBlue();
-  allGreen();
+//  allBlue();
+//  allGreen();
   allRed();
 
   // movePlane();

@@ -39,6 +39,8 @@ int level = 0;                //keeps track of which level we are shifting data 
 int anodelevel = 0;           //this increments through the anode levels
 int BAM_Bit, BAM_Counter = 0; // Bit Angle Modulation variables to keep track of things
 
+bool stopAnimation = false; // for stopping animation early
+
 unsigned long start; //for a millis timer to cycle through the animations
 
 void setup()
@@ -75,7 +77,7 @@ void setup()
 
 void loop()
 { 
-  clean();
+  //clean();
   // for (int i = 0; i < 4; i ++){
   //   for (int j = 0; j < 4; j ++){
   //     LED(i, j, 3, 15, 0, 0);
@@ -84,7 +86,7 @@ void loop()
   //   }
   // }
   //spiral();
-  //sparkles();
+  sparkles();
   //fireFireworks();
   // LED(0, 0, 0, 0, 15, 0);
   // allBlue();
@@ -138,8 +140,46 @@ void loop()
 //   clean();
 // }
 
-void racer(){
-
+// follows the edges of the cube
+void tracer(){
+  for (int j = 0; j < 4; j ++){
+    for (int i = 0; i < 4; i ++){
+      LED(i, 0, j, 15, 0, 0);
+      if (stopAnimation){
+        clean();
+        return;
+      }
+      delay(100);
+      clean();
+    }
+    for (int i = 0; i < 4; i ++){
+      LED(3, i, j, 0, 15, 0);
+      if (stopAnimation){
+        clean();
+        return;
+      }
+      delay(100);
+      clean();
+    }
+    for (int i = 3; i != -1; i ++){
+      LED(i, 3, j, 0, 0, 15);
+      if (stopAnimation){
+        clean();
+        return;
+      }
+      delay(100);
+      clean();
+    }
+    for (int i = 3; i != -1; i ++){
+      LED(0, i, j, 5, 5, 5);
+      if (stopAnimation){
+        clean();
+        return;
+      }
+      delay(100);
+      clean();
+    }
+  }
 }
 
 void fireFireworks(){
@@ -155,6 +195,12 @@ void fireFireworks(){
 
     // missle
     LED(startX, startY, i, 0, 0, 15);
+
+    if (stopAnimation){
+      clean();
+      return;
+    }
+
     delay(350);
     clean();
   }
@@ -165,6 +211,10 @@ void fireFireworks(){
   LED(startX - 1, startY, 1, 15, 7, 0);
   LED(startX, startY + 1, 3, 15, 7, 0);
   LED(startX, startY - 1, 2, 15, 7, 0);
+  if (stopAnimation){
+    clean();
+    return;
+  }
   delay(400);
   clean();
 
@@ -174,6 +224,10 @@ void fireFireworks(){
   LED(startX - 1, startY, 0, 15, 15, 0);
   LED(startX, startY + 1, 2, 15, 15, 0);
   LED(startX, startY - 1, 1, 15, 15, 0);
+  if (stopAnimation){
+    clean();
+    return;
+  }
   delay(400);
   clean();
 }
@@ -182,6 +236,10 @@ void sparkles(){
   LED(random(4), random(4), random(4), random(8) + 8, random(8), random(8));
   LED(random(4), random(4), random(4), random(8), random(8) + 8, random(8));
   LED(random(4), random(4), random(4), random(8), random(8), random(8) + 8);
+  if (stopAnimation){
+    clean();
+    return;
+  }
   delay(200);
   clean();
 }

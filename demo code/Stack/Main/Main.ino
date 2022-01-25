@@ -143,7 +143,7 @@ void fireFireworks(){
       return;
     }
 
-    delay(350);
+    delay(300);
     clean();
   }
 
@@ -157,7 +157,7 @@ void fireFireworks(){
     clean();
     return;
   }
-  delay(400);
+  delay(200);
   clean();
 
   // explosion phase2
@@ -170,7 +170,7 @@ void fireFireworks(){
     clean();
     return;
   }
-  delay(400);
+  delay(200);
   clean();
 }
 

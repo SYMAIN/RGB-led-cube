@@ -78,8 +78,100 @@ void setup()
 void loop()
 { 
   //spiral();
-  sparkles();
+  //sparkles();
+  fireFireworks();
   // LED(0, 0, 0, 0, 15, 0);
+}
+
+void tracer(){
+  for (int j = 0; j < 4; j ++){
+    for (int i = 0; i < 4; i ++){
+      LED(i, 0, j, 15, 0, 0);
+      if (stopAnimation){
+        clean();
+        return;
+      }
+      delay(100);
+      clean();
+    }
+    for (int i = 0; i < 4; i ++){
+      LED(3, i, j, 0, 15, 0);
+      if (stopAnimation){
+        clean();
+        return;
+      }
+      delay(100);
+      clean();
+    }
+    for (int i = 3; i != -1; i ++){
+      LED(i, 3, j, 0, 0, 15);
+      if (stopAnimation){
+        clean();
+        return;
+      }
+      delay(100);
+      clean();
+    }
+    for (int i = 3; i != -1; i ++){
+      LED(0, i, j, 5, 5, 5);
+      if (stopAnimation){
+        clean();
+        return;
+      }
+      delay(100);
+      clean();
+    }
+  }
+}
+
+void fireFireworks(){
+  // start pos
+  int startX = random(4);
+  int startY = random(4);
+
+  // line
+  for (int i = 0; i < 4; i ++){
+    // trail
+    LED(startX, startY, i - 1, 12, 0, 0);
+    LED(startX, startY, i - 2, 5, 0, 0);
+
+    // missle
+    LED(startX, startY, i, 0, 0, 15);
+
+    if (stopAnimation){
+      clean();
+      return;
+    }
+
+    delay(350);
+    clean();
+  }
+
+  // explosion phase1
+  LED(startX, startY, 3, 15, 7, 0);
+  LED(startX + 1, startY, 3, 15, 7, 0);
+  LED(startX - 1, startY, 1, 15, 7, 0);
+  LED(startX, startY + 1, 3, 15, 7, 0);
+  LED(startX, startY - 1, 2, 15, 7, 0);
+  if (stopAnimation){
+    clean();
+    return;
+  }
+  delay(400);
+  clean();
+
+  // explosion phase2
+  LED(startX, startY, 2, 15, 15, 0);
+  LED(startX + 1, startY, 2, 15, 15, 0);
+  LED(startX - 1, startY, 0, 15, 15, 0);
+  LED(startX, startY + 1, 2, 15, 15, 0);
+  LED(startX, startY - 1, 1, 15, 15, 0);
+  if (stopAnimation){
+    clean();
+    return;
+  }
+  delay(400);
+  clean();
 }
 
 void sparkles(){
@@ -180,134 +272,124 @@ void LED(int level, int row, int column, byte red, byte green, byte blue)
 bool bruteForce = false;
 ISR(TIMER1_COMPA_vect)
 {
-  //if (done){
-    // if (done && !once1){
-    //   once1 = true;
-    //   Serial.println("Blue Data Inside Timer");
-    //   for (int i = 0; i < 8; i ++){
-    //     Serial.println(blue0[i], BIN);
-    //   }
-    // }
+  // Blank everything while we change some stuff
+  //PORTD |= blankPinBIN;//Blank pin HIGH (aka disable outputs)
 
-    // Blank everything while we change some stuff
-    //PORTD |= blankPinBIN;//Blank pin HIGH (aka disable outputs)
+  if (BAM_Counter == 8)
+    BAM_Bit++;
+  else if (BAM_Counter == 24)
+    BAM_Bit++;
+  else if (BAM_Counter == 56)
+    BAM_Bit++;
 
-    if (BAM_Counter == 8)
-      BAM_Bit++;
-    else if (BAM_Counter == 24)
-      BAM_Bit++;
-    else if (BAM_Counter == 56)
-      BAM_Bit++;
+  BAM_Counter++;
 
-    BAM_Counter++;
-
-    switch (BAM_Bit)
-    {
-    case 0:
-      if (!bruteForce){
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(blue0[shift_out]);
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(green0[shift_out]);
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(red0[shift_out]);
-      }
-
-      else{
-        SPI.transfer(0b00000001);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-      }
-
-      break;
-    case 1:
-      if (!bruteForce){
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(blue1[shift_out]);
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(green1[shift_out]);
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(red1[shift_out]);
-      }
-
-      else{
-        SPI.transfer(0b00000001);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-      }
-      break;
-    case 2:
-      if (!bruteForce){
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(blue2[shift_out]);
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(green2[shift_out]);
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(red2[shift_out]);
-      }
-
-      else{
-        SPI.transfer(0b00000001);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-      }
-      break;
-
-    case 3:
-      if (!bruteForce){
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(blue3[shift_out]);
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(green3[shift_out]);
-        for (shift_out = level; shift_out < level + 2; shift_out++)
-          SPI.transfer(red3[shift_out]);
-      }
-
-      else{
-        SPI.transfer(0b00000001);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-        SPI.transfer(0b00000000);
-      }
-
-      if (BAM_Counter == 120)
-      {
-        BAM_Counter = 0;
-        BAM_Bit = 0;
-      }
-      break;
+  switch (BAM_Bit)
+  {
+  case 0:
+    if (!bruteForce){
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(blue0[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(green0[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(red0[shift_out]);
     }
-    
-    //SPI.transfer(0b11111111);
-    SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
 
-    // PORTD |= latchPinBIN;//Latch pin HIGH
-    // PORTD &= ~(latchPinBIN);//Latch pin LOW
-    digitalWrite(latch_pin, HIGH);
-    digitalWrite(latch_pin, LOW);
-    // turn everything back on by disabling blanks
-    //PORTD &= ~(blankPinBIN);//Latch pin LOW
+    else{
+      SPI.transfer(0b00000001);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+    }
 
-    anodelevel++;
-    level = level + 2;
+    break;
+  case 1:
+    if (!bruteForce){
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(blue1[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(green1[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(red1[shift_out]);
+    }
 
-    if (anodelevel == 4)
-      anodelevel = 0;
-    if (level == 8)
-      level = 0;
-    //pinMode(blankPin, OUTPUT);
-  //}
+    else{
+      SPI.transfer(0b00000001);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+    }
+    break;
+  case 2:
+    if (!bruteForce){
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(blue2[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(green2[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(red2[shift_out]);
+    }
+
+    else{
+      SPI.transfer(0b00000001);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+    }
+    break;
+
+  case 3:
+    if (!bruteForce){
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(blue3[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(green3[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(red3[shift_out]);
+    }
+
+    else{
+      SPI.transfer(0b00000001);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+    }
+
+    if (BAM_Counter == 120)
+    {
+      BAM_Counter = 0;
+      BAM_Bit = 0;
+    }
+    break;
+  }
+  
+  //SPI.transfer(0b11111111);
+  SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
+
+  // PORTD |= latchPinBIN;//Latch pin HIGH
+  // PORTD &= ~(latchPinBIN);//Latch pin LOW
+  digitalWrite(latch_pin, HIGH);
+  digitalWrite(latch_pin, LOW);
+  // turn everything back on by disabling blanks
+  //PORTD &= ~(blankPinBIN);//Latch pin LOW
+
+  anodelevel++;
+  level = level + 2;
+
+  if (anodelevel == 4)
+    anodelevel = 0;
+  if (level == 8)
+    level = 0;
+  //pinMode(blankPin, OUTPUT);
 }
 
 void clean()

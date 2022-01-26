@@ -277,6 +277,18 @@ void allRed(){
         LED(i, j, k, 15, 0, 0);
 }
 
+/** void LED(int row, int column, int level, byte red, byte green, byte blue)
+  * 
+  * A function to set a specific LED to light up with a specific intesity of red/green/blue.
+  * 
+  * @param level, int. The z-axis or layer the LED is on.
+  * @param row, int. The index of the LED row. Supports 0-3. For getting a byte from the byte array. (aka led0, led1, led2, led3)
+  * @param column, int. The index of the led in the row to light up. Supports 0-3. For accessing a bit in a byte.
+  * @param red, byte. Controls bit angle modulation for the color red. Only the 4 least significant bits are used.
+  * @param green, byte. Controls bit angle modulation for the color green. Only the 4 least significant bits are used.
+  * @param blue, byte. Controls bit angle modulation for the color blue. Only the 4 least significant bits are used.
+  *
+  */
 void LED(int row, int column, int level, byte red, byte green, byte blue)
 { //****LED Routine****LED Routine****LED Routine****LED Routine
 

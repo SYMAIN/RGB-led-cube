@@ -28,6 +28,8 @@ unsigned char defeatTheCrumbyPreprocessor;
 #define blankPin 8 // aka PH5 / PORTH5
 #define blankPinBIN 0b00100000 // this is the internal representation of turning PH5 on
 
+#define buttonPin 7 // the pin where the pushbutton is for switching animations
+
 #define clock_pin 52 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
 #define data_pin 51 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
 
@@ -49,7 +51,9 @@ int level = 0;                //keeps track of which level we are shifting data 
 int anodelevel = 0;           //this increments through the anode levels
 int BAM_Bit, BAM_Counter = 0; // Bit Angle Modulation variables to keep track of things
 
+int animationToPlay = 0;
 bool stopAnimation = false; // for stopping animation early with the button
+int buttonState = LOW;
 
 unsigned long start; //for a millis timer to cycle through the animations
 
@@ -88,11 +92,40 @@ void setup()
 
 void loop()
 { 
-  //spiral();
-  //sparkles();
-  fireFireworks();
-  //tracer();
-  // LED(0, 0, 0, 0, 15, 0);
+  Serial.println(animationToPlay);
+
+  if (animationToPlay == 0){
+    while(!stopAnimation){
+      sparkles();
+    }
+  }
+  else if (animationToPlay == 1){
+    while(!stopAnimation){
+      fireFireworks();
+    }
+  }
+  else if (animationToPlay == 2){
+    animationToPlay = -1;
+  }
+
+  animationToPlay ++;
+ 
+  if (stopAnimation){
+    stopAnimation = false;
+    delay(500);
+  }
+
+
+}
+
+void updateButton(){
+  buttonState = digitalRead(buttonPin);
+  //Serial.println(buttonState);
+
+  if (buttonState == HIGH){
+    Serial.println("Button pressed~!~");
+    stopAnimation = true;
+  }
 }
 
 /** void LED(int row, int column, int level, byte red, byte green, byte blue)
@@ -283,6 +316,7 @@ void tracer(){
   for (int j = 0; j < 4; j ++){
     for (int i = 0; i < 4; i ++){
       LED(i, 0, j, 15, 0, 0);
+      updateButton();
       if (stopAnimation){
         clean();
         return;
@@ -292,6 +326,7 @@ void tracer(){
     }
     for (int i = 0; i < 4; i ++){
       LED(3, i, j, 0, 15, 0);
+      updateButton();
       if (stopAnimation){
         clean();
         return;
@@ -301,6 +336,7 @@ void tracer(){
     }
     for (int i = 3; i != -1; i ++){
       LED(i, 3, j, 0, 0, 15);
+      updateButton();
       if (stopAnimation){
         clean();
         return;
@@ -310,6 +346,7 @@ void tracer(){
     }
     for (int i = 3; i != -1; i ++){
       LED(0, i, j, 5, 5, 5);
+      updateButton();
       if (stopAnimation){
         clean();
         return;
@@ -333,7 +370,8 @@ void fireFireworks(){
 
     // missle
     LED(startX, startY, i, 0, 0, 10);
-
+    
+    updateButton();
     if (stopAnimation){
       clean();
       return;
@@ -349,6 +387,7 @@ void fireFireworks(){
   LED(startX - 1, startY, 1, 15, 7, 0);
   LED(startX, startY + 1, 3, 15, 7, 0);
   LED(startX, startY - 1, 2, 15, 7, 0);
+  updateButton();
   if (stopAnimation){
     clean();
     return;
@@ -362,6 +401,7 @@ void fireFireworks(){
   LED(startX - 1, startY, 0, 15, 15, 0);
   LED(startX, startY + 1, 2, 15, 15, 0);
   LED(startX, startY - 1, 1, 15, 15, 0);
+  updateButton();
   if (stopAnimation){
     clean();
     return;
@@ -369,29 +409,27 @@ void fireFireworks(){
   delay(200);
   clean();
   
-  // wait 2s between fireworks
+  // wait 1s between fireworks
+  updateButton();
   if (stopAnimation){
     clean();
     return;
   }
   delay(1000);
 
-  if (stopAnimation){
-    clean();
-    return;
-  }
-  delay(1000);
+  return;
 }
 
 void sparkles(){
   LED(random(4), random(4), random(4), random(8) + 8, random(8), random(8));
   LED(random(4), random(4), random(4), random(8), random(8) + 8, random(8));
   LED(random(4), random(4), random(4), random(8), random(8), random(8) + 8);
+  updateButton();
   if (stopAnimation){
     clean();
     return;
   }
-  delay(500);
+  delay(300);
   clean();
 }
 
@@ -408,6 +446,7 @@ void launchMissles(){
     // missle
     LED(startX, i, startZ, 0, 0, 15);
 
+    updateButton();
     if (stopAnimation){
       clean();
       return;
@@ -424,6 +463,7 @@ void launchMissles(){
   LED(startX + 1, 3, startZ, random(15), random(15), random(15));
   LED(startX - 1, 3, startZ, random(15), random(15), random(15));
 
+  updateButton();
   if (stopAnimation){
     clean();
     return;
@@ -439,6 +479,7 @@ void launchMissles(){
   LED(startX + 1, 3, startZ - 1, random(7), random(7), random(7));
   LED(startX - 1, 3, startZ - 1, random(7), random(7), random(7));
 
+  updateButton();
   if (stopAnimation){
     clean();
     return;

@@ -79,8 +79,8 @@ void loop()
 { 
   //spiral();
   //sparkles();
-  //fireFireworks();
-  tracer();
+  fireFireworks();
+  //tracer();
   // LED(0, 0, 0, 0, 15, 0);
 }
 

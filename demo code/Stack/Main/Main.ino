@@ -8,7 +8,17 @@ unsigned char defeatTheCrumbyPreprocessor;
 // https://www.kevindarrah.com/download/8x8x8/RGB_CubeV12_BitwiseFix.ino
 // https://www.youtube.com/watch?v=xmScytz9y0M
 
-/*Anoop M M anoopmmkt@gmail.com(Electronics Demon) */
+/**
+  * What is ours:
+  *   - the animations
+  *   - the implementation of the button into the animations
+  *   - the specific implementation of the BAM and Multiplexing to work with our cube
+  *     - (modified the order the data was sent out, changed which Arduino registers were used)
+  *
+  * What isn't ours:
+  *   - the concepts of SPI, BAM, multiplexing, and LED array manipulation itself 
+  *
+  */
 
 #include <SPI.h> // SPI Library used to clock data out to the shift registers
 
@@ -27,7 +37,7 @@ unsigned char defeatTheCrumbyPreprocessor;
 // CLOCK: green, pin 52
 
 int shift_out;
-byte anode[4];
+byte anode[4]; // The data for grounding the LEDs
 
 //This is how the brightness for every LED is stored,
 
@@ -39,7 +49,7 @@ int level = 0;                //keeps track of which level we are shifting data 
 int anodelevel = 0;           //this increments through the anode levels
 int BAM_Bit, BAM_Counter = 0; // Bit Angle Modulation variables to keep track of things
 
-bool stopAnimation = false; // for stopping animation early
+bool stopAnimation = false; // for stopping animation early with the button
 
 unsigned long start; //for a millis timer to cycle through the animations
 
@@ -61,6 +71,7 @@ void setup()
   TIMSK1 = B00000010;
   OCR1A = 30;
 
+  // Grounding data for each layer/level
   anode[0]=0b00000001;
   anode[1]=0b00000010;
   anode[2]=0b00000100;
@@ -83,6 +94,190 @@ void loop()
   //tracer();
   // LED(0, 0, 0, 0, 15, 0);
 }
+
+/** void LED(int row, int column, int level, byte red, byte green, byte blue)
+  * 
+  * A function to set a specific LED to light up with a specific intesity of red/green/blue.
+  * 
+  * @param level, int. The z-axis or layer the LED is on.
+  * @param row, int. The index of the LED row. Supports 0-3. For getting a byte from the byte array. (aka led0, led1, led2, led3)
+  * @param column, int. The index of the led in the row to light up. Supports 0-3. For accessing a bit in a byte.
+  * @param red, byte. Controls bit angle modulation for the color red. Only the 4 least significant bits are used.
+  * @param green, byte. Controls bit angle modulation for the color green. Only the 4 least significant bits are used.
+  * @param blue, byte. Controls bit angle modulation for the color blue. Only the 4 least significant bits are used.
+  *
+  */
+void LED(int row, int column, int level, byte red, byte green, byte blue){ 
+
+  // error handling
+  if ((level > 3) || (level < 0) || (row > 3) || (row < 0) || (column > 3) || (column < 0)){
+    return;
+  }
+
+  int whichbyte = int(((level * 16) + (row * 4) + column) / 8);
+
+  int wholebyte = (level * 16) + (row * 4) + column;
+
+  bitWrite(red0[whichbyte], wholebyte - (8 * whichbyte), bitRead(red, 0));
+  bitWrite(red1[whichbyte], wholebyte - (8 * whichbyte), bitRead(red, 1));
+  bitWrite(red2[whichbyte], wholebyte - (8 * whichbyte), bitRead(red, 2));
+  bitWrite(red3[whichbyte], wholebyte - (8 * whichbyte), bitRead(red, 3));
+
+  bitWrite(green0[whichbyte], wholebyte - (8 * whichbyte), bitRead(green, 0));
+  bitWrite(green1[whichbyte], wholebyte - (8 * whichbyte), bitRead(green, 1));
+  bitWrite(green2[whichbyte], wholebyte - (8 * whichbyte), bitRead(green, 2));
+  bitWrite(green3[whichbyte], wholebyte - (8 * whichbyte), bitRead(green, 3));
+
+  bitWrite(blue0[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 0));
+  bitWrite(blue1[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 1));
+  bitWrite(blue2[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 2));
+  bitWrite(blue3[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 3));
+}
+
+// A debug toggle to allow the sending of a piece of data to check for errors in the code/circuit
+bool bruteForce = false;
+
+// The BAM timer itself.
+ISR(TIMER1_COMPA_vect)
+{
+  // Blank everything while we change some stuff
+  //PORTD |= blankPinBIN;//Blank pin HIGH (aka disable outputs)
+
+  // for calculating the brightness using BAM
+  // you can think of BAM_Bit as the brightness for BAM: on for 1 tick, off for 2, on for 4, on for 8, etc....
+  if (BAM_Counter == 8)
+    BAM_Bit++;
+  else if (BAM_Counter == 24)
+    BAM_Bit++;
+  else if (BAM_Counter == 56)
+    BAM_Bit++;
+
+  BAM_Counter++;
+
+  // Here, we send out data based off of the BAM_Bit, which determines the duration.
+  switch (BAM_Bit)
+  {
+  // 1 tick
+  case 0:
+    if (!bruteForce){
+      // We shift out B/G/R data in this specific order due to how the circuit is wired up.
+      // Residual data will go to the shift registers in a daisy chain
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(blue0[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(green0[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(red0[shift_out]);
+    }
+
+    else{
+      // Brute forced data. A visualization of what the above for loops do.
+      SPI.transfer(0b00000001);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+    }
+
+    break;
+  // 2 ticks
+  case 1:
+    if (!bruteForce){
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(blue1[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(green1[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(red1[shift_out]);
+    }
+
+    else{
+      SPI.transfer(0b00000001);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+    }
+    break;
+  // 4 ticks
+  case 2:
+    if (!bruteForce){
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(blue2[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(green2[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(red2[shift_out]);
+    }
+
+    else{
+      SPI.transfer(0b00000001);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+    }
+    break;
+  // 8 ticks
+  case 3:
+    if (!bruteForce){
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(blue3[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(green3[shift_out]);
+      for (shift_out = level; shift_out < level + 2; shift_out++)
+        SPI.transfer(red3[shift_out]);
+    }
+
+    else{
+      SPI.transfer(0b00000001);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+      SPI.transfer(0b00000000);
+    }
+
+    // Hit the upper limit for ticks. Resets ticks back to 0.
+    if (BAM_Counter == 120)
+    {
+      BAM_Counter = 0;
+      BAM_Bit = 0;
+    }
+    break;
+  }
+  
+  //SPI.transfer(0b11111111);
+  SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
+
+  // PORTD |= latchPinBIN;//Latch pin HIGH
+  // PORTD &= ~(latchPinBIN);//Latch pin LOW
+
+  // Update data in shift registers by latching the pins
+  digitalWrite(latch_pin, HIGH);
+  digitalWrite(latch_pin, LOW);
+
+  // turn everything back on by disabling blanks
+  //PORTD &= ~(blankPinBIN);//Latch pin LOW
+
+  // Increment the anode level for multiplexing
+  anodelevel++;
+
+  // Increment the level to change which LED data in the array will be shifted out
+  level = level + 2;
+
+  // Resets info when upper limit is reached
+  if (anodelevel == 4)
+    anodelevel = 0;
+  if (level == 8)
+    level = 0;
+  //pinMode(blankPin, OUTPUT);
+}
+
+// ANIMATIONS ***** ANIMATIONS ***** ANIMATIONS ***** ANIMATIONS ***** ANIMATIONS ***** ANIMATIONS //
 
 void tracer(){
   for (int j = 0; j < 4; j ++){
@@ -275,169 +470,6 @@ void allRed(){
     for (int j = 0; j < 4; j++)
       for (int k = 0; k < 4; k++)
         LED(i, j, k, 15, 0, 0);
-}
-
-/** void LED(int row, int column, int level, byte red, byte green, byte blue)
-  * 
-  * A function to set a specific LED to light up with a specific intesity of red/green/blue.
-  * 
-  * @param level, int. The z-axis or layer the LED is on.
-  * @param row, int. The index of the LED row. Supports 0-3. For getting a byte from the byte array. (aka led0, led1, led2, led3)
-  * @param column, int. The index of the led in the row to light up. Supports 0-3. For accessing a bit in a byte.
-  * @param red, byte. Controls bit angle modulation for the color red. Only the 4 least significant bits are used.
-  * @param green, byte. Controls bit angle modulation for the color green. Only the 4 least significant bits are used.
-  * @param blue, byte. Controls bit angle modulation for the color blue. Only the 4 least significant bits are used.
-  *
-  */
-void LED(int row, int column, int level, byte red, byte green, byte blue)
-{ //****LED Routine****LED Routine****LED Routine****LED Routine
-
-  // error handling
-  if ((level > 3) || (level < 0) || (row > 3) || (row < 0) || (column > 3) || (column < 0)){
-    return;
-  }
-
-  int whichbyte = int(((level * 16) + (row * 4) + column) / 8);
-
-  int wholebyte = (level * 16) + (row * 4) + column;
-
-  bitWrite(red0[whichbyte], wholebyte - (8 * whichbyte), bitRead(red, 0));
-  bitWrite(red1[whichbyte], wholebyte - (8 * whichbyte), bitRead(red, 1));
-  bitWrite(red2[whichbyte], wholebyte - (8 * whichbyte), bitRead(red, 2));
-  bitWrite(red3[whichbyte], wholebyte - (8 * whichbyte), bitRead(red, 3));
-
-  bitWrite(green0[whichbyte], wholebyte - (8 * whichbyte), bitRead(green, 0));
-  bitWrite(green1[whichbyte], wholebyte - (8 * whichbyte), bitRead(green, 1));
-  bitWrite(green2[whichbyte], wholebyte - (8 * whichbyte), bitRead(green, 2));
-  bitWrite(green3[whichbyte], wholebyte - (8 * whichbyte), bitRead(green, 3));
-
-  bitWrite(blue0[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 0));
-  bitWrite(blue1[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 1));
-  bitWrite(blue2[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 2));
-  bitWrite(blue3[whichbyte], wholebyte - (8 * whichbyte), bitRead(blue, 3));
-}
-
-bool bruteForce = false;
-ISR(TIMER1_COMPA_vect)
-{
-  // Blank everything while we change some stuff
-  //PORTD |= blankPinBIN;//Blank pin HIGH (aka disable outputs)
-
-  if (BAM_Counter == 8)
-    BAM_Bit++;
-  else if (BAM_Counter == 24)
-    BAM_Bit++;
-  else if (BAM_Counter == 56)
-    BAM_Bit++;
-
-  BAM_Counter++;
-
-  switch (BAM_Bit)
-  {
-  case 0:
-    if (!bruteForce){
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(blue0[shift_out]);
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(green0[shift_out]);
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(red0[shift_out]);
-    }
-
-    else{
-      SPI.transfer(0b00000001);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-    }
-
-    break;
-  case 1:
-    if (!bruteForce){
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(blue1[shift_out]);
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(green1[shift_out]);
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(red1[shift_out]);
-    }
-
-    else{
-      SPI.transfer(0b00000001);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-    }
-    break;
-  case 2:
-    if (!bruteForce){
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(blue2[shift_out]);
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(green2[shift_out]);
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(red2[shift_out]);
-    }
-
-    else{
-      SPI.transfer(0b00000001);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-    }
-    break;
-
-  case 3:
-    if (!bruteForce){
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(blue3[shift_out]);
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(green3[shift_out]);
-      for (shift_out = level; shift_out < level + 2; shift_out++)
-        SPI.transfer(red3[shift_out]);
-    }
-
-    else{
-      SPI.transfer(0b00000001);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-      SPI.transfer(0b00000000);
-    }
-
-    if (BAM_Counter == 120)
-    {
-      BAM_Counter = 0;
-      BAM_Bit = 0;
-    }
-    break;
-  }
-  
-  //SPI.transfer(0b11111111);
-  SPI.transfer(anode[anodelevel]); //finally, send out the anode level byte
-
-  // PORTD |= latchPinBIN;//Latch pin HIGH
-  // PORTD &= ~(latchPinBIN);//Latch pin LOW
-  digitalWrite(latch_pin, HIGH);
-  digitalWrite(latch_pin, LOW);
-  // turn everything back on by disabling blanks
-  //PORTD &= ~(blankPinBIN);//Latch pin LOW
-
-  anodelevel++;
-  level = level + 2;
-
-  if (anodelevel == 4)
-    anodelevel = 0;
-  if (level == 8)
-    level = 0;
-  //pinMode(blankPin, OUTPUT);
 }
 
 void clean()

@@ -365,7 +365,7 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "",
+      "netlist": "breaker.net",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""

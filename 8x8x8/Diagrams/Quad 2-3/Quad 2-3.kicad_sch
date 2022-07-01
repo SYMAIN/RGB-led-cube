@@ -1817,7 +1817,7 @@
     (effects (font (size 1.27 1.27)) (justify right bottom))
     (uuid 18b86988-1ca1-4754-817c-e060d3524271)
   )
-  (text "Shift Register Quadrant 2&3" (at 186.69 191.77 0)
+  (text "RGB cube motherboard Quad 2&3" (at 186.69 191.77 0)
     (effects (font (size 2.27 2.27)) (justify left bottom))
     (uuid 2a891096-042c-4004-b161-8bd2c0b59fd7)
   )

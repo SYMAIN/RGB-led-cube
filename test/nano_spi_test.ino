@@ -26,8 +26,7 @@ unsigned char defeatTheCrumbyPreprocessor;
 #define clock_pin 11 // D11. The SPI-MOSI pinout on the Arduino Nano. Varies between Arduinos.
 #define data_pin 13 // D13. The SPI-SCK pinout on the Arduino Nano. Varies between Arduinos.
 
-void setup()
-{
+void setup(){
 
   Serial.begin(9600);
 
@@ -37,7 +36,7 @@ void setup()
 
   noInterrupts(); // kill interrupts until everybody is set up
 
-  //Timer 1 to refresh the cube. Not sure if this works on Nano.
+  // // Timer 1 to refresh the cube.
   // TCCR1A = B00000000;
   // TCCR1B = B00001011;
 
@@ -51,3 +50,15 @@ void setup()
   SPI.begin();                //start up the SPI library
   interrupts();               //let the show begin, this lets the multiplexing start
 }
+
+void loop(){
+  SPI.transfer(0b10011001);
+  digitalWrite(latch_pin, HIGH);
+  digitalWrite(latch_pin, LOW);
+  delay(100);
+} 
+
+// // confirmed working 
+// ISR(TIMER1_COMPA_vect){
+//   Serial.println("Working!");
+// }

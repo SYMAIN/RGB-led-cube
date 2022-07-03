@@ -12,7 +12,9 @@ unsigned char defeatTheCrumbyPreprocessor;
 // https://www.kevindarrah.com/download/8x8x8/RGB_CubeV12_BitwiseFix.ino
 // https://www.youtube.com/watch?v=xmScytz9y0M
 
-//pin connections
+// pin connections
+// THESE ARE NOT THE SAME PINS USED FOR SPI. 
+// Refer to RGB-led-cube/test/nano_spi_test.ino for the correct pins used in SPI.
 #define latch_pin 12 // aka pin D12
 
 #define clock_pin 11 // D11.

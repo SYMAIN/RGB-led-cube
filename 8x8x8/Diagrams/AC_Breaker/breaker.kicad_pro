@@ -48,13 +48,7 @@
           "min_clearance": 0.508
         }
       },
-      "diff_pair_dimensions": [
-        {
-          "gap": 0.0,
-          "via_gap": 0.0,
-          "width": 0.0
-        }
-      ],
+      "diff_pair_dimensions": [],
       "drc_exclusions": [],
       "meta": {
         "version": 2
@@ -118,20 +112,8 @@
         "solder_mask_min_width": 0.0,
         "use_height_for_length_calcs": true
       },
-<<<<<<< HEAD
-      "track_widths": [
-        0.0
-      ],
-      "via_dimensions": [
-        {
-          "diameter": 0.0,
-          "drill": 0.0
-        }
-      ],
-=======
       "track_widths": [],
       "via_dimensions": [],
->>>>>>> 658a13b7738643e064a9fa0db193cb4d5ff07208
       "zones_allow_external_fillets": false,
       "zones_use_no_outline": true
     },
@@ -351,7 +333,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "pcb.kicad_pro",
+    "filename": "breaker.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -383,7 +365,7 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "pcb.net",
+      "netlist": "breaker.net",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""
@@ -411,7 +393,7 @@
     "meta": {
       "version": 1
     },
-    "net_format_name": "KiCad",
+    "net_format_name": "",
     "ngspice": {
       "fix_include_paths": true,
       "fix_passive_vals": false,
@@ -430,7 +412,7 @@
   },
   "sheets": [
     [
-      "55992e35-fe7b-468a-9b7a-1e4dc931b904",
+      "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55",
       ""
     ]
   ],

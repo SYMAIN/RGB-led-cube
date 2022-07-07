@@ -1,11 +1,7 @@
 {
   "board": {
-<<<<<<< HEAD
-    "active_layer": 31,
-=======
     "active_layer": 0,
->>>>>>> 658a13b7738643e064a9fa0db193cb4d5ff07208
-    "active_layer_preset": "All Layers",
+    "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_nets": [],
     "high_contrast_mode": 0,
@@ -70,7 +66,7 @@
     "zone_display_mode": 0
   },
   "meta": {
-    "filename": "pcb.kicad_prl",
+    "filename": "breaker.kicad_prl",
     "version": 3
   },
   "project": {

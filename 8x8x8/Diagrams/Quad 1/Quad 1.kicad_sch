@@ -676,7 +676,6 @@
     )
   )
 
-
   (junction (at 140.97 154.94) (diameter 0) (color 0 0 0 0)
     (uuid 07678248-0774-49ca-a377-01b7e220adb6)
   )
@@ -2600,7 +2599,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 14b6a088-e29e-4f65-bb62-fd783c1ab88e)
   )
-  (text "RGB cube motherboard quad 1" (at 186.69 191.77 0)
+  (text "RGB cube Driver quad 1" (at 186.69 191.77 0)
     (effects (font (size 2.27 2.27)) (justify left bottom))
     (uuid 23f1f71f-cee3-412e-8e0b-8dacdc450a11)
   )

@@ -1,0 +1,7 @@
+"Id";"Designator";"Package";"Quantity";"Designation";"Supplier and ref";
+1;"R39,R23,R53,R14,R19,R47,R51,R16,R25,R21,R10,R29,R30,R20,R50,R49,R24,R28,R45,R31,R42,R26,R44,R35,R43,R48,R40,R9,R34,R7,R12,R36,R11,R38,R32,R8,R17,R37,R6,R46,R52,R13,R15,R27,R41,R18,R33,R22";"R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal";48;"330";;;
+2;"U7,U2,U4,U6,U1,U5,U3";"SO16";7;"74HC595";;;
+3;"J4,J7,J9,J14,J11,J1,J12,J8,J13,J10,J6,J5,J3";"TerminalBlock_Phoenix_MKDS-1,5-4-5.08_1x04_P5.08mm_Horizontal";13;"Conn_01x04_Female";;;
+4;"Q1,Q2,Q4,Q3";"TO127P584H533-3";4;"2N2222";;;
+5;"R4,R3,R2,R1";"R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal";4;"1000";;;
+6;"J2";"TerminalBlock_Phoenix_PT-1,5-6-5.0-H_1x06_P5.00mm_Horizontal";1;"Conn_01x06_Female";;;

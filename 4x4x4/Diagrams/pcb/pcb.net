@@ -1,8 +1,14 @@
 (export (version "E")
   (design
+<<<<<<< HEAD
     (source "C:\\Users\\Thega\\Documents\\dev\\Projects\\RGB-led-cube\\4x4x4\\Diagrams\\pcb\\pcb.kicad_sch")
     (date "8/2/2022 8:02:31 PM")
     (tool "Eeschema (6.0.0)")
+=======
+    (source "C:\\Users\\John\\Desktop\\code\\RGB-led-cube\\4x4x4\\Diagrams\\pcb\\pcb.kicad_sch")
+    (date "2022-08-02 11:24:12 AM")
+    (tool "Eeschema (6.0.4)")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
     (sheet (number "1") (name "/") (tstamps "/")
       (title_block
         (title)
@@ -22,7 +28,11 @@
   (components
     (comp (ref "J1")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -34,7 +44,11 @@
       (tstamps "fb2a85fb-04de-4dc2-b4dd-641fb2dd824e"))
     (comp (ref "J2")
       (value "DB128V-5_0-6P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-6P-GN-S:CONN-TH_6P-P5.00_DB128V")
+=======
+      (footprint "footprint:CONN-TH_6P-P5.00_DB128V")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418355.html")
       (fields
         (field (name "LCSC") "C424686"))
@@ -46,7 +60,11 @@
       (tstamps "25657308-4817-4a2b-914f-6d67d6d1baac"))
     (comp (ref "J3")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -58,7 +76,11 @@
       (tstamps "a5655df8-9b19-485a-b98c-2965ceb1a7c4"))
     (comp (ref "J4")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -70,7 +92,11 @@
       (tstamps "cc23c970-b925-43e6-968f-750d11c0b425"))
     (comp (ref "J5")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -82,7 +108,11 @@
       (tstamps "e636fc7a-6ecf-43b3-8bc1-d656256f7997"))
     (comp (ref "J6")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -94,7 +124,11 @@
       (tstamps "b1ad1370-f9d2-4f7e-9af3-1156c67bb65c"))
     (comp (ref "J7")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -106,7 +140,11 @@
       (tstamps "053e9717-9b19-44a3-a9c8-784148c99581"))
     (comp (ref "J8")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -118,7 +156,11 @@
       (tstamps "9d01759f-658d-4950-9555-51dfe0a31830"))
     (comp (ref "J9")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -130,7 +172,11 @@
       (tstamps "85c6e856-e6fb-4650-829e-7db96e661b5f"))
     (comp (ref "J10")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -142,7 +188,11 @@
       (tstamps "38baea1a-8335-4491-98c7-6ad9937dcbf0"))
     (comp (ref "J11")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -154,7 +204,11 @@
       (tstamps "b57eaa31-02bf-4601-9a89-9ac148093732"))
     (comp (ref "J12")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -166,7 +220,11 @@
       (tstamps "32403dfc-c8aa-4a32-b2c9-d5ec16ec49c7"))
     (comp (ref "J13")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -178,7 +236,11 @@
       (tstamps "a27d80c1-352b-462a-a20b-913b8ba6c58d"))
     (comp (ref "J14")
       (value "DB128V-5_0-4P")
+<<<<<<< HEAD
       (footprint "DB128V-5.0-4P-GN-S:CONN-TH_DB128V-5.0-4P")
+=======
+      (footprint "footprint:CONN-TH_DB128V-5.0-4P")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/418351.html")
       (fields
         (field (name "LCSC") "C424682"))
@@ -190,7 +252,11 @@
       (tstamps "28c6545f-4a8c-4814-8014-b110cb7bf873"))
     (comp (ref "Q1")
       (value "2N2222")
+<<<<<<< HEAD
       (footprint "2N2222A:TO-92-3_L4.9-W3.7-P1.27-L")
+=======
+      (footprint "footprint:TO-92-3_L4.9-W3.7-P1.27-L")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://atta.szlcsc.com/upload/public/pdf/source/20180629/C233232_99576441F8ED8E9074FB1575A6BE3592.PDF")
       (fields
         (field (name "LCSC") "C118536"))
@@ -202,7 +268,11 @@
       (tstamps "8b8791fd-da5c-47df-ac46-e78ea2fa8a81"))
     (comp (ref "Q2")
       (value "2N2222")
+<<<<<<< HEAD
       (footprint "2N2222A:TO-92-3_L4.9-W3.7-P1.27-L")
+=======
+      (footprint "footprint:TO-92-3_L4.9-W3.7-P1.27-L")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://atta.szlcsc.com/upload/public/pdf/source/20180629/C233232_99576441F8ED8E9074FB1575A6BE3592.PDF")
       (fields
         (field (name "LCSC") "C118536"))
@@ -214,7 +284,11 @@
       (tstamps "854bcfb9-96fc-4c2f-98b0-0de6884a06ee"))
     (comp (ref "Q3")
       (value "2N2222")
+<<<<<<< HEAD
       (footprint "2N2222A:TO-92-3_L4.9-W3.7-P1.27-L")
+=======
+      (footprint "footprint:TO-92-3_L4.9-W3.7-P1.27-L")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://atta.szlcsc.com/upload/public/pdf/source/20180629/C233232_99576441F8ED8E9074FB1575A6BE3592.PDF")
       (fields
         (field (name "LCSC") "C118536"))
@@ -226,7 +300,11 @@
       (tstamps "89d46574-8295-45e6-b7d5-79f7e0767b10"))
     (comp (ref "Q4")
       (value "2N2222")
+<<<<<<< HEAD
       (footprint "2N2222A:TO-92-3_L4.9-W3.7-P1.27-L")
+=======
+      (footprint "footprint:TO-92-3_L4.9-W3.7-P1.27-L")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://atta.szlcsc.com/upload/public/pdf/source/20180629/C233232_99576441F8ED8E9074FB1575A6BE3592.PDF")
       (fields
         (field (name "LCSC") "C118536"))
@@ -238,7 +316,11 @@
       (tstamps "845b1f24-c487-4414-910f-17ee40bc37c0"))
     (comp (ref "R1")
       (value "1000")
+<<<<<<< HEAD
       (footprint "1kR:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433798"))
@@ -250,7 +332,11 @@
       (tstamps "93f502ed-5bb1-41ae-bbae-a41e8619edfc"))
     (comp (ref "R2")
       (value "1000")
+<<<<<<< HEAD
       (footprint "1kR:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433798"))
@@ -262,7 +348,11 @@
       (tstamps "fe33ec4e-04d4-45af-8bea-562c890c1d19"))
     (comp (ref "R3")
       (value "1000")
+<<<<<<< HEAD
       (footprint "1kR:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433798"))
@@ -274,12 +364,17 @@
       (tstamps "8038d94c-fef1-419a-b949-206793fe2a8f"))
     (comp (ref "R4")
       (value "1000")
+<<<<<<< HEAD
       (footprint "1kR:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433798"))
       (libsource (lib "1kR") (part "RD_1_2WS_1K_J_T_B_A1") (description ""))
       (property (name "LCSC") (value "C433798"))
+<<<<<<< HEAD
       (property (name "Sheetname") (value ""))
       (property (name "Sheetfile") (value "pcb.kicad_sch"))
       (sheetpath (names "/") (tstamps "/"))
@@ -299,6 +394,27 @@
     (comp (ref "R6")
       (value "330")
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (property (name "Sheetname") (value ""))
+      (property (name "Sheetfile") (value "pcb.kicad_sch"))
+      (sheetpath (names "/") (tstamps "/"))
+      (tstamps "a3e517bf-4090-4f0b-aed6-a337747c31f1"))
+    (comp (ref "R5")
+      (value "330")
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+      (datasheet "https://item.szlcsc.com/184395.html")
+      (fields
+        (field (name "LCSC") "C433789"))
+      (libsource (lib "330R") (part "RD_1_2WS_330R_J_T_B_A1") (description ""))
+      (property (name "LCSC") (value "C433789"))
+      (property (name "Sheetname") (value ""))
+      (property (name "Sheetfile") (value "pcb.kicad_sch"))
+      (sheetpath (names "/") (tstamps "/"))
+      (tstamps "2342d9e2-0f4e-47bc-ad3b-11ed308d1521"))
+    (comp (ref "R6")
+      (value "330")
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -310,7 +426,11 @@
       (tstamps "31761867-d879-4b64-a081-03ac3ccd68d8"))
     (comp (ref "R7")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -322,7 +442,11 @@
       (tstamps "38217e6f-cf83-4a23-b223-80fec32936b6"))
     (comp (ref "R8")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -334,7 +458,11 @@
       (tstamps "46f3a1fe-9cf6-41aa-ab3a-1ed2065a4fe7"))
     (comp (ref "R9")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -346,7 +474,11 @@
       (tstamps "31fa65ee-f213-4ff5-a49d-0d440b14ef79"))
     (comp (ref "R10")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -358,7 +490,11 @@
       (tstamps "da2feb56-9b41-409a-9d8e-71e33f5efee0"))
     (comp (ref "R11")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -370,7 +506,11 @@
       (tstamps "6d5623b1-4ce3-4e72-a8c1-ec88b14a7ac0"))
     (comp (ref "R12")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -382,7 +522,11 @@
       (tstamps "7d912064-5497-4cf7-994b-ad31f09ae092"))
     (comp (ref "R13")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -394,7 +538,11 @@
       (tstamps "1918f7a7-4868-4c94-9ceb-ff7d33f6c080"))
     (comp (ref "R14")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -406,7 +554,11 @@
       (tstamps "4fee93bf-99cb-4a0e-b0b1-3cc06e90d11b"))
     (comp (ref "R15")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -418,7 +570,11 @@
       (tstamps "39adddb6-3dc4-41f4-973c-01764a2ed4e4"))
     (comp (ref "R16")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -430,7 +586,11 @@
       (tstamps "bba7f02e-d61e-4d8f-b0b2-d66d9d374f19"))
     (comp (ref "R17")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -442,7 +602,11 @@
       (tstamps "922ee2ab-d6c2-4160-992b-56cfa0392c79"))
     (comp (ref "R18")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -454,7 +618,11 @@
       (tstamps "b931978e-1a19-4972-8e2e-8c0b499ef937"))
     (comp (ref "R19")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -466,7 +634,11 @@
       (tstamps "2beadfbe-bd52-4928-a8ed-5a413b9feb11"))
     (comp (ref "R20")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -478,7 +650,11 @@
       (tstamps "a8a0b2e3-823a-474e-977c-294f2c318a19"))
     (comp (ref "R21")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -490,7 +666,11 @@
       (tstamps "4b79df15-2520-4f51-bf75-468c43846149"))
     (comp (ref "R22")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -502,7 +682,11 @@
       (tstamps "575645e8-14d4-4a22-b43f-95c411e08521"))
     (comp (ref "R23")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -514,7 +698,11 @@
       (tstamps "1e98334a-ed40-41d9-bd3a-49a41b32bb52"))
     (comp (ref "R24")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -526,7 +714,11 @@
       (tstamps "2038eb96-ab84-46e2-92bb-4c782bb8cf5d"))
     (comp (ref "R25")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -538,7 +730,11 @@
       (tstamps "284d951d-3bf4-4820-8215-7400783e2c20"))
     (comp (ref "R26")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -550,7 +746,11 @@
       (tstamps "cd8fcb9f-6ab6-4dc7-be17-c6400655b51d"))
     (comp (ref "R27")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -562,7 +762,11 @@
       (tstamps "3c9e8450-6d47-4480-a85c-dec6aa08a3c8"))
     (comp (ref "R28")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -574,7 +778,11 @@
       (tstamps "5b30090f-7c6f-4ce6-ae94-fb82c99f41a9"))
     (comp (ref "R29")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -586,7 +794,11 @@
       (tstamps "f69ec2b6-0685-4cae-a28c-a4850b01b299"))
     (comp (ref "R30")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -598,7 +810,11 @@
       (tstamps "427c44f9-41f3-41ff-9d3f-066426a6366a"))
     (comp (ref "R31")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -610,7 +826,11 @@
       (tstamps "808d381d-a9ea-44a9-8246-6751da21bc25"))
     (comp (ref "R32")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -622,7 +842,11 @@
       (tstamps "48ab1068-8f1c-4acf-a6dd-23169b4fbac3"))
     (comp (ref "R33")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -634,7 +858,11 @@
       (tstamps "ced3b953-7eba-44a3-9239-c83c910f3a9b"))
     (comp (ref "R34")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -646,7 +874,11 @@
       (tstamps "b9eb8e66-1a35-4aa7-9580-10462ec6665a"))
     (comp (ref "R35")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -658,7 +890,11 @@
       (tstamps "18efb2b0-ac2a-4844-8bf8-50811660775d"))
     (comp (ref "R36")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -670,7 +906,11 @@
       (tstamps "49768de4-3e03-4db4-9def-cad0f4e68bc1"))
     (comp (ref "R37")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -682,7 +922,11 @@
       (tstamps "5412b7bd-a639-4d1e-bb50-7753169894ca"))
     (comp (ref "R38")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -694,7 +938,11 @@
       (tstamps "55740e58-f38e-49c8-b70c-61e86fa15f6b"))
     (comp (ref "R39")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -706,7 +954,11 @@
       (tstamps "0af2566a-cddf-40fe-b593-bb6f40de7bb3"))
     (comp (ref "R40")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -718,7 +970,11 @@
       (tstamps "a19b9a83-66ca-472d-9cda-98a44b69f657"))
     (comp (ref "R41")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -730,7 +986,11 @@
       (tstamps "8e8bc6b8-f94e-47f7-9fdf-d3ce2fcb4c7f"))
     (comp (ref "R42")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -742,7 +1002,11 @@
       (tstamps "ea4deb51-a057-49c0-9d27-f61568ac1c9b"))
     (comp (ref "R43")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -754,7 +1018,11 @@
       (tstamps "1594c961-4198-4ff6-9d6e-3c196c24a4a5"))
     (comp (ref "R44")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -766,7 +1034,11 @@
       (tstamps "498d4bf8-a30c-4f7a-8be3-14d683d4df00"))
     (comp (ref "R45")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -778,7 +1050,11 @@
       (tstamps "f7e1384a-4259-4cd2-8385-c4cf4e878dd3"))
     (comp (ref "R46")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -790,7 +1066,11 @@
       (tstamps "cdf1f8ca-ad99-41cb-a416-9ccbc6f052e8"))
     (comp (ref "R47")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -802,7 +1082,11 @@
       (tstamps "cd7ca9b7-fffa-4d62-9e8e-c5584d50caae"))
     (comp (ref "R48")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -814,7 +1098,11 @@
       (tstamps "e7a343d9-eb67-4ee9-9e61-714bbc11ac8b"))
     (comp (ref "R49")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -826,7 +1114,11 @@
       (tstamps "e41601d2-524f-4c51-a959-7fef40f71409"))
     (comp (ref "R50")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -838,7 +1130,11 @@
       (tstamps "160bc18f-c1f1-4bf5-b19f-a428034e3ed7"))
     (comp (ref "R51")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -850,7 +1146,11 @@
       (tstamps "1700d8de-78d2-496d-862a-4d35c367403d"))
     (comp (ref "R52")
       (value "330")
+<<<<<<< HEAD
       (footprint "330R:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+=======
+      (footprint "footprint:RES-TH_BD2.4-L6.3-P10.30-D0.6")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "https://item.szlcsc.com/184395.html")
       (fields
         (field (name "LCSC") "C433789"))
@@ -862,7 +1162,11 @@
       (tstamps "e9300b47-f4cd-4726-91a7-bb386db4deb6"))
     (comp (ref "U1")
       (value "74HC595D,118")
+<<<<<<< HEAD
       (footprint "74HC595:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+=======
+      (footprint "footprint:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "http://datasheet.octopart.com/MC14076BDR2G-ON-Semiconductor-datasheet-608107.pdf")
       (fields
         (field (name "LCSC") "C5947"))
@@ -874,7 +1178,11 @@
       (tstamps "38b254db-c6d7-4a05-8e15-d0bebe46852f"))
     (comp (ref "U2")
       (value "74HC595D,118")
+<<<<<<< HEAD
       (footprint "74HC595:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+=======
+      (footprint "footprint:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "http://datasheet.octopart.com/MC14076BDR2G-ON-Semiconductor-datasheet-608107.pdf")
       (fields
         (field (name "LCSC") "C5947"))
@@ -886,7 +1194,11 @@
       (tstamps "aaea0b1b-f868-476c-935b-205cdfd03d28"))
     (comp (ref "U3")
       (value "74HC595D,118")
+<<<<<<< HEAD
       (footprint "74HC595:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+=======
+      (footprint "footprint:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "http://datasheet.octopart.com/MC14076BDR2G-ON-Semiconductor-datasheet-608107.pdf")
       (fields
         (field (name "LCSC") "C5947"))
@@ -895,10 +1207,17 @@
       (property (name "Sheetname") (value ""))
       (property (name "Sheetfile") (value "pcb.kicad_sch"))
       (sheetpath (names "/") (tstamps "/"))
+<<<<<<< HEAD
       (tstamps "6b3e1ece-1b8e-40b7-a8da-ced311fe6fd8"))
     (comp (ref "U4")
       (value "74HC595D,118")
       (footprint "74HC595:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+=======
+      (tstamps "2bbd588f-2c4e-418a-ab8e-9c56ee47998f"))
+    (comp (ref "U4")
+      (value "74HC595D,118")
+      (footprint "footprint:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "http://datasheet.octopart.com/MC14076BDR2G-ON-Semiconductor-datasheet-608107.pdf")
       (fields
         (field (name "LCSC") "C5947"))
@@ -907,10 +1226,17 @@
       (property (name "Sheetname") (value ""))
       (property (name "Sheetfile") (value "pcb.kicad_sch"))
       (sheetpath (names "/") (tstamps "/"))
+<<<<<<< HEAD
       (tstamps "2f8e17ef-4a1b-4f14-b8f4-6b2241cea142"))
     (comp (ref "U5")
       (value "74HC595D,118")
       (footprint "74HC595:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+=======
+      (tstamps "3703fc96-02ce-42e7-a54c-bf681dbac50a"))
+    (comp (ref "U5")
+      (value "74HC595D,118")
+      (footprint "footprint:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "http://datasheet.octopart.com/MC14076BDR2G-ON-Semiconductor-datasheet-608107.pdf")
       (fields
         (field (name "LCSC") "C5947"))
@@ -919,10 +1245,17 @@
       (property (name "Sheetname") (value ""))
       (property (name "Sheetfile") (value "pcb.kicad_sch"))
       (sheetpath (names "/") (tstamps "/"))
+<<<<<<< HEAD
       (tstamps "3131fb7b-aaf8-4119-ba1e-1e88c699ebed"))
     (comp (ref "U6")
       (value "74HC595D,118")
       (footprint "74HC595:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+=======
+      (tstamps "d2a5c3d6-9f0d-42dc-8b88-ab21528fd560"))
+    (comp (ref "U6")
+      (value "74HC595D,118")
+      (footprint "footprint:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (datasheet "http://datasheet.octopart.com/MC14076BDR2G-ON-Semiconductor-datasheet-608107.pdf")
       (fields
         (field (name "LCSC") "C5947"))
@@ -931,10 +1264,16 @@
       (property (name "Sheetname") (value ""))
       (property (name "Sheetfile") (value "pcb.kicad_sch"))
       (sheetpath (names "/") (tstamps "/"))
+<<<<<<< HEAD
       (tstamps "e538a4a9-ebb7-4452-b418-e95b086ea6dd"))
     (comp (ref "U7")
       (value "74HC595D,118")
       (footprint "74HC595:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+=======
+      (tstamps "e9809c4f-674b-471c-bad9-c322eb014c67"))
+    (comp (ref "U7")
+      (value "74HC595D,118")
+      (footprint "footprint:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
       (datasheet "http://datasheet.octopart.com/MC14076BDR2G-ON-Semiconductor-datasheet-608107.pdf")
       (fields
         (field (name "LCSC") "C5947"))
@@ -943,7 +1282,60 @@
       (property (name "Sheetname") (value ""))
       (property (name "Sheetfile") (value "pcb.kicad_sch"))
       (sheetpath (names "/") (tstamps "/"))
+      (tstamps "1da00a60-c93f-4eb7-af73-84a693b41944"))
+    (comp (ref "U8")
+      (value "74HC595D,118")
+      (footprint "footprint:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+      (datasheet "http://datasheet.octopart.com/MC14076BDR2G-ON-Semiconductor-datasheet-608107.pdf")
+      (fields
+        (field (name "LCSC") "C5947"))
+      (libsource (lib "74HC595D,118") (part "74HC595D,118") (description ""))
+      (property (name "LCSC") (value "C5947"))
+      (property (name "Sheetname") (value ""))
+      (property (name "Sheetfile") (value "pcb.kicad_sch"))
+      (sheetpath (names "/") (tstamps "/"))
+      (tstamps "d6b0b519-2bba-4219-bc78-6bb8b9b5b50b"))
+    (comp (ref "U9")
+      (value "74HC595D,118")
+      (footprint "footprint:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+      (datasheet "http://datasheet.octopart.com/MC14076BDR2G-ON-Semiconductor-datasheet-608107.pdf")
+      (fields
+        (field (name "LCSC") "C5947"))
+      (libsource (lib "74HC595D,118") (part "74HC595D,118") (description ""))
+      (property (name "LCSC") (value "C5947"))
+      (property (name "Sheetname") (value ""))
+      (property (name "Sheetfile") (value "pcb.kicad_sch"))
+      (sheetpath (names "/") (tstamps "/"))
+      (tstamps "1aef2a6a-c59c-4552-826d-d7ee90b0067f"))
+    (comp (ref "U10")
+      (value "74HC595D,118")
+      (footprint "footprint:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
+      (datasheet "http://datasheet.octopart.com/MC14076BDR2G-ON-Semiconductor-datasheet-608107.pdf")
+      (fields
+        (field (name "LCSC") "C5947"))
+      (libsource (lib "74HC595D,118") (part "74HC595D,118") (description ""))
+      (property (name "LCSC") (value "C5947"))
+      (property (name "Sheetname") (value ""))
+      (property (name "Sheetfile") (value "pcb.kicad_sch"))
+      (sheetpath (names "/") (tstamps "/"))
+<<<<<<< HEAD
       (tstamps "c7e38e6d-2884-4d4c-ae94-787afdd86a55")))
+=======
+      (tstamps "77579f5e-7495-440d-941b-112153609d4c"))
+    (comp (ref "U11")
+      (value "74HC595D,118")
+      (footprint "footprint:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL")
+      (datasheet "http://datasheet.octopart.com/MC14076BDR2G-ON-Semiconductor-datasheet-608107.pdf")
+      (fields
+        (field (name "LCSC") "C5947"))
+      (libsource (lib "74HC595D,118") (part "74HC595D,118") (description ""))
+      (property (name "LCSC") (value "C5947"))
+      (property (name "Sheetname") (value ""))
+      (property (name "Sheetfile") (value "pcb.kicad_sch"))
+      (sheetpath (names "/") (tstamps "/"))
+      (tstamps "5dfd1c6b-5cbf-45c4-b72c-9041f973b4a6")))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
   (libparts
     (libpart (lib "1kR") (part "RD_1_2WS_1K_J_T_B_A1")
       (docs "https://item.szlcsc.com/184395.html")
@@ -1034,6 +1426,7 @@
         (pin (num "6") (name "6") (type "unspecified")))))
   (libraries
     (library (logical "1kR")
+<<<<<<< HEAD
       (uri "C:\\Users\\Thega\\Documents\\dev\\Projects\\RGB-led-cube\\4x4x4\\Diagrams\\pcb../../../../../RGB-led-cube/Kicad/Symbols/1kR/default_lib.kicad_sym"))
     (library (logical "2N2222A")
       (uri "C:\\Users\\Thega\\Documents\\dev\\Projects\\RGB-led-cube\\4x4x4\\Diagrams\\pcb../../../../../RGB-led-cube/Kicad/Symbols/2N2222A/default_lib.kicad_sym"))
@@ -1043,6 +1436,19 @@
       (uri "C:\\Users\\Thega\\Documents\\dev\\Projects\\RGB-led-cube\\4x4x4\\Diagrams\\pcb../../../../../RGB-led-cube/Kicad/Symbols/DB128V-5.0-4P-GN-S/default_lib.kicad_sym"))
     (library (logical "DB128V-5.0-6P-GN-S")
       (uri "C:\\Users\\Thega\\Documents\\dev\\Projects\\RGB-led-cube\\4x4x4\\Diagrams\\pcb../../../../../RGB-led-cube/Kicad/Symbols/DB128V-5.0-6P-GN-S/default_lib.kicad_sym")))
+=======
+      (uri "C:\\Users\\John\\Desktop\\code\\RGB-led-cube\\4x4x4\\Diagrams\\pcb../../../../../RGB-led-cube/Kicad/Symbols/1kR/default_lib.kicad_sym"))
+    (library (logical "2N2222A")
+      (uri "C:\\Users\\John\\Desktop\\code\\RGB-led-cube\\4x4x4\\Diagrams\\pcb../../../../../RGB-led-cube/Kicad/Symbols/2N2222A/default_lib.kicad_sym"))
+    (library (logical "330R")
+      (uri "C:\\Users\\John\\Desktop\\code\\RGB-led-cube\\4x4x4\\Diagrams\\pcb../../../../../RGB-led-cube/Kicad/Symbols/330R/default_lib.kicad_sym"))
+    (library (logical "74HC595D,118")
+      (uri "C:/Users/John/Desktop/KiCAD/KiCAD_Footprints/74HC595D,118/Schematic/default_lib.kicad_sym"))
+    (library (logical "DB128V-5.0-4P-GN-S")
+      (uri "C:\\Users\\John\\Desktop\\code\\RGB-led-cube\\4x4x4\\Diagrams\\pcb../../../../../RGB-led-cube/Kicad/Symbols/DB128V-5.0-4P-GN-S/default_lib.kicad_sym"))
+    (library (logical "DB128V-5.0-6P-GN-S")
+      (uri "C:\\Users\\John\\Desktop\\code\\RGB-led-cube\\4x4x4\\Diagrams\\pcb../../../../../RGB-led-cube/Kicad/Symbols/DB128V-5.0-6P-GN-S/default_lib.kicad_sym")))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
   (nets
     (net (code "1") (name "GND")
       (node (ref "J2") (pin "1") (pinfunction "1") (pintype "unspecified"))
@@ -1051,12 +1457,23 @@
       (node (ref "Q3") (pin "3") (pinfunction "C") (pintype "unspecified"))
       (node (ref "Q4") (pin "3") (pinfunction "C") (pintype "unspecified"))
       (node (ref "U1") (pin "8") (pinfunction "GND") (pintype "unspecified"))
+<<<<<<< HEAD
+=======
+      (node (ref "U10") (pin "8") (pinfunction "GND") (pintype "unspecified"))
+      (node (ref "U11") (pin "8") (pinfunction "GND") (pintype "unspecified"))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (node (ref "U2") (pin "8") (pinfunction "GND") (pintype "unspecified"))
       (node (ref "U3") (pin "8") (pinfunction "GND") (pintype "unspecified"))
       (node (ref "U4") (pin "8") (pinfunction "GND") (pintype "unspecified"))
       (node (ref "U5") (pin "8") (pinfunction "GND") (pintype "unspecified"))
       (node (ref "U6") (pin "8") (pinfunction "GND") (pintype "unspecified"))
+<<<<<<< HEAD
       (node (ref "U7") (pin "8") (pinfunction "GND") (pintype "unspecified")))
+=======
+      (node (ref "U7") (pin "8") (pinfunction "GND") (pintype "unspecified"))
+      (node (ref "U8") (pin "8") (pinfunction "GND") (pintype "unspecified"))
+      (node (ref "U9") (pin "8") (pinfunction "GND") (pintype "unspecified")))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
     (net (code "2") (name "Net-(J1-Pad1)")
       (node (ref "J1") (pin "1") (pinfunction "1") (pintype "unspecified"))
       (node (ref "Q4") (pin "1") (pinfunction "E") (pintype "unspecified")))
@@ -1072,30 +1489,63 @@
     (net (code "6") (name "Net-(J2-Pad2)")
       (node (ref "J2") (pin "2") (pinfunction "2") (pintype "unspecified"))
       (node (ref "U1") (pin "11") (pinfunction "SHCP") (pintype "unspecified"))
+<<<<<<< HEAD
+=======
+      (node (ref "U10") (pin "11") (pinfunction "SHCP") (pintype "unspecified"))
+      (node (ref "U11") (pin "11") (pinfunction "SHCP") (pintype "unspecified"))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (node (ref "U2") (pin "11") (pinfunction "SHCP") (pintype "unspecified"))
       (node (ref "U3") (pin "11") (pinfunction "SHCP") (pintype "unspecified"))
       (node (ref "U4") (pin "11") (pinfunction "SHCP") (pintype "unspecified"))
       (node (ref "U5") (pin "11") (pinfunction "SHCP") (pintype "unspecified"))
       (node (ref "U6") (pin "11") (pinfunction "SHCP") (pintype "unspecified"))
+<<<<<<< HEAD
       (node (ref "U7") (pin "11") (pinfunction "SHCP") (pintype "unspecified")))
     (net (code "7") (name "Net-(J2-Pad3)")
       (node (ref "J2") (pin "3") (pinfunction "3") (pintype "unspecified"))
       (node (ref "U1") (pin "12") (pinfunction "STCP") (pintype "unspecified"))
+=======
+      (node (ref "U7") (pin "11") (pinfunction "SHCP") (pintype "unspecified"))
+      (node (ref "U8") (pin "11") (pinfunction "SHCP") (pintype "unspecified"))
+      (node (ref "U9") (pin "11") (pinfunction "SHCP") (pintype "unspecified")))
+    (net (code "7") (name "Net-(J2-Pad3)")
+      (node (ref "J2") (pin "3") (pinfunction "3") (pintype "unspecified"))
+      (node (ref "U1") (pin "12") (pinfunction "STCP") (pintype "unspecified"))
+      (node (ref "U10") (pin "12") (pinfunction "STCP") (pintype "unspecified"))
+      (node (ref "U11") (pin "12") (pinfunction "STCP") (pintype "unspecified"))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (node (ref "U2") (pin "12") (pinfunction "STCP") (pintype "unspecified"))
       (node (ref "U3") (pin "12") (pinfunction "STCP") (pintype "unspecified"))
       (node (ref "U4") (pin "12") (pinfunction "STCP") (pintype "unspecified"))
       (node (ref "U5") (pin "12") (pinfunction "STCP") (pintype "unspecified"))
       (node (ref "U6") (pin "12") (pinfunction "STCP") (pintype "unspecified"))
+<<<<<<< HEAD
       (node (ref "U7") (pin "12") (pinfunction "STCP") (pintype "unspecified")))
     (net (code "8") (name "Net-(J2-Pad4)")
       (node (ref "J2") (pin "4") (pinfunction "4") (pintype "unspecified"))
       (node (ref "U1") (pin "13") (pinfunction "OE#") (pintype "unspecified"))
+=======
+      (node (ref "U7") (pin "12") (pinfunction "STCP") (pintype "unspecified"))
+      (node (ref "U8") (pin "12") (pinfunction "STCP") (pintype "unspecified"))
+      (node (ref "U9") (pin "12") (pinfunction "STCP") (pintype "unspecified")))
+    (net (code "8") (name "Net-(J2-Pad4)")
+      (node (ref "J2") (pin "4") (pinfunction "4") (pintype "unspecified"))
+      (node (ref "U1") (pin "13") (pinfunction "OE#") (pintype "unspecified"))
+      (node (ref "U10") (pin "13") (pinfunction "OE#") (pintype "unspecified"))
+      (node (ref "U11") (pin "13") (pinfunction "OE#") (pintype "unspecified"))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (node (ref "U2") (pin "13") (pinfunction "OE#") (pintype "unspecified"))
       (node (ref "U3") (pin "13") (pinfunction "OE#") (pintype "unspecified"))
       (node (ref "U4") (pin "13") (pinfunction "OE#") (pintype "unspecified"))
       (node (ref "U5") (pin "13") (pinfunction "OE#") (pintype "unspecified"))
       (node (ref "U6") (pin "13") (pinfunction "OE#") (pintype "unspecified"))
+<<<<<<< HEAD
       (node (ref "U7") (pin "13") (pinfunction "OE#") (pintype "unspecified")))
+=======
+      (node (ref "U7") (pin "13") (pinfunction "OE#") (pintype "unspecified"))
+      (node (ref "U8") (pin "13") (pinfunction "OE#") (pintype "unspecified"))
+      (node (ref "U9") (pin "13") (pinfunction "OE#") (pintype "unspecified")))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
     (net (code "9") (name "Net-(J2-Pad5)")
       (node (ref "J2") (pin "5") (pinfunction "5") (pintype "unspecified"))
       (node (ref "U1") (pin "14") (pinfunction "DS") (pintype "unspecified")))
@@ -1103,6 +1553,13 @@
       (node (ref "J2") (pin "6") (pinfunction "6") (pintype "unspecified"))
       (node (ref "U1") (pin "10") (pinfunction "MR#") (pintype "unspecified"))
       (node (ref "U1") (pin "16") (pinfunction "VCC") (pintype "unspecified"))
+<<<<<<< HEAD
+=======
+      (node (ref "U10") (pin "10") (pinfunction "MR#") (pintype "unspecified"))
+      (node (ref "U10") (pin "16") (pinfunction "VCC") (pintype "unspecified"))
+      (node (ref "U11") (pin "10") (pinfunction "MR#") (pintype "unspecified"))
+      (node (ref "U11") (pin "16") (pinfunction "VCC") (pintype "unspecified"))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
       (node (ref "U2") (pin "10") (pinfunction "MR#") (pintype "unspecified"))
       (node (ref "U2") (pin "16") (pinfunction "VCC") (pintype "unspecified"))
       (node (ref "U3") (pin "10") (pinfunction "MR#") (pintype "unspecified"))
@@ -1114,7 +1571,15 @@
       (node (ref "U6") (pin "10") (pinfunction "MR#") (pintype "unspecified"))
       (node (ref "U6") (pin "16") (pinfunction "VCC") (pintype "unspecified"))
       (node (ref "U7") (pin "10") (pinfunction "MR#") (pintype "unspecified"))
+<<<<<<< HEAD
       (node (ref "U7") (pin "16") (pinfunction "VCC") (pintype "unspecified")))
+=======
+      (node (ref "U7") (pin "16") (pinfunction "VCC") (pintype "unspecified"))
+      (node (ref "U8") (pin "10") (pinfunction "MR#") (pintype "unspecified"))
+      (node (ref "U8") (pin "16") (pinfunction "VCC") (pintype "unspecified"))
+      (node (ref "U9") (pin "10") (pinfunction "MR#") (pintype "unspecified"))
+      (node (ref "U9") (pin "16") (pinfunction "VCC") (pintype "unspecified")))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
     (net (code "11") (name "Net-(J3-Pad1)")
       (node (ref "J3") (pin "1") (pinfunction "1") (pintype "unspecified"))
       (node (ref "R8") (pin "1") (pinfunction "1") (pintype "unspecified")))
@@ -1309,6 +1774,7 @@
       (node (ref "U2") (pin "15") (pinfunction "Q0") (pintype "unspecified")))
     (net (code "75") (name "Net-(R13-Pad2)")
       (node (ref "R13") (pin "2") (pinfunction "2") (pintype "unspecified"))
+<<<<<<< HEAD
       (node (ref "U3") (pin "7") (pinfunction "Q7") (pintype "unspecified")))
     (net (code "76") (name "Net-(R14-Pad2)")
       (node (ref "R14") (pin "2") (pinfunction "2") (pintype "unspecified"))
@@ -1427,11 +1893,164 @@
     (net (code "114") (name "Net-(R52-Pad2)")
       (node (ref "R52") (pin "2") (pinfunction "2") (pintype "unspecified"))
       (node (ref "U7") (pin "15") (pinfunction "Q0") (pintype "unspecified")))
+=======
+      (node (ref "U3") (pin "7") (pinfunction "Q7") (pintype "unspecified"))
+      (node (ref "U4") (pin "7") (pinfunction "Q7") (pintype "unspecified")))
+    (net (code "76") (name "Net-(R14-Pad2)")
+      (node (ref "R14") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U3") (pin "6") (pinfunction "Q6") (pintype "unspecified"))
+      (node (ref "U4") (pin "6") (pinfunction "Q6") (pintype "unspecified")))
+    (net (code "77") (name "Net-(R15-Pad2)")
+      (node (ref "R15") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U3") (pin "5") (pinfunction "Q5") (pintype "unspecified"))
+      (node (ref "U4") (pin "5") (pinfunction "Q5") (pintype "unspecified")))
+    (net (code "78") (name "Net-(R16-Pad2)")
+      (node (ref "R16") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U3") (pin "4") (pinfunction "Q4") (pintype "unspecified"))
+      (node (ref "U4") (pin "4") (pinfunction "Q4") (pintype "unspecified")))
+    (net (code "79") (name "Net-(R17-Pad2)")
+      (node (ref "R17") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U3") (pin "3") (pinfunction "Q3") (pintype "unspecified"))
+      (node (ref "U4") (pin "3") (pinfunction "Q3") (pintype "unspecified")))
+    (net (code "80") (name "Net-(R18-Pad2)")
+      (node (ref "R18") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U3") (pin "2") (pinfunction "Q2") (pintype "unspecified"))
+      (node (ref "U4") (pin "2") (pinfunction "Q2") (pintype "unspecified")))
+    (net (code "81") (name "Net-(R19-Pad2)")
+      (node (ref "R19") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U3") (pin "1") (pinfunction "Q1") (pintype "unspecified"))
+      (node (ref "U4") (pin "1") (pinfunction "Q1") (pintype "unspecified")))
+    (net (code "82") (name "Net-(R20-Pad2)")
+      (node (ref "R20") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U3") (pin "15") (pinfunction "Q0") (pintype "unspecified"))
+      (node (ref "U4") (pin "15") (pinfunction "Q0") (pintype "unspecified")))
+    (net (code "83") (name "Net-(R21-Pad2)")
+      (node (ref "R21") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U5") (pin "7") (pinfunction "Q7") (pintype "unspecified"))
+      (node (ref "U6") (pin "7") (pinfunction "Q7") (pintype "unspecified")))
+    (net (code "84") (name "Net-(R22-Pad2)")
+      (node (ref "R22") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U5") (pin "6") (pinfunction "Q6") (pintype "unspecified"))
+      (node (ref "U6") (pin "6") (pinfunction "Q6") (pintype "unspecified")))
+    (net (code "85") (name "Net-(R23-Pad2)")
+      (node (ref "R23") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U5") (pin "5") (pinfunction "Q5") (pintype "unspecified"))
+      (node (ref "U6") (pin "5") (pinfunction "Q5") (pintype "unspecified")))
+    (net (code "86") (name "Net-(R24-Pad2)")
+      (node (ref "R24") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U5") (pin "4") (pinfunction "Q4") (pintype "unspecified"))
+      (node (ref "U6") (pin "4") (pinfunction "Q4") (pintype "unspecified")))
+    (net (code "87") (name "Net-(R25-Pad2)")
+      (node (ref "R25") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U5") (pin "3") (pinfunction "Q3") (pintype "unspecified"))
+      (node (ref "U6") (pin "3") (pinfunction "Q3") (pintype "unspecified")))
+    (net (code "88") (name "Net-(R26-Pad2)")
+      (node (ref "R26") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U5") (pin "2") (pinfunction "Q2") (pintype "unspecified"))
+      (node (ref "U6") (pin "2") (pinfunction "Q2") (pintype "unspecified")))
+    (net (code "89") (name "Net-(R27-Pad2)")
+      (node (ref "R27") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U5") (pin "1") (pinfunction "Q1") (pintype "unspecified"))
+      (node (ref "U6") (pin "1") (pinfunction "Q1") (pintype "unspecified")))
+    (net (code "90") (name "Net-(R28-Pad2)")
+      (node (ref "R28") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U5") (pin "15") (pinfunction "Q0") (pintype "unspecified"))
+      (node (ref "U6") (pin "15") (pinfunction "Q0") (pintype "unspecified")))
+    (net (code "91") (name "Net-(R29-Pad2)")
+      (node (ref "R29") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U7") (pin "7") (pinfunction "Q7") (pintype "unspecified"))
+      (node (ref "U8") (pin "7") (pinfunction "Q7") (pintype "unspecified")))
+    (net (code "92") (name "Net-(R30-Pad2)")
+      (node (ref "R30") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U7") (pin "6") (pinfunction "Q6") (pintype "unspecified"))
+      (node (ref "U8") (pin "6") (pinfunction "Q6") (pintype "unspecified")))
+    (net (code "93") (name "Net-(R31-Pad2)")
+      (node (ref "R31") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U7") (pin "5") (pinfunction "Q5") (pintype "unspecified"))
+      (node (ref "U8") (pin "5") (pinfunction "Q5") (pintype "unspecified")))
+    (net (code "94") (name "Net-(R32-Pad2)")
+      (node (ref "R32") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U7") (pin "4") (pinfunction "Q4") (pintype "unspecified"))
+      (node (ref "U8") (pin "4") (pinfunction "Q4") (pintype "unspecified")))
+    (net (code "95") (name "Net-(R33-Pad2)")
+      (node (ref "R33") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U7") (pin "3") (pinfunction "Q3") (pintype "unspecified"))
+      (node (ref "U8") (pin "3") (pinfunction "Q3") (pintype "unspecified")))
+    (net (code "96") (name "Net-(R34-Pad2)")
+      (node (ref "R34") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U7") (pin "2") (pinfunction "Q2") (pintype "unspecified"))
+      (node (ref "U8") (pin "2") (pinfunction "Q2") (pintype "unspecified")))
+    (net (code "97") (name "Net-(R35-Pad2)")
+      (node (ref "R35") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U7") (pin "1") (pinfunction "Q1") (pintype "unspecified"))
+      (node (ref "U8") (pin "1") (pinfunction "Q1") (pintype "unspecified")))
+    (net (code "98") (name "Net-(R36-Pad2)")
+      (node (ref "R36") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U7") (pin "15") (pinfunction "Q0") (pintype "unspecified"))
+      (node (ref "U8") (pin "15") (pinfunction "Q0") (pintype "unspecified")))
+    (net (code "99") (name "Net-(R37-Pad2)")
+      (node (ref "R37") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U10") (pin "7") (pinfunction "Q7") (pintype "unspecified"))
+      (node (ref "U9") (pin "7") (pinfunction "Q7") (pintype "unspecified")))
+    (net (code "100") (name "Net-(R38-Pad2)")
+      (node (ref "R38") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U10") (pin "6") (pinfunction "Q6") (pintype "unspecified"))
+      (node (ref "U9") (pin "6") (pinfunction "Q6") (pintype "unspecified")))
+    (net (code "101") (name "Net-(R39-Pad2)")
+      (node (ref "R39") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U10") (pin "5") (pinfunction "Q5") (pintype "unspecified"))
+      (node (ref "U9") (pin "5") (pinfunction "Q5") (pintype "unspecified")))
+    (net (code "102") (name "Net-(R40-Pad2)")
+      (node (ref "R40") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U10") (pin "4") (pinfunction "Q4") (pintype "unspecified"))
+      (node (ref "U9") (pin "4") (pinfunction "Q4") (pintype "unspecified")))
+    (net (code "103") (name "Net-(R41-Pad2)")
+      (node (ref "R41") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U10") (pin "3") (pinfunction "Q3") (pintype "unspecified"))
+      (node (ref "U9") (pin "3") (pinfunction "Q3") (pintype "unspecified")))
+    (net (code "104") (name "Net-(R42-Pad2)")
+      (node (ref "R42") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U10") (pin "2") (pinfunction "Q2") (pintype "unspecified"))
+      (node (ref "U9") (pin "2") (pinfunction "Q2") (pintype "unspecified")))
+    (net (code "105") (name "Net-(R43-Pad2)")
+      (node (ref "R43") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U10") (pin "1") (pinfunction "Q1") (pintype "unspecified"))
+      (node (ref "U9") (pin "1") (pinfunction "Q1") (pintype "unspecified")))
+    (net (code "106") (name "Net-(R44-Pad2)")
+      (node (ref "R44") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U10") (pin "15") (pinfunction "Q0") (pintype "unspecified"))
+      (node (ref "U9") (pin "15") (pinfunction "Q0") (pintype "unspecified")))
+    (net (code "107") (name "Net-(R45-Pad2)")
+      (node (ref "R45") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U11") (pin "7") (pinfunction "Q7") (pintype "unspecified")))
+    (net (code "108") (name "Net-(R46-Pad2)")
+      (node (ref "R46") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U11") (pin "6") (pinfunction "Q6") (pintype "unspecified")))
+    (net (code "109") (name "Net-(R47-Pad2)")
+      (node (ref "R47") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U11") (pin "5") (pinfunction "Q5") (pintype "unspecified")))
+    (net (code "110") (name "Net-(R48-Pad2)")
+      (node (ref "R48") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U11") (pin "4") (pinfunction "Q4") (pintype "unspecified")))
+    (net (code "111") (name "Net-(R49-Pad2)")
+      (node (ref "R49") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U11") (pin "3") (pinfunction "Q3") (pintype "unspecified")))
+    (net (code "112") (name "Net-(R50-Pad2)")
+      (node (ref "R50") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U11") (pin "2") (pinfunction "Q2") (pintype "unspecified")))
+    (net (code "113") (name "Net-(R51-Pad2)")
+      (node (ref "R51") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U11") (pin "1") (pinfunction "Q1") (pintype "unspecified")))
+    (net (code "114") (name "Net-(R52-Pad2)")
+      (node (ref "R52") (pin "2") (pinfunction "2") (pintype "unspecified"))
+      (node (ref "U11") (pin "15") (pinfunction "Q0") (pintype "unspecified")))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
     (net (code "115") (name "Net-(U1-Pad9)")
       (node (ref "U1") (pin "9") (pinfunction "Q7S") (pintype "unspecified"))
       (node (ref "U2") (pin "14") (pinfunction "DS") (pintype "unspecified")))
     (net (code "116") (name "Net-(U2-Pad9)")
       (node (ref "U2") (pin "9") (pinfunction "Q7S") (pintype "unspecified"))
+<<<<<<< HEAD
       (node (ref "U3") (pin "14") (pinfunction "DS") (pintype "unspecified")))
     (net (code "117") (name "Net-(U3-Pad9)")
       (node (ref "U3") (pin "9") (pinfunction "Q7S") (pintype "unspecified"))
@@ -1445,6 +2064,29 @@
     (net (code "120") (name "Net-(U6-Pad9)")
       (node (ref "U6") (pin "9") (pinfunction "Q7S") (pintype "unspecified"))
       (node (ref "U7") (pin "14") (pinfunction "DS") (pintype "unspecified")))
+=======
+      (node (ref "U3") (pin "14") (pinfunction "DS") (pintype "unspecified"))
+      (node (ref "U4") (pin "14") (pinfunction "DS") (pintype "unspecified")))
+    (net (code "117") (name "Net-(U3-Pad9)")
+      (node (ref "U3") (pin "9") (pinfunction "Q7S") (pintype "unspecified"))
+      (node (ref "U4") (pin "9") (pinfunction "Q7S") (pintype "unspecified"))
+      (node (ref "U5") (pin "14") (pinfunction "DS") (pintype "unspecified"))
+      (node (ref "U6") (pin "14") (pinfunction "DS") (pintype "unspecified")))
+    (net (code "118") (name "Net-(U5-Pad9)")
+      (node (ref "U5") (pin "9") (pinfunction "Q7S") (pintype "unspecified"))
+      (node (ref "U6") (pin "9") (pinfunction "Q7S") (pintype "unspecified"))
+      (node (ref "U7") (pin "14") (pinfunction "DS") (pintype "unspecified"))
+      (node (ref "U8") (pin "14") (pinfunction "DS") (pintype "unspecified")))
+    (net (code "119") (name "Net-(U10-Pad9)")
+      (node (ref "U10") (pin "9") (pinfunction "Q7S") (pintype "unspecified"))
+      (node (ref "U11") (pin "14") (pinfunction "DS") (pintype "unspecified"))
+      (node (ref "U9") (pin "9") (pinfunction "Q7S") (pintype "unspecified")))
+    (net (code "120") (name "Net-(U10-Pad14)")
+      (node (ref "U10") (pin "14") (pinfunction "DS") (pintype "unspecified"))
+      (node (ref "U7") (pin "9") (pinfunction "Q7S") (pintype "unspecified"))
+      (node (ref "U8") (pin "9") (pinfunction "Q7S") (pintype "unspecified"))
+      (node (ref "U9") (pin "14") (pinfunction "DS") (pintype "unspecified")))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33
     (net (code "121") (name "unconnected-(U1-Pad5)")
       (node (ref "U1") (pin "5") (pinfunction "Q5") (pintype "unspecified")))
     (net (code "122") (name "unconnected-(U1-Pad6)")
@@ -1453,5 +2095,10 @@
       (node (ref "U1") (pin "7") (pinfunction "Q7") (pintype "unspecified")))
     (net (code "124") (name "unconnected-(U1-Pad15)")
       (node (ref "U1") (pin "15") (pinfunction "Q0") (pintype "unspecified")))
+<<<<<<< HEAD
     (net (code "125") (name "unconnected-(U7-Pad9)")
       (node (ref "U7") (pin "9") (pinfunction "Q7S") (pintype "unspecified")))))
+=======
+    (net (code "125") (name "unconnected-(U11-Pad9)")
+      (node (ref "U11") (pin "9") (pinfunction "Q7S") (pintype "unspecified")))))
+>>>>>>> 54fa4a9c7cb8af539e4fc5a4cc1be459b2cfed33

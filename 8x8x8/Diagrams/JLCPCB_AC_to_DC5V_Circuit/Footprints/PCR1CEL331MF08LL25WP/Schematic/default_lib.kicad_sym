@@ -1,0 +1,80 @@
+(kicad_symbol_lib (version 20210201) (generator TousstNicolas/JLC2KiCad_lib)
+  (symbol "PCR1CEL331MF08LL25WP" (pin_names hide)  (in_bom yes) (on_board yes)
+    (property "Reference" "C" (id 0) (at 0 1.27 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Value" "PCR1CEL331MF08LL25WP" (id 1) (at 0 -2.54 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (property "Footprint" "footprint:CAP-TH_BD6.3-P2.50-D1.0-FD" (id 2) (at 0 -10.16 0)
+      (effects (font (size 1.27 1.27) italic) hide)
+    )
+    (property "Datasheet" "https://item.szlcsc.com/44807.html" (id 3) (at -2.286 0.127 0)
+      (effects (font (size 1.27 1.27)) (justify left) hide)
+    )
+    (property "LCSC" "C453496" (id 4) (at 0 0 0)
+      (effects (font (size 1.27 1.27)))
+    )
+    (symbol "PCR1CEL331MF08LL25WP_0_0"
+      (polyline
+        (pts
+          (xy -98.29799999999999 65.278)
+          (xy -98.29799999999999 61.722)
+        )
+        (stroke (width 0) (type default) (color 0 0 0 0))
+        (fill (type none))
+      )
+      (pin input line
+        (at -102.86999999999999 63.5 0)
+        (length 2.54)
+        (name "1" (effects (font (size 1 1))))
+        (number "1" (effects (font (size 1 1))))
+      )
+      (pin input line
+        (at -92.71 63.5 180)
+        (length 2.54)
+        (name "2" (effects (font (size 1 1))))
+        (number "2" (effects (font (size 1 1))))
+      )
+      (polyline
+        (pts
+          (xy -100.33 63.5)
+          (xy -98.29799999999999 63.5)
+        )
+        (stroke (width 0) (type default) (color 0 0 0 0))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy -97.282 63.5)
+          (xy -95.25 63.5)
+        )
+        (stroke (width 0) (type default) (color 0 0 0 0))
+        (fill (type none))
+      )
+		(arc
+			(start -96.45392600222031 66.04886812194582)
+			(mid -99.18316781455081 63.71339411407975)
+			(end -96.84769386768805 60.98415224954735)
+			(stroke (width 0) (type default) (color 0 0 0 0))
+			(fill (type none))
+		)
+      (polyline
+        (pts
+          (xy -100.076 64.77)
+          (xy -99.05999999999999 64.77)
+        )
+        (stroke (width 0) (type default) (color 0 0 0 0))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy -99.568 65.278)
+          (xy -99.568 64.262)
+        )
+        (stroke (width 0) (type default) (color 0 0 0 0))
+        (fill (type none))
+      )
+    )
+  )
+)

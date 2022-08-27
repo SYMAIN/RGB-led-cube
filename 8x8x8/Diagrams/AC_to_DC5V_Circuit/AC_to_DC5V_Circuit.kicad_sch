@@ -1184,7 +1184,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 3f642266-c43d-457e-a3d0-ae48d6438db5)
   )
-  (text "Pinouts:\n1: Common (connect to AC+)\n4: Normally open circuit (will give AC- when Coil 1+2 are active)\n2: Coil 1 (DC-)\n5: Coil 2 (DC+)\n"
+  (text "Pinouts:\n1: Common (connect to AC+)\n4: Normally open circuit (will give AC+ when Coil 1+2 are active)\n2: Coil 1 (DC-)\n5: Coil 2 (DC+)\n"
     (at 102.87 68.58 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 3f95d178-4956-495f-95a9-23b546571839)

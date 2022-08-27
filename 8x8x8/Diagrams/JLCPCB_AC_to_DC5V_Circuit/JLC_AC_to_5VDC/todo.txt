@@ -1,0 +1,3 @@
+get new 3p footprint
+reduce current from 1A->600mA somehow
+route pcb, check trace sizes

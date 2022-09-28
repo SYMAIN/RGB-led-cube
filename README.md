@@ -3,8 +3,15 @@
 This project was created to learn more about circuit boards, electronic components, electricity and embedded programming.
 
 Demos:
-https://user-images.githubusercontent.com/73000223/192903207-f1c78d33-64a6-4003-8bd7-6111e03c5259.mov
-https://user-images.githubusercontent.com/73000223/192903200-a2f2c936-ecca-460e-a7d1-679160ca803d.mp4
+
+
+https://user-images.githubusercontent.com/73000223/192903921-adc4f65e-4e14-4fca-b12e-bf22174f0ff1.mov
+
+
+https://user-images.githubusercontent.com/73000223/192903924-cee8853c-4e37-427d-bc52-bdb16813d575.mp4
+
+
+
 
 [Pitch Slides](https://docs.google.com/presentation/d/1Q3SgMbCxCJnp64us6YknnfaCr0XkEVGkdK7O4LI-4xs/edit?usp=sharing)
 

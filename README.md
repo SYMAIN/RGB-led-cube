@@ -1,6 +1,6 @@
 # RGB-led-cube
 
-This project was created to learn more about circuit boards, electronic components, electricity and embedded programming. It consists of 4x4x4 RGB LEDs, each able to be turned on individually using minimal signals using [Shift Registers](https://en.wikipedia.org/wiki/Shift_register) and [Bit Angle Modulation](https://tiemenwaterreus.com/posts/4-bit-angle-modulating/).
+This project was created to learn more about circuit boards, electronic components, electricity and embedded programming. It consists of 4x4x4 RGB LEDs, each able to be turned on individually using minimal signals by using [Shift Registers](https://en.wikipedia.org/wiki/Shift_register) and [Bit Angle Modulation](https://tiemenwaterreus.com/posts/4-bit-angle-modulating/).
 
 Demos:
 

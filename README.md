@@ -1,6 +1,6 @@
 # RGB-led-cube
 
-This project was created to learn more about circuit boards, electronic components, electricity and embedded programming.
+This project was created to learn more about circuit boards, electronic components, electricity and embedded programming. It consists of 4x4x4 RGB LEDs, each able to be turned on individually using minimal signals using Shift Registers and Bit Angle Modulation.
 
 Demos:
 

@@ -22,6 +22,7 @@ Dev Notes:
 ![pcb1](https://user-images.githubusercontent.com/73000223/192928988-58ca3605-9cee-4f09-be9b-7227527e9b6b.PNG)
 ![pcb2](https://user-images.githubusercontent.com/73000223/192929055-5af58bce-1366-4c62-ad93-3f56f21adbff.jpg)
 ![3dprint1](https://user-images.githubusercontent.com/73000223/192930020-5dc8b07f-87fb-4af4-a49b-b4693064b61a.PNG)
+![wires1](https://user-images.githubusercontent.com/73000223/192931431-016c2419-18c7-4c91-8e99-4a9ec5677bc6.PNG)
 
 
 

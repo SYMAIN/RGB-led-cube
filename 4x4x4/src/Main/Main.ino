@@ -30,8 +30,9 @@ unsigned char defeatTheCrumbyPreprocessor;
 
 #define buttonPin 7 // the pin where the pushbutton is for switching animations
 
-#define clock_pin 52 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
-#define data_pin 51 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
+#define data_pin 51 // The SPI-MOSI pinout on the Arduino Mega. Varies between Arduinos.
+#define clock_pin 52 // The SPI-SCK pinout on the Arduino Mega. Varies between Arduinos.
+
 
 // BLANK: Blue, pin 8
 // LATCH: Yellow, pin 11
